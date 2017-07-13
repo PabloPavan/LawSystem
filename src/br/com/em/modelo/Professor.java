@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.em.pojo;
+package br.com.em.modelo;
 
 /**
  *
  * @author pablo
  */
 public class Professor {
-    
+
     private Pessoa p = new Pessoa();
     private String id_professor;
     private String campus_professor;
@@ -47,5 +47,5 @@ public class Professor {
     public void setInativo_professor(boolean inativo_professor) {
         this.inativo_professor = inativo_professor;
     }
-    
+
 }

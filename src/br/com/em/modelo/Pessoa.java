@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.em.pojo;
+package br.com.em.modelo;
 
 /**
  *
  * @author pablo
  */
 public class Pessoa {
+
     private String id_pessoa;
     private String nome_pessoa;
     private String sobrenome_pessoa;
@@ -164,5 +165,4 @@ public class Pessoa {
         this.email_pessoa = email_pessoa;
     }
 
-    
 }

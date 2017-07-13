@@ -1,8 +1,5 @@
 package br.com.em.main;
 
-
-
-
 import br.com.em.secretaria.JfTelaPrincipalSecretaria;
 
 
@@ -11,7 +8,6 @@ import br.com.em.secretaria.JfTelaPrincipalSecretaria;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author pablo
@@ -24,28 +20,26 @@ public class Main {
     public static void main(String[] args) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-               
+
                 if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                   break;
+                    break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-           
+
         } catch (InstantiationException ex) {
-          
+
         } catch (IllegalAccessException ex) {
-        
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-           
+
         }
-        
+
         JfTelaPrincipalSecretaria tela = new JfTelaPrincipalSecretaria();
-        tela.setSize(1060,650);
-                tela.setVisible(true);
-                
-               
-                
+        tela.setSize(1060, 650);
+        tela.setVisible(true);
+
     }
-    
+
 }

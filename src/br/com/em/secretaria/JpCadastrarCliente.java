@@ -10,7 +10,7 @@ import br.com.em.extra.JPanelBuscaJtextFild;
 import br.com.em.extra.JtextFieldSomenteNumeros;
 import br.com.em.dao.ClienteDao;
 import br.com.em.dao.InterfaceDao;
-import br.com.em.pojo.Cliente;
+import br.com.em.modelo.Cliente;
 
 import br.com.em.relatorio.RelatorioCliente;
 import java.util.HashMap;
@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Map;
 import javax.swing.ButtonGroup;
 import javax.swing.table.DefaultTableModel;
-
 
 /**
  *
@@ -29,10 +28,8 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
     /**
      * Creates new form jpCadastrarCliente
      */
-   
-    public JpCadastrarCliente()  {
+    public JpCadastrarCliente() {
         initComponents();
-       
 
         busca("");
         table.updateUI();
@@ -45,7 +42,7 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
     }
 
     private void novo() {
-        
+
         jScrollPane1.setEnabled(false);
         table.setEnabled(false);
 
@@ -55,11 +52,10 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
         JPanelBuscaJtextFild.liberaCampo(aba2, true);
         JPanelBuscaJtextFild.limpaCampo(aba3);
         JPanelBuscaJtextFild.liberaCampo(aba3, true);
-    
 
         jtabens.setText("");
         jtabens.setEnabled(true);
-        
+
         jcbsexo.setEnabled(true);
         jcbdefere.setEnabled(true);
         jcbinativo.setSelected(false);
@@ -76,20 +72,19 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
 
         jScrollPane1.setEnabled(true);
         table.setEnabled(true);
-        
+
         JPanelBuscaJtextFild.limpaCampo(aba1);
         JPanelBuscaJtextFild.liberaCampo(aba1, false);
         JPanelBuscaJtextFild.limpaCampo(aba2);
         JPanelBuscaJtextFild.liberaCampo(aba2, false);
         JPanelBuscaJtextFild.limpaCampo(aba3);
         JPanelBuscaJtextFild.liberaCampo(aba3, false);
-   
+
         jtabens.setText("");
         jtabens.setEnabled(false);
-       
+
         jcbsexo.setEnabled(false);
         jcbdefere.setEnabled(false);
-      
 
         jbinserir.setEnabled(false);
         jbatualizar.setEnabled(true);
@@ -101,7 +96,7 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
     private void busca(String nome) {
         ClienteDao di = new ClienteDao();
 
-        List<Cliente> list = di.listarCliente(nome, "t");
+        List<Cliente> list = di.listar(nome, "t");
 
         DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
         tableModel.setNumRows(0);
@@ -137,7 +132,6 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
                 lista.getRelacaoBens_cliente(),
                 lista.getDataRegistro_cliente(),
                 lista.isDefere_cliente(),
-         
                 lista.isInativo_cliente(),});
         });
 
@@ -145,72 +139,68 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
 
     private void dadostabela() {
 
-        if(table.isEnabled()){
-        int seleciona = table.getSelectedRow();
+        if (table.isEnabled()) {
+            int seleciona = table.getSelectedRow();
 
-        jtfnome.setText(table.getModel().getValueAt(seleciona, 0).toString());
-        jtfsobrenome.setText(table.getModel().getValueAt(seleciona, 1).toString());
-        jtfcpf.setText(table.getModel().getValueAt(seleciona, 2).toString());
-        jtfrg.setText(table.getModel().getValueAt(seleciona, 3).toString());
-        if (table.getModel().getValueAt(seleciona, 4).toString().equals("M")) {
-            jcbsexo.setSelectedIndex(0);
-        } else {
-            jcbsexo.setSelectedIndex(1);
-        }
-        jtfnascimento.setText(table.getModel().getValueAt(seleciona, 5).toString());
-        jtfestadoCivil.setText(table.getModel().getValueAt(seleciona, 6).toString());
-        jtfrua.setText(table.getModel().getValueAt(seleciona, 7).toString());
-        jtfnumeroEndereco.setText(table.getModel().getValueAt(seleciona, 8).toString());
-        jtfcomplemento.setText(table.getModel().getValueAt(seleciona, 9).toString());
-        jtfbairro.setText(table.getModel().getValueAt(seleciona, 10).toString());
-        jtfcep.setText(table.getModel().getValueAt(seleciona, 11).toString());
-        jtfcidade.setText(table.getModel().getValueAt(seleciona, 12).toString());
-        jtfestado.setText(table.getModel().getValueAt(seleciona, 13).toString());
-        jtftelefone.setText(table.getModel().getValueAt(seleciona, 14).toString());
-        jtfemail.setText(table.getModel().getValueAt(seleciona, 15).toString());
+            jtfnome.setText(table.getModel().getValueAt(seleciona, 0).toString());
+            jtfsobrenome.setText(table.getModel().getValueAt(seleciona, 1).toString());
+            jtfcpf.setText(table.getModel().getValueAt(seleciona, 2).toString());
+            jtfrg.setText(table.getModel().getValueAt(seleciona, 3).toString());
+            if (table.getModel().getValueAt(seleciona, 4).toString().equals("M")) {
+                jcbsexo.setSelectedIndex(0);
+            } else {
+                jcbsexo.setSelectedIndex(1);
+            }
+            jtfnascimento.setText(table.getModel().getValueAt(seleciona, 5).toString());
+            jtfestadoCivil.setText(table.getModel().getValueAt(seleciona, 6).toString());
+            jtfrua.setText(table.getModel().getValueAt(seleciona, 7).toString());
+            jtfnumeroEndereco.setText(table.getModel().getValueAt(seleciona, 8).toString());
+            jtfcomplemento.setText(table.getModel().getValueAt(seleciona, 9).toString());
+            jtfbairro.setText(table.getModel().getValueAt(seleciona, 10).toString());
+            jtfcep.setText(table.getModel().getValueAt(seleciona, 11).toString());
+            jtfcidade.setText(table.getModel().getValueAt(seleciona, 12).toString());
+            jtfestado.setText(table.getModel().getValueAt(seleciona, 13).toString());
+            jtftelefone.setText(table.getModel().getValueAt(seleciona, 14).toString());
+            jtfemail.setText(table.getModel().getValueAt(seleciona, 15).toString());
 
-        jtfid.setText(table.getModel().getValueAt(seleciona, 16).toString());
+            jtfid.setText(table.getModel().getValueAt(seleciona, 16).toString());
 
-        jtfnumero.setText(table.getModel().getValueAt(seleciona, 17).toString());
-        jtffilhos.setText(table.getModel().getValueAt(seleciona, 18).toString());
-        jtfconjuge.setText(table.getModel().getValueAt(seleciona, 19).toString());
-        jtfsalarioConjuge.setText(table.getModel().getValueAt(seleciona, 20).toString());
-        jtfprofissao.setText(table.getModel().getValueAt(seleciona, 21).toString());
-        jtftrabalho.setText(table.getModel().getValueAt(seleciona, 22).toString());
-        jtfsalarioCliente.setText(table.getModel().getValueAt(seleciona, 23).toString());
-        jtabens.setText(table.getModel().getValueAt(seleciona, 24).toString());
-        // 25 data
-        
-         if (table.getModel().getValueAt(seleciona, 26).toString().equals("true")) {
-            jcbdefere.setSelected(true);
-        } else {
-            jcbdefere.setSelected(false);
-        }
-        
-        
-        if (table.getModel().getValueAt(seleciona, 27).toString().equals("true")) {
-            jcbinativo.setSelected(true);
-        } else {
-            jcbinativo.setSelected(false);
-        }
+            jtfnumero.setText(table.getModel().getValueAt(seleciona, 17).toString());
+            jtffilhos.setText(table.getModel().getValueAt(seleciona, 18).toString());
+            jtfconjuge.setText(table.getModel().getValueAt(seleciona, 19).toString());
+            jtfsalarioConjuge.setText(table.getModel().getValueAt(seleciona, 20).toString());
+            jtfprofissao.setText(table.getModel().getValueAt(seleciona, 21).toString());
+            jtftrabalho.setText(table.getModel().getValueAt(seleciona, 22).toString());
+            jtfsalarioCliente.setText(table.getModel().getValueAt(seleciona, 23).toString());
+            jtabens.setText(table.getModel().getValueAt(seleciona, 24).toString());
+            // 25 data
+
+            if (table.getModel().getValueAt(seleciona, 26).toString().equals("true")) {
+                jcbdefere.setSelected(true);
+            } else {
+                jcbdefere.setSelected(false);
+            }
+
+            if (table.getModel().getValueAt(seleciona, 27).toString().equals("true")) {
+                jcbinativo.setSelected(true);
+            } else {
+                jcbinativo.setSelected(false);
+            }
         }
     }
 
     private void updateLiberar() {
         //novo();
-        
-        JPanelBuscaJtextFild.liberaCampo(aba1, true);     
-        JPanelBuscaJtextFild.liberaCampo(aba2, true);   
-        JPanelBuscaJtextFild.liberaCampo(aba3, true); 
-       
-        
-     
-        jtabens.setEnabled(true); 
-        
+
+        JPanelBuscaJtextFild.liberaCampo(aba1, true);
+        JPanelBuscaJtextFild.liberaCampo(aba2, true);
+        JPanelBuscaJtextFild.liberaCampo(aba3, true);
+
+        jtabens.setEnabled(true);
+
         jcbsexo.setEnabled(true);
         jcbdefere.setEnabled(true);
-      
-        
+
         jbsalvaratualizar.setEnabled(true);
         jcbinativo.setEnabled(true);
         jbinserir.setEnabled(false);
@@ -259,13 +249,13 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
 //        }
         InterfaceDao i = new ClienteDao();
         i.cadastrar(c);
-       
+
         busca("");
         cancelar();
     }
 
     public void update() {
-        
+
         Cliente c = new Cliente();
         c.getP().setNome_pessoa(jtfnome.getText());
         c.getP().setSobrenome_pessoa(jtfsobrenome.getText());
@@ -283,7 +273,7 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
         c.getP().setEstado_pessoa(jtfestado.getText());
         c.getP().setTelefone_pessoa(jtftelefone.getText());
         c.getP().setEmail_pessoa(jtfemail.getText());
-        
+
         c.setId_cliente(jtfid.getText());
         c.setNumero_cliente(jtfnumero.getText());
         c.setFilhos_cliente(jtffilhos.getText());
@@ -294,11 +284,10 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
         c.setRequerenteSalario_cliente(jtfsalarioCliente.getText());
         c.setRelacaoBens_cliente(jtabens.getText());
         c.setDataRegistro_cliente("");
-      
-        c.setDefere_cliente(true);
-      
-     //   jcbinativo.setEnabled(false);
 
+        c.setDefere_cliente(true);
+
+        //   jcbinativo.setEnabled(false);
         if (jcbinativo.isSelected()) {
             c.setInativo_cliente(true);
 
@@ -1077,7 +1066,7 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_jbatualizarActionPerformed
 
     private void jbsalvaratualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalvaratualizarActionPerformed
-         update();
+        update();
     }//GEN-LAST:event_jbsalvaratualizarActionPerformed
 
     private void jbcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcancelarActionPerformed
@@ -1093,12 +1082,11 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_jtfbuscaKeyReleased
 
     private void jbimprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbimprimirActionPerformed
-     Map parametros = new HashMap();
-    parametros.put("id_cliente", Integer.parseInt(jtfid.getText()));
+        Map parametros = new HashMap();
+        parametros.put("id_cliente", Integer.parseInt(jtfid.getText()));
         RelatorioCliente rc = new RelatorioCliente(parametros);
-    
-    }//GEN-LAST:event_jbimprimirActionPerformed
 
+    }//GEN-LAST:event_jbimprimirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel aba1;

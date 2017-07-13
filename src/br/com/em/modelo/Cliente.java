@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.em.pojo;
+package br.com.em.modelo;
 
 /**
  *
  * @author pablo
  */
-public class Cliente  {
+public class Cliente {
 
     private Pessoa p = new Pessoa();
-   
 
     private String id_cliente;
     private String id_pessoa;
@@ -28,15 +27,14 @@ public class Cliente  {
     private boolean defere_cliente;
     private boolean inativo_cliente;
 
-    
-     public Pessoa getP() {
+    public Pessoa getP() {
         return p;
     }
 
     public void setP(Pessoa p) {
         this.p = p;
     }
-    
+
     public String getId_cliente() {
         return id_cliente;
     }
@@ -101,7 +99,6 @@ public class Cliente  {
         this.localTrabalho_cliente = localTrabalho_cliente;
     }
 
- 
     public String getDataRegistro_cliente() {
         return dataRegistro_cliente;
     }
@@ -109,7 +106,6 @@ public class Cliente  {
     public void setDataRegistro_cliente(String dataRegistro_cliente) {
         this.dataRegistro_cliente = dataRegistro_cliente;
     }
-  
 
     public boolean isDefere_cliente() {
         return defere_cliente;
@@ -118,7 +114,6 @@ public class Cliente  {
     public void setDefere_cliente(boolean defere_cliente) {
         this.defere_cliente = defere_cliente;
     }
-
 
     public boolean isInativo_cliente() {
         return inativo_cliente;
@@ -143,7 +138,5 @@ public class Cliente  {
     public void setRelacaoBens_cliente(String relacaoBens_cliente) {
         this.relacaoBens_cliente = relacaoBens_cliente;
     }
-
-   
 
 }

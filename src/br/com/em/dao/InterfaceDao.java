@@ -5,26 +5,18 @@
  */
 package br.com.em.dao;
 
-import br.com.em.pojo.Cliente;
-import br.com.em.pojo.Processo;
 import java.util.ArrayList;
 
 /**
  *
  * @author pablo
  */
-public interface InterfaceDao {
-    
-    public void cadastrar(Cliente cliente);
-    
-    public void atualizar(Cliente cliente);
-    
-    public ArrayList<Cliente> listarCliente(String nome, String t);
-    
-    public void cadastrar(Processo processo);
-    
-    public void atualizar(Processo processo);
-    
-    public ArrayList<Processo> listarProcesso(String nome, String t);
-    
+public interface InterfaceDao<T> {
+
+    public void cadastrar(T obj);
+
+    public void atualizar(T obj);
+
+    public ArrayList<T> listar(String nome, String t);
+
 }

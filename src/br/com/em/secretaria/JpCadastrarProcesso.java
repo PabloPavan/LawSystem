@@ -29,18 +29,15 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
 
         JPanelBuscaJtextFild.limpaCampo(aba1);
         JPanelBuscaJtextFild.liberaCampo(aba1, true);
-   //     JPanelBuscaJtextFild.limpaCampo(jpcliente);
-   //     JPanelBuscaJtextFild.limpaCampo(jpvara);
-       
-       
+        //     JPanelBuscaJtextFild.limpaCampo(jpcliente);
+        //     JPanelBuscaJtextFild.limpaCampo(jpvara);
+
         jbbuscaCliente.setEnabled(true);
         jbbuscaVara.setEnabled(true);
-        
+
         jrbnovo.setEnabled(true);
         jrbativo.setEnabled(true);
         jrbmorto.setEnabled(true);
-        
-        
 
         jbinserir.setEnabled(true);
         jbatualizar.setEnabled(false);
@@ -54,19 +51,17 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
 
         JPanelBuscaJtextFild.limpaCampo(aba1);
         JPanelBuscaJtextFild.liberaCampo(aba1, false);
-    //    JPanelBuscaJtextFild.limpaCampo(jpcliente);
-        
-     //   JPanelBuscaJtextFild.limpaCampo(jpvara);
-        
+        //    JPanelBuscaJtextFild.limpaCampo(jpcliente);
+
+        //   JPanelBuscaJtextFild.limpaCampo(jpvara);
         JPanelBuscaJtextFild.liberaCampo(jpandamento, false);
-      
+
         jbbuscaCliente.setEnabled(false);
         jbbuscaVara.setEnabled(false);
-        
+
         jrbnovo.setEnabled(false);
         jrbativo.setEnabled(false);
         jrbmorto.setEnabled(false);
-       
 
         jbinserir.setEnabled(false);
         jbatualizar.setEnabled(false);
@@ -714,7 +709,6 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
     private void jbbuscaVaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbbuscaVaraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbbuscaVaraActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Consulta;

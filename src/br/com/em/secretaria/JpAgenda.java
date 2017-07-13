@@ -5,8 +5,6 @@
  */
 package br.com.em.secretaria;
 
-
-
 /**
  *
  * @author pablo
@@ -18,12 +16,8 @@ public class JpAgenda extends javax.swing.JPanel {
      */
     public JpAgenda() {
         initComponents();
-       
-   
 
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -129,13 +123,12 @@ public class JpAgenda extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jpccalendarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jpccalendarioPropertyChange
-    
+
     }//GEN-LAST:event_jpccalendarioPropertyChange
 
     private void jccalendarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jccalendarioPropertyChange
-      System.out.println(jccalendario.getDate().toString().format("%1$td-%1$tm-%1$ty", jccalendario.getDate()));
+        System.out.println(jccalendario.getDate().toString().format("%1$td-%1$tm-%1$ty", jccalendario.getDate()));
     }//GEN-LAST:event_jccalendarioPropertyChange
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;

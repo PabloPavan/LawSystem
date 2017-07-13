@@ -6,8 +6,8 @@
 package br.com.em.dao;
 
 import br.com.em.conexao.ModuloConexao;
-import br.com.em.pojo.Cliente;
-import br.com.em.pojo.Processo;
+import br.com.em.modelo.Cliente;
+import br.com.em.modelo.Processo;
 import java.awt.HeadlessException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,8 +23,8 @@ import javax.swing.JOptionPane;
  *
  * @author pablo
  */
-public class ClienteDao extends ModuloConexao implements InterfaceDao {
-  
+public class ClienteDao extends ModuloConexao implements InterfaceDao<Cliente> {
+
     @Override
     public void cadastrar(Cliente cliente) {
         int id_pessoa = 0;
@@ -72,7 +72,7 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao {
             pstmt2 = this.conexao.prepareStatement(query2);
 
             pstmt2.setInt(1, id_pessoa);
-            
+
             pstmt2.setString(2, cliente.getNumero_cliente());
 
             if (!cliente.getFilhos_cliente().isEmpty()) {
@@ -81,29 +81,28 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao {
             } else {
                 pstmt2.setInt(3, 0);
             }
-            
+
             pstmt2.setString(4, cliente.getConjugeNome_cliente());
-            
-             if (!cliente.getConjugeSalario_cliente().isEmpty()) {
-             double  x = Double.valueOf(cliente.getConjugeSalario_cliente());
+
+            if (!cliente.getConjugeSalario_cliente().isEmpty()) {
+                double x = Double.valueOf(cliente.getConjugeSalario_cliente());
                 pstmt2.setDouble(5, x);
             } else {
                 pstmt2.setDouble(5, 0.00);
             }
-             
-         //   pstmt2.setDouble(5, cliente.getConjugeSalario_cliente());
+
+            //   pstmt2.setDouble(5, cliente.getConjugeSalario_cliente());
             pstmt2.setString(6, cliente.getProfisao_cliente());
             pstmt2.setString(7, cliente.getLocalTrabalho_cliente());
-            
+
             if (!cliente.getRequerenteSalario_cliente().isEmpty()) {
-             double  x = Double.valueOf(cliente.getRequerenteSalario_cliente());
+                double x = Double.valueOf(cliente.getRequerenteSalario_cliente());
                 pstmt2.setDouble(8, x);
             } else {
                 pstmt2.setDouble(8, 0.00);
             }
-            
-            
-          //  pstmt2.setDouble(8, cliente.getRequerenteSalario_cliente());
+
+            //  pstmt2.setDouble(8, cliente.getRequerenteSalario_cliente());
             pstmt2.setString(9, cliente.getRelacaoBens_cliente());
             Date data = new Date();
             DateFormat formatador = DateFormat.getDateInstance(DateFormat.DEFAULT);
@@ -138,17 +137,17 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao {
         } catch (SQLException ex) {
             Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     /**
      *
-     * @param nome este parametro é usado para buscar o nme desejado 
-     * @param t
+     * @param nome este parametro é usado para buscar o nome desejado
+     * @param t utilizado para como auxilizar no metodo
      * @return retorno um arraylist dos dados do cliente que se buscou
      */
     @Override
-    public ArrayList<Cliente> listarCliente(String nome, String t) {
+    public ArrayList<Cliente> listar(String nome, String t) {
         // if (t.equals("t")) {
 
         List lista = new ArrayList<>();
@@ -196,11 +195,11 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao {
                 c.setConjugeNome_cliente(rs.getString(22));
                 c.setConjugeSalario_cliente(String.valueOf(rs.getDouble(23)));
                 c.setProfisao_cliente(rs.getString(24));
-                c.setLocalTrabalho_cliente(rs.getString(25)); 
+                c.setLocalTrabalho_cliente(rs.getString(25));
                 c.setRequerenteSalario_cliente(String.valueOf(rs.getDouble(26)));
                 c.setRelacaoBens_cliente(rs.getString(27));
-                c.setDataRegistro_cliente(rs.getString(28));             
-                c.setDefere_cliente(rs.getBoolean(29)); 
+                c.setDataRegistro_cliente(rs.getString(28));
+                c.setDefere_cliente(rs.getBoolean(29));
                 c.setInativo_cliente(rs.getBoolean(30));
 
                 lista.add(c);
@@ -250,11 +249,11 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao {
 //        }
     }
 
-   // }
+    // }
     @Override
     public void atualizar(Cliente cliente) {
 
-        int idcli =0;
+        int idcli = 0;
         int n = 0;
         try {
 
@@ -265,16 +264,15 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao {
             ResultSet rs = null;
             String q = "select id_pessoa from modelo_tb_cliente where id_cliente =?";
             java.sql.PreparedStatement pst = this.conexao.prepareStatement(q);
-          
+
             n = Integer.parseInt(cliente.getId_cliente());
-           
-            pst.setInt(1,n);
+
+            pst.setInt(1, n);
             rs = pst.executeQuery();
             while (rs.next()) {
-            idcli  = rs.getInt(1);
-             
-             }
-            
+                idcli = rs.getInt(1);
+
+            }
 
             String query1 = ("UPDATE modelo_tb_pessoa SET nome_pessoa=?, sobrenome_pessoa=?, cpf_pessoa=?, "
                     + "rg_pessoa=?, sexo_pessoa=?, dataNascimento_pessoa=?, "
@@ -332,20 +330,20 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao {
                 pstmt2.setInt(2, 0);
             }
             pstmt2.setString(3, cliente.getConjugeNome_cliente());
-            
-           if (!cliente.getConjugeSalario_cliente().isEmpty()) {
-             double  x = Double.valueOf(cliente.getConjugeSalario_cliente());
+
+            if (!cliente.getConjugeSalario_cliente().isEmpty()) {
+                double x = Double.valueOf(cliente.getConjugeSalario_cliente());
                 pstmt2.setDouble(4, x);
             } else {
                 pstmt2.setDouble(4, 0.00);
             }
-             
-         //   pstmt2.setDouble(5, cliente.getConjugeSalario_cliente());
+
+            //   pstmt2.setDouble(5, cliente.getConjugeSalario_cliente());
             pstmt2.setString(5, cliente.getProfisao_cliente());
             pstmt2.setString(6, cliente.getLocalTrabalho_cliente());
-            
+
             if (!cliente.getRequerenteSalario_cliente().isEmpty()) {
-             double  y = Double.valueOf(cliente.getRequerenteSalario_cliente());
+                double y = Double.valueOf(cliente.getRequerenteSalario_cliente());
                 pstmt2.setDouble(7, y);
             } else {
                 pstmt2.setDouble(7, 0.00);
@@ -355,7 +353,7 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao {
 //            DateFormat formatador = DateFormat.getDateInstance(DateFormat.DEFAULT);
 //
 //            pstmt2.setString(12, formatador.format(data));
-            
+
             pstmt2.setBoolean(9, cliente.isDefere_cliente());
             pstmt2.setBoolean(10, cliente.isInativo_cliente());
             n = Integer.parseInt(cliente.getId_cliente());
@@ -365,7 +363,7 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao {
 
             conexao.commit();
             JOptionPane.showMessageDialog(null, "Atualizado com sucesso");
-            
+
         } catch (SQLException | HeadlessException ex) {
             try {
                 conexao.rollback();
@@ -385,26 +383,11 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao {
         }
         try {
             this.close();
-              
+
         } catch (SQLException ex) {
             Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
 
     }
 
-    @Override
-    public void cadastrar(Processo processo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void atualizar(Processo processo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ArrayList<Processo> listarProcesso(String nome, String t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

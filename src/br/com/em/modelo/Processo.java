@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.em.pojo;
+package br.com.em.modelo;
 
 /**
  *
@@ -87,8 +87,6 @@ public class Processo {
 
     public Processo() {
     }
-
-
 
     public String getId_processo() {
         return id_processo;

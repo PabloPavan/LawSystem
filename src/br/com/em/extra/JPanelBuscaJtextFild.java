@@ -29,8 +29,6 @@ public class JPanelBuscaJtextFild {
             }
         }
     }
-    
-    
 
     public static void liberaCampo(JPanel jpanel, boolean t) {
         Component components[] = jpanel.getComponents();
@@ -55,6 +53,5 @@ public class JPanelBuscaJtextFild {
             }
         }
     }
-    
 
 }

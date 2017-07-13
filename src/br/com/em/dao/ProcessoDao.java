@@ -5,60 +5,29 @@
  */
 package br.com.em.dao;
 
-import br.com.em.pojo.Cliente;
-import br.com.em.pojo.Processo;
+import br.com.em.modelo.Processo;
 import java.util.ArrayList;
 
 /**
  *
  * @author pablo
  */
-public class ProcessoDao implements InterfaceDao{
+public class ProcessoDao implements InterfaceDao<Processo> {
 
     @Override
     public void cadastrar(Processo processo) {
-      
+
     }
 
     @Override
     public void atualizar(Processo processo) {
-      
+
     }
 
     @Override
-    public ArrayList<Processo> listarProcesso(String nome, String t) {
+    public ArrayList<Processo> listar(String nome, String t) {
         return null;
-    
+
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-    
-    @Override
-    public void cadastrar(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void atualizar(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ArrayList<Cliente> listarCliente(String nome, String t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
-   
-    
 }
