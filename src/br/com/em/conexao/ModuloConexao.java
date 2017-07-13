@@ -11,9 +11,9 @@ public class ModuloConexao {
 
     protected java.sql.Connection conexao = null;
     private final String driver = "com.mysql.jdbc.Driver";
-    private final String url = "jdbc:mysql://www.projetos.unijui.edu.br:3306/emodelo";
-    private final String user = "emodelo";
-    private final String password = "B@nc0&moDel0!";
+    private final String url = "jdbc:mysql://";
+    private final String user = "";
+    private final String password = "";
 
     //metodo responsavel por estabelacer a conexao com o banco
     /**
