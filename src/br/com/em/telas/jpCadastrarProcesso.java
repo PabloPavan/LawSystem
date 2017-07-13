@@ -5,7 +5,7 @@
  */
 package br.com.em.telas;
 
-import br.co.em.extra.JPanelBuscaJtextFild;
+import br.com.em.extra.JPanelBuscaJtextFild;
 import javax.swing.ButtonGroup;
 
 /**

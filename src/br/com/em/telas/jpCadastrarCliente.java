@@ -5,9 +5,9 @@
  */
 package br.com.em.telas;
 
-import br.co.em.extra.JtextFieldSomenteLetras;
-import br.co.em.extra.JPanelBuscaJtextFild;
-import br.co.em.extra.JtextFieldSomenteNumeros;
+import br.com.em.extra.JtextFieldSomenteLetras;
+import br.com.em.extra.JPanelBuscaJtextFild;
+import br.com.em.extra.JtextFieldSomenteNumeros;
 import br.com.em.dao.ClienteDao;
 import br.com.em.dao.InterfaceDao;
 import br.com.em.pojo.Cliente;
