@@ -133,7 +133,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jrbnome" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jrbsobenome" min="-2" max="-2" attributes="0"/>
+                      <Component id="jrbsobrenome" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jrbnumero" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -142,7 +142,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jrbsobenome" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jrbsobrenome" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jrbnome" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jrbnumero" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -156,7 +156,7 @@
                 <Property name="text" type="java.lang.String" value="Nome"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jrbsobenome">
+            <Component class="javax.swing.JRadioButton" name="jrbsobrenome">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sobrenome"/>
               </Properties>

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 /**
  *
  * @author pablo
+ * @param <T> Passe o Objeto referente ao DAO Implmentes
  */
 public interface InterfaceDao<T> {
 
@@ -17,6 +18,6 @@ public interface InterfaceDao<T> {
 
     public void atualizar(T obj);
 
-    public ArrayList<T> listar(String nome, String t);
+    public ArrayList<T> listar(String busca, String auxBusca);
 
 }

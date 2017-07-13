@@ -36,7 +36,7 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
 
         ButtonGroup group = new ButtonGroup();
         group.add(jrbnome);
-        group.add(jrbsobenome);
+        group.add(jrbsobrenome);
         group.add(jrbnumero);
 
     }
@@ -85,6 +85,7 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
 
         jcbsexo.setEnabled(false);
         jcbdefere.setEnabled(false);
+        jcbinativo.setEnabled(false);
 
         jbinserir.setEnabled(false);
         jbatualizar.setEnabled(true);
@@ -93,10 +94,19 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
         jbnovo.setEnabled(true);
     }
 
-    private void busca(String nome) {
-        ClienteDao di = new ClienteDao();
+    private void busca(String busca) {
+        String auxBusca = null;
+       if (jrbnome.isSelected()){
+           auxBusca = "nome";
+       } else if(jrbsobrenome.isSelected())
+            auxBusca = "sobrenome";
+       else{
+           auxBusca = "numero";
+       }
+       
+        InterfaceDao di = new ClienteDao();
 
-        List<Cliente> list = di.listar(nome, "t");
+        List<Cliente> list = di.listar(busca, auxBusca);
 
         DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
         tableModel.setNumRows(0);
@@ -175,6 +185,7 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
             jtabens.setText(table.getModel().getValueAt(seleciona, 24).toString());
             // 25 data
 
+         
             if (table.getModel().getValueAt(seleciona, 26).toString().equals("true")) {
                 jcbdefere.setSelected(true);
             } else {
@@ -195,6 +206,8 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
         JPanelBuscaJtextFild.liberaCampo(aba1, true);
         JPanelBuscaJtextFild.liberaCampo(aba2, true);
         JPanelBuscaJtextFild.liberaCampo(aba3, true);
+        
+        jtfid.setEnabled(false);
 
         jtabens.setEnabled(true);
 
@@ -237,16 +250,16 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
         c.setRequerenteSalario_cliente(jtfsalarioCliente.getText());
         c.setRelacaoBens_cliente(jtabens.getText());
         c.setDataRegistro_cliente("");
-        c.setDefere_cliente(true);
+      
+        if (jcbdefere.isSelected()) {
+         c.setDefere_cliente(true);
+        } else {
+           c.setDefere_cliente(false);
+        }
+        c.setInativo_cliente(false);
+        
         jcbinativo.setEnabled(false);
 
-//        if (jcbinativo.isSelected()) {
-//            c.setInativo_cliente(true);
-//
-//        } else {
-//
-//            c.setInativo_cliente(false);
-//        }
         InterfaceDao i = new ClienteDao();
         i.cadastrar(c);
 
@@ -285,14 +298,18 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
         c.setRelacaoBens_cliente(jtabens.getText());
         c.setDataRegistro_cliente("");
 
-        c.setDefere_cliente(true);
+       
+        
+        if (jcbdefere.isSelected()) {
+         c.setDefere_cliente(true);
+        } else {
+           c.setDefere_cliente(false);
+        }
 
-        //   jcbinativo.setEnabled(false);
+     
         if (jcbinativo.isSelected()) {
             c.setInativo_cliente(true);
-
         } else {
-
             c.setInativo_cliente(false);
         }
         InterfaceDao i = new ClienteDao();
@@ -315,7 +332,7 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
         jtfbusca = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jrbnome = new javax.swing.JRadioButton();
-        jrbsobenome = new javax.swing.JRadioButton();
+        jrbsobrenome = new javax.swing.JRadioButton();
         jrbnumero = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -420,7 +437,7 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
         jrbnome.setSelected(true);
         jrbnome.setText("Nome");
 
-        jrbsobenome.setText("Sobrenome");
+        jrbsobrenome.setText("Sobrenome");
 
         jrbnumero.setText("Número");
 
@@ -432,19 +449,19 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jrbnome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jrbsobenome)
+                .addComponent(jrbsobrenome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jrbnumero))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jrbsobenome)
+                .addComponent(jrbsobrenome)
                 .addComponent(jrbnome)
                 .addComponent(jrbnumero))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jrbnome, jrbsobenome});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jrbnome, jrbsobrenome});
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/em/icons/busca.png"))); // NOI18N
         jLabel5.setText("Buscar");
@@ -1132,7 +1149,7 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
     private javax.swing.JLabel jlsobrenome;
     private javax.swing.JRadioButton jrbnome;
     private javax.swing.JRadioButton jrbnumero;
-    private javax.swing.JRadioButton jrbsobenome;
+    private javax.swing.JRadioButton jrbsobrenome;
     private javax.swing.JScrollPane jsprelacao;
     private javax.swing.JTextArea jtabens;
     private javax.swing.JTextField jtfbairro;

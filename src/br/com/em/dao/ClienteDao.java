@@ -6,8 +6,8 @@
 package br.com.em.dao;
 
 import br.com.em.conexao.ModuloConexao;
+import static br.com.em.main.JfTelaLogin.usuario;
 import br.com.em.modelo.Cliente;
-import br.com.em.modelo.Processo;
 import java.awt.HeadlessException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -51,7 +51,7 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao<Cliente> {
             } else {
                 pstmt.setInt(9, 0);
             }
-            // pstmt.setString(9, cliente.getP().getNumero_pessoa());
+          
             pstmt.setString(10, cliente.getP().getComplemento_pessoa());
             pstmt.setString(11, cliente.getP().getBairro_pessoa());
             pstmt.setString(12, cliente.getP().getCep_pessoa());
@@ -114,8 +114,9 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao<Cliente> {
 
             conexao.commit();
             JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+            Logger.getLogger(ClienteDao.class.getName()).log(Level.INFO, "Cadastrou | Cliente: {0} | Usuario: {1}", new Object[]{id_pessoa, usuario});
 
-        } catch (SQLException | HeadlessException ex) {
+        } catch (SQLException | HeadlessException | NumberFormatException ex) {
             try {
                 conexao.rollback();
                 JOptionPane.showMessageDialog(null, "Não cadastrado");
@@ -142,30 +143,32 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao<Cliente> {
 
     /**
      *
-     * @param nome este parametro é usado para buscar o nome desejado
-     * @param t utilizado para como auxilizar no metodo
+     * @param busca
+     * @param auxBusca
+    
      * @return retorno um arraylist dos dados do cliente que se buscou
      */
     @Override
-    public ArrayList<Cliente> listar(String nome, String t) {
-        // if (t.equals("t")) {
-
-        List lista = new ArrayList<>();
+    public ArrayList<Cliente> listar(String busca, String auxBusca) {
+       List lista = new ArrayList<>();
 
         ResultSet rs = null;
+        
+        if (auxBusca.equalsIgnoreCase("nome")) {
+
         try {
             java.sql.PreparedStatement pst = null;
             conexao = this.conector();
-            if (nome.isEmpty()) {
+            if (busca.isEmpty()) {
                 //  String sql = "select * from modelo_tb_cliente";
-                String sql = ("SELECT p.*, c.* FROM modelo_tb_cliente c left join  modelo_tb_pessoa p on c.id_pessoa = p.id_pessoa; ");
+                String sql = ("SELECT p.*, c.* FROM modelo_tb_cliente c left join  modelo_tb_pessoa p on c.id_pessoa = p.id_pessoa ORDER BY p.nome_pessoa ASC; ");
                 pst = this.conexao.prepareStatement(sql);
             } else {
 
-                String sql = ("SELECT p.*, c.* FROM modelo_tb_cliente c left join  modelo_tb_pessoa p on c.id_pessoa = p.id_pessoa where p.nome_pessoa like ?;");
+                String sql = ("SELECT p.*, c.* FROM modelo_tb_cliente c left join  modelo_tb_pessoa p on c.id_pessoa = p.id_pessoa where p.nome_pessoa like ? ORDER BY p.nome_pessoa ASC;");
 
                 pst = this.conexao.prepareStatement(sql);
-                pst.setString(1, nome + "%");
+                pst.setString(1, busca + "%");
             }
             rs = pst.executeQuery();
 
@@ -205,55 +208,136 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao<Cliente> {
                 lista.add(c);
             }
             this.close();
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println(e);
+        } catch (ClassNotFoundException | SQLException ex) {
+           Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+       }  else if(auxBusca.equalsIgnoreCase("sobrenome")){
+           
+           try {
+            java.sql.PreparedStatement pst = null;
+            conexao = this.conector();
+            if (busca.isEmpty()) {
+                //  String sql = "select * from modelo_tb_cliente";
+                String sql = ("SELECT p.*, c.* FROM modelo_tb_cliente c left join  modelo_tb_pessoa p on c.id_pessoa = p.id_pessoa ORDER BY p.nome_pessoa ASC; ");
+                pst = this.conexao.prepareStatement(sql);
+            } else {
 
-        return (ArrayList<Cliente>) lista;
+                String sql = ("SELECT p.*, c.* FROM modelo_tb_cliente c left join  modelo_tb_pessoa p on c.id_pessoa = p.id_pessoa where p.sobrenome_pessoa like ? ORDER BY p.nome_pessoa ASC;");
 
-//            ArrayList lista = new ArrayList<>();
-//
-//            ResultSet rs = null;
-//            try {
-//                java.sql.PreparedStatement pst = null;
-//                conexao = this.conector();
-//                if (nome.isEmpty()) {
-//                    String sql = "select  idcli,nomecli,sobrenomecli,cpfcli,rgcli from tbcliente where inativo like 'a' ";
-//                    pst = this.conexao.prepareStatement(sql);
-//                } else {
-//
-//                    String sql = "select  idcli,nomecli,sobrenomecli,cpfcli,rgcli from tbcliente where inativo like 'a' and nomecli like ? ";
-//
-//                    pst = this.conexao.prepareStatement(sql);
-//                    pst.setString(1, nome + "%");
-//                }
-//                rs = pst.executeQuery();
-//
-//                while (rs.next()) {
-//
-//                    Cliente c = new Cliente();
-//                    c.setIdcli(rs.getString("idcli"));
-//                    c.setNomecli(rs.getString("nomecli"));
-//                    c.setSobrenomecli(rs.getString("sobrenomecli"));
-//                    c.setCpfcli(rs.getString("cpfcli"));
-//                    c.setRgcli(rs.getString("rgcli"));
-//                    lista.add(c);
-//
-//                }
-//
-//                this.close();
-//            } catch (SQLException | ClassNotFoundException ex) {
-//                Logger.getLogger(DAOimplement.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            return (ArrayList<Cliente>) lista;
-//        }
+                pst = this.conexao.prepareStatement(sql);
+                pst.setString(1, busca + "%");
+            }
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Cliente c = new Cliente();
+                // c.getP().setId_pessoa(rs.getString(1));
+                c.getP().setNome_pessoa(rs.getString(2));
+                c.getP().setSobrenome_pessoa(rs.getString(3));
+                c.getP().setCpf_pessoa(rs.getString(4));
+                c.getP().setRg_pessoa(rs.getString(5));
+                c.getP().setSexo_pessoa(rs.getString(6));
+                c.getP().setDataNascimento_pessoa(rs.getString(7));
+                c.getP().setEstadoCivil_pessoa(rs.getString(8));
+                c.getP().setRua_pessoa(rs.getString(9));
+                c.getP().setNumero_pessoa(rs.getString(10));
+                c.getP().setComplemento_pessoa(rs.getString(11));
+                c.getP().setBairro_pessoa(rs.getString(12));
+                c.getP().setCep_pessoa(rs.getString(13));
+                c.getP().setCidade_pessoa(rs.getString(14));
+                c.getP().setEstado_pessoa(rs.getString(15));
+                c.getP().setTelefone_pessoa(rs.getString(16));
+                c.getP().setEmail_pessoa(rs.getString(17));
+                c.setId_cliente(rs.getString(18));
+                //   c.setId_pessoa(rs.getString(19));
+                c.setNumero_cliente(rs.getString(20));
+                c.setFilhos_cliente(rs.getString(21));
+                c.setConjugeNome_cliente(rs.getString(22));
+                c.setConjugeSalario_cliente(String.valueOf(rs.getDouble(23)));
+                c.setProfisao_cliente(rs.getString(24));
+                c.setLocalTrabalho_cliente(rs.getString(25));
+                c.setRequerenteSalario_cliente(String.valueOf(rs.getDouble(26)));
+                c.setRelacaoBens_cliente(rs.getString(27));
+                c.setDataRegistro_cliente(rs.getString(28));
+                c.setDefere_cliente(rs.getBoolean(29));
+                c.setInativo_cliente(rs.getBoolean(30));
+
+                lista.add(c);
+            }
+            this.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+           Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
+       }else{
+           
+           try {
+            java.sql.PreparedStatement pst = null;
+            conexao = this.conector();
+            if (busca.isEmpty()) {
+                //  String sql = "select * from modelo_tb_cliente";
+                String sql = ("SELECT p.*, c.* FROM modelo_tb_cliente c left join  modelo_tb_pessoa p on c.id_pessoa = p.id_pessoa ORDER BY p.nome_pessoa ASC; ");
+                pst = this.conexao.prepareStatement(sql);
+            } else {
+
+                String sql = ("SELECT p.*, c.* FROM modelo_tb_cliente c left join  modelo_tb_pessoa p on c.id_pessoa = p.id_pessoa where c.numero_cliente like ? ORDER BY p.nome_pessoa ASC;");
+
+                pst = this.conexao.prepareStatement(sql);
+                pst.setString(1, busca + "%");
+            }
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Cliente c = new Cliente();
+                // c.getP().setId_pessoa(rs.getString(1));
+                c.getP().setNome_pessoa(rs.getString(2));
+                c.getP().setSobrenome_pessoa(rs.getString(3));
+                c.getP().setCpf_pessoa(rs.getString(4));
+                c.getP().setRg_pessoa(rs.getString(5));
+                c.getP().setSexo_pessoa(rs.getString(6));
+                c.getP().setDataNascimento_pessoa(rs.getString(7));
+                c.getP().setEstadoCivil_pessoa(rs.getString(8));
+                c.getP().setRua_pessoa(rs.getString(9));
+                c.getP().setNumero_pessoa(rs.getString(10));
+                c.getP().setComplemento_pessoa(rs.getString(11));
+                c.getP().setBairro_pessoa(rs.getString(12));
+                c.getP().setCep_pessoa(rs.getString(13));
+                c.getP().setCidade_pessoa(rs.getString(14));
+                c.getP().setEstado_pessoa(rs.getString(15));
+                c.getP().setTelefone_pessoa(rs.getString(16));
+                c.getP().setEmail_pessoa(rs.getString(17));
+                c.setId_cliente(rs.getString(18));
+                //   c.setId_pessoa(rs.getString(19));
+                c.setNumero_cliente(rs.getString(20));
+                c.setFilhos_cliente(rs.getString(21));
+                c.setConjugeNome_cliente(rs.getString(22));
+                c.setConjugeSalario_cliente(String.valueOf(rs.getDouble(23)));
+                c.setProfisao_cliente(rs.getString(24));
+                c.setLocalTrabalho_cliente(rs.getString(25));
+                c.setRequerenteSalario_cliente(String.valueOf(rs.getDouble(26)));
+                c.setRelacaoBens_cliente(rs.getString(27));
+                c.setDataRegistro_cliente(rs.getString(28));
+                c.setDefere_cliente(rs.getBoolean(29));
+                c.setInativo_cliente(rs.getBoolean(30));
+
+                lista.add(c);
+            }
+            this.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+           Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
+       }
+
+       return (ArrayList<Cliente>) lista;
     }
 
     // }
     @Override
     public void atualizar(Cliente cliente) {
 
-        int idcli = 0;
+        int id_pessoa = 0;
         int n = 0;
         try {
 
@@ -270,7 +354,7 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao<Cliente> {
             pst.setInt(1, n);
             rs = pst.executeQuery();
             while (rs.next()) {
-                idcli = rs.getInt(1);
+                id_pessoa = rs.getInt(1);
 
             }
 
@@ -305,7 +389,7 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao<Cliente> {
             pstmt.setString(14, cliente.getP().getEstado_pessoa());
             pstmt.setString(15, cliente.getP().getTelefone_pessoa());
             pstmt.setString(16, cliente.getP().getEmail_pessoa());
-            pstmt.setInt(17, idcli);
+            pstmt.setInt(17, id_pessoa);
 
             pstmt.executeUpdate();
 
@@ -363,13 +447,15 @@ public class ClienteDao extends ModuloConexao implements InterfaceDao<Cliente> {
 
             conexao.commit();
             JOptionPane.showMessageDialog(null, "Atualizado com sucesso");
+             Logger.getLogger(ClienteDao.class.getName()).log(Level.INFO, "Atualizou | Cliente: {0} | Usuario: {1}", new Object[]{id_pessoa, usuario});
 
-        } catch (SQLException | HeadlessException ex) {
+        } catch (SQLException | HeadlessException  | NumberFormatException ex ) {
             try {
                 conexao.rollback();
                 JOptionPane.showMessageDialog(null, "Não atualizado");
             } catch (SQLException ex1) {
-                Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex1);
+              
+              Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex1);
             }
             Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
