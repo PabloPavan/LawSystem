@@ -1,7 +1,9 @@
+package br.com.em.main;
 
 
 
-import br.com.em.secretaria.TelaPrincipalSecretaria;
+
+import br.com.em.secretaria.JfTelaPrincipalSecretaria;
 
 
 /*
@@ -14,7 +16,7 @@ import br.com.em.secretaria.TelaPrincipalSecretaria;
  *
  * @author pablo
  */
-public class NewMain {
+public class Main {
 
     /**
      * @param args the command line arguments
@@ -38,7 +40,7 @@ public class NewMain {
            
         }
         
-        TelaPrincipalSecretaria tela = new TelaPrincipalSecretaria();
+        JfTelaPrincipalSecretaria tela = new JfTelaPrincipalSecretaria();
         tela.setSize(1060,650);
                 tela.setVisible(true);
                 

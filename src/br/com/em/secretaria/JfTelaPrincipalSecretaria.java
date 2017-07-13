@@ -5,9 +5,6 @@
  */
 package br.com.em.secretaria;
 
-import br.com.em.telas.jpAgenda;
-import br.com.em.telas.jpCadastrarCliente;
-import br.com.em.telas.jpCadastrarProcesso;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,16 +20,16 @@ import javax.swing.Timer;
  *
  * @author pablo
  */
-public class TelaPrincipalSecretaria extends javax.swing.JFrame {
+public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
 
-    jpCadastrarCliente jpcc = new jpCadastrarCliente();
-    jpCadastrarProcesso jpcp = new jpCadastrarProcesso();
-    jpAgenda jpa = new jpAgenda();
+    JpCadastrarCliente jpcc = new JpCadastrarCliente();
+    JpCadastrarProcesso jpcp = new JpCadastrarProcesso();
+    JpAgenda jpa = new JpAgenda();
 
     /**
      * Creates new form TelaPrincipalSecretaria
      */
-    public TelaPrincipalSecretaria() {
+    public JfTelaPrincipalSecretaria() {
         initComponents();
     }
 
@@ -561,20 +558,21 @@ public class TelaPrincipalSecretaria extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfTelaPrincipalSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfTelaPrincipalSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfTelaPrincipalSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfTelaPrincipalSecretaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPrincipalSecretaria().setVisible(true);
+                new JfTelaPrincipalSecretaria().setVisible(true);
             }
         });
     }
@@ -606,7 +604,7 @@ class hora implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Calendar now = Calendar.getInstance();
 
-        TelaPrincipalSecretaria.jlhora.setText(String.format("%1$tH:%1$tM:%1$tS", now));
+        JfTelaPrincipalSecretaria.jlhora.setText(String.format("%1$tH:%1$tM:%1$tS", now));
     }
 
 }

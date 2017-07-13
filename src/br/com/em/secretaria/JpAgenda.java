@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.em.telas;
+package br.com.em.secretaria;
 
 
 
@@ -11,12 +11,12 @@ package br.com.em.telas;
  *
  * @author pablo
  */
-public class jpAgenda extends javax.swing.JPanel {
+public class JpAgenda extends javax.swing.JPanel {
 
     /**
      * Creates new form jpCadastrarCliente
      */
-    public jpAgenda() {
+    public JpAgenda() {
         initComponents();
        
    

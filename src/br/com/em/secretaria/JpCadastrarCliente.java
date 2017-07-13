@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.em.telas;
+package br.com.em.secretaria;
 
 import br.com.em.extra.JtextFieldSomenteLetras;
 import br.com.em.extra.JPanelBuscaJtextFild;
@@ -24,13 +24,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author pablo
  */
-public class jpCadastrarCliente extends javax.swing.JPanel {
+public class JpCadastrarCliente extends javax.swing.JPanel {
 
     /**
      * Creates new form jpCadastrarCliente
      */
    
-    public jpCadastrarCliente()  {
+    public JpCadastrarCliente()  {
         initComponents();
        
 
@@ -1133,7 +1133,7 @@ public class jpCadastrarCliente extends javax.swing.JPanel {
     private javax.swing.JButton jbnovo;
     private javax.swing.JButton jbsalvaratualizar;
     private javax.swing.JCheckBox jcbdefere;
-    private javax.swing.JCheckBox jcbinativo;
+    public static javax.swing.JCheckBox jcbinativo;
     private javax.swing.JComboBox<String> jcbsexo;
     private javax.swing.JLabel jlcpf;
     private javax.swing.JLabel jlnascimento;

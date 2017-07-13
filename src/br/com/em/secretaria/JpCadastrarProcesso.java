@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.em.telas;
+package br.com.em.secretaria;
 
 import br.com.em.extra.JPanelBuscaJtextFild;
 import javax.swing.ButtonGroup;
@@ -12,12 +12,12 @@ import javax.swing.ButtonGroup;
  *
  * @author pablo
  */
-public class jpCadastrarProcesso extends javax.swing.JPanel {
+public class JpCadastrarProcesso extends javax.swing.JPanel {
 
     /**
      * Creates new form jpCadastrarCliente
      */
-    public jpCadastrarProcesso() {
+    public JpCadastrarProcesso() {
         initComponents();
         ButtonGroup group = new ButtonGroup();
         group.add(jrbnome);
