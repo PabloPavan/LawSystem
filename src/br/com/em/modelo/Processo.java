@@ -18,7 +18,6 @@ public class Processo {
     private String andamento_processo;
     private String acao_processo;
     private String id_cliente;
-    private String id_advogado;
     private String id_vara;
     private String dataInicio_processo;
     private String dataFim_processo;
@@ -35,7 +34,7 @@ public class Processo {
         this.andamento_processo = andamento_processo;
         this.acao_processo = acao_processo;
         this.id_cliente = id_cliente;
-        this.id_advogado = id_advogado;
+        
         this.id_vara = id_vara;
         this.dataInicio_processo = dataInicio_processo;
         this.dataFim_processo = dataFim_processo;
@@ -136,13 +135,7 @@ public class Processo {
         this.id_cliente = id_cliente;
     }
 
-    public String getId_advogado() {
-        return id_advogado;
-    }
-
-    public void setId_advogado(String id_advogado) {
-        this.id_advogado = id_advogado;
-    }
+   
 
     public String getId_vara() {
         return id_vara;

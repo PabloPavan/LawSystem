@@ -5,8 +5,13 @@
  */
 package br.com.em.secretaria;
 
+import br.com.em.dao.InterfaceDao;
+import br.com.em.dao.ProcessoDao;
 import br.com.em.extra.JPanelBuscaJtextFild;
+import br.com.em.modelo.Processo;
+import java.util.List;
 import javax.swing.ButtonGroup;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,29 +26,41 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         initComponents();
         ButtonGroup group = new ButtonGroup();
         group.add(jrbnome);
+        group.add(jrbsobrenome);
         group.add(jrbnumero);
 
+        ButtonGroup group2 = new ButtonGroup();
+        group2.add(jrbnovo);
+        group2.add(jrbativo);
+        group2.add(jrbmorto);
     }
 
     private void novo() {
 
         JPanelBuscaJtextFild.limpaCampo(aba1);
         JPanelBuscaJtextFild.liberaCampo(aba1, true);
+
+        JPanelBuscaJtextFild.limpaCampo(aba3);
+        JPanelBuscaJtextFild.liberaCampo(aba3, true);
+
+        jtaconsulta.setEnabled(true);
+        jtanarrativa.setEnabled(true);
+        jtfid.setEnabled(false);
+
         //     JPanelBuscaJtextFild.limpaCampo(jpcliente);
         //     JPanelBuscaJtextFild.limpaCampo(jpvara);
-
         jbbuscaCliente.setEnabled(true);
         jbbuscaVara.setEnabled(true);
 
         jrbnovo.setEnabled(true);
-        jrbativo.setEnabled(true);
-        jrbmorto.setEnabled(true);
+        //  jrbativo.setEnabled(true);
+        // jrbmorto.setEnabled(true);
 
         jbinserir.setEnabled(true);
         jbatualizar.setEnabled(false);
+        jbsalvaratualizar.setEnabled(false);
         jbcancelar.setEnabled(true);
         jbnovo.setEnabled(false);
-        jtfid.setEnabled(false);
 
     }
 
@@ -54,7 +71,11 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         //    JPanelBuscaJtextFild.limpaCampo(jpcliente);
 
         //   JPanelBuscaJtextFild.limpaCampo(jpvara);
-        JPanelBuscaJtextFild.liberaCampo(jpandamento, false);
+        JPanelBuscaJtextFild.limpaCampo(aba3);
+        JPanelBuscaJtextFild.liberaCampo(aba3, false);
+
+        jtaconsulta.setEnabled(false);
+        jtanarrativa.setEnabled(false);
 
         jbbuscaCliente.setEnabled(false);
         jbbuscaVara.setEnabled(false);
@@ -64,9 +85,161 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         jrbmorto.setEnabled(false);
 
         jbinserir.setEnabled(false);
-        jbatualizar.setEnabled(false);
+        jbsalvaratualizar.setEnabled(false);
         jbcancelar.setEnabled(true);
         jbnovo.setEnabled(true);
+        jbatualizar.setEnabled(true);
+
+    }
+
+    private void updateliberar() {
+
+        JPanelBuscaJtextFild.liberaCampo(aba1, true);
+        JPanelBuscaJtextFild.liberaCampo(aba3, true);
+
+        jbbuscaCliente.setEnabled(true);
+        jbbuscaVara.setEnabled(true);
+
+        jtaconsulta.setEnabled(true);
+        jtanarrativa.setEnabled(true);
+        jtfid.setEnabled(false);
+
+        jrbnovo.setEnabled(true);
+        jrbativo.setEnabled(true);
+        jrbmorto.setEnabled(true);
+
+        jtfid.setEnabled(false);
+
+        jbsalvaratualizar.setEnabled(true);
+
+        jbinserir.setEnabled(false);
+        jbatualizar.setEnabled(false);
+        jbcancelar.setEnabled(true);
+        jbnovo.setEnabled(false);
+    }
+
+    private void busca(String busca) {
+        String auxBusca = null;
+        if (jrbnome.isSelected()) {
+            auxBusca = "nome";
+        } else if (jrbsobrenome.isSelected()) {
+            auxBusca = "sobrenome";
+        } else {
+            auxBusca = "numero";
+        }
+
+        InterfaceDao di = new ProcessoDao();
+
+        List<Processo> list = di.listar(busca, auxBusca);
+
+        DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
+        tableModel.setNumRows(0);
+
+        list.stream().forEach((Processo lista) -> {
+            tableModel.addRow(new Object[]{
+                lista.getId_processo(),
+                lista.getNome_processo(),
+                lista.getNumero_processo(),
+                lista.getNumeroPasta_processo(),
+                lista.getAndamento_processo(),
+                lista.getAcao_processo(),
+                lista.getId_cliente(),
+                lista.getId_vara(),
+                lista.getDataInicio_processo(),
+                lista.getDataFim_processo(),
+                lista.getDiaSemana_processo(),
+                lista.getNarrativa_processo(),
+                lista.getConsulta_processo(),
+                lista.getObs_processo()
+            });
+        });
+
+    }
+
+    private void dadostabela() {
+
+        if (jTable.isEnabled()) {
+            int seleciona = jTable.getSelectedRow();
+
+            jtfid.setText(jTable.getModel().getValueAt(seleciona, 0).toString());
+            jtfparteNome.setText(jTable.getModel().getValueAt(seleciona, 1).toString());
+            jtfnumeroProcesso.setText(jTable.getModel().getValueAt(seleciona, 2).toString());
+            jtfnumeroPasta.setText(jTable.getModel().getValueAt(seleciona, 3).toString());
+
+            if (jTable.getModel().getValueAt(seleciona, 3).toString().equalsIgnoreCase("n")) {
+                jrbnovo.setSelected(true);
+            } else if (jTable.getModel().getValueAt(seleciona, 3).toString().equalsIgnoreCase("a")) {
+                jrbativo.setSelected(true);
+            } else {
+                jrbmorto.setSelected(true);
+            }
+            jtfacao.setText(jTable.getModel().getValueAt(seleciona, 5).toString());
+            jtfIdCliente.setText(jTable.getModel().getValueAt(seleciona, 6).toString());
+            jtfidVara.setText(jTable.getModel().getValueAt(seleciona, 7).toString());
+            jtfdataInicio.setText(jTable.getModel().getValueAt(seleciona, 8).toString());
+            jtfdataFim.setText(jTable.getModel().getValueAt(seleciona, 9).toString());
+            jtfdiaSemana.setText(jTable.getModel().getValueAt(seleciona, 10).toString());
+            jtanarrativa.setText(jTable.getModel().getValueAt(seleciona, 11).toString());
+            jtaconsulta.setText(jTable.getModel().getValueAt(seleciona, 12).toString());
+            jtaobs.setText(jTable.getModel().getValueAt(seleciona, 13).toString());
+
+        }
+    }
+
+    private void save() {
+        Processo p = new Processo();
+
+        p.setNome_processo(jtfparteNome.getText());
+        p.setNumero_processo(jtfnumeroProcesso.getText());
+        p.setNumeroPasta_processo(jtfnumeroPasta.getText());
+
+        if (jrbnovo.isSelected()) {
+            p.setAndamento_processo("n");
+        } else if (jrbativo.isSelected()) {
+            p.setAndamento_processo("a");
+        } else {
+            p.setAndamento_processo("m");
+        }
+
+        p.setAcao_processo(jtfacao.getText());
+        p.setId_cliente(jtfIdCliente.getText());
+        p.setId_vara(jtfidVara.getText());
+        p.setDataInicio_processo(jtfdataInicio.getText());
+        p.setDataFim_processo(jtfdataFim.getText());
+        p.setDiaSemana_processo(jtfdiaSemana.getText());
+        p.setNarrativa_processo(jtanarrativa.getText());
+        p.setConsulta_processo(jtaconsulta.getText());
+        p.setObs_processo(jtaobs.getText());
+
+        InterfaceDao i = new ProcessoDao();
+        i.cadastrar(p);
+//        busca("");
+        cancelar();
+    }
+
+    private void update() {
+
+        Processo p = new Processo();
+
+        p.setNome_processo(jtfparteNome.getText());
+        p.setNumero_processo(jtfnumeroProcesso.getText());
+        p.setNumeroPasta_processo(jtfnumeroPasta.getText());
+        p.setAndamento_processo("n");
+        p.setAcao_processo(jtfacao.getText());
+        p.setId_cliente(jtfIdCliente.getText());
+        p.setId_vara(jtfidVara.getText());
+        p.setDataInicio_processo(jtfdataInicio.getText());
+        p.setDataFim_processo(jtfdataFim.getText());
+        p.setDiaSemana_processo(jtfdiaSemana.getText());
+        p.setNarrativa_processo(jtanarrativa.getText());
+        p.setConsulta_processo(jtaconsulta.getText());
+        p.setObs_processo(jtaobs.getText());
+
+        InterfaceDao i = new ProcessoDao();
+        i.atualizar(p);
+//        busca("");
+        cancelar();
+
     }
 
     /**
@@ -83,9 +256,10 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jrbnome = new javax.swing.JRadioButton();
         jrbnumero = new javax.swing.JRadioButton();
+        jrbsobrenome = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable = new javax.swing.JTable();
         jbnovo = new javax.swing.JButton();
         jbinserir = new javax.swing.JButton();
         jbatualizar = new javax.swing.JButton();
@@ -93,7 +267,7 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         jbcancelar = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         aba2 = new javax.swing.JPanel();
-        jpcliente1 = new javax.swing.JPanel();
+        jpcliente = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jtfIdCliente = new javax.swing.JTextField();
@@ -105,16 +279,9 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         jtfrgCliente = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jtfnumeroCliente = new javax.swing.JTextField();
-        jpvara1 = new javax.swing.JPanel();
-        jbbuscaVara = new javax.swing.JButton();
-        jtfidVara = new javax.swing.JTextField();
-        jtfnomeVara = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         aba1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jtfid = new javax.swing.JTextField();
-        jcbinativo = new javax.swing.JCheckBox();
         jtfnumeroProcesso = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jtfnumeroPasta = new javax.swing.JTextField();
@@ -142,6 +309,13 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         jtanarrativa = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtaconsulta = new javax.swing.JTextArea();
+        aba4 = new javax.swing.JPanel();
+        jpvara = new javax.swing.JPanel();
+        jbbuscaVara = new javax.swing.JButton();
+        jtfidVara = new javax.swing.JTextField();
+        jtfnomeVara = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
 
         Consulta.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa"));
 
@@ -152,6 +326,8 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
 
         jrbnumero.setText("Número do Processo");
 
+        jrbsobrenome.setText("Sobrenome");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -159,15 +335,18 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jrbnome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jrbsobrenome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jrbnumero)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jrbnumero)
-                .addComponent(jrbnome))
+                .addComponent(jrbnome)
+                .addComponent(jrbsobrenome))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jrbnome, jrbnumero});
@@ -175,18 +354,58 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/em/icons/busca.png"))); // NOI18N
         jLabel5.setText("Buscar");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "id", "Nome", "Número ", "Nº Pasta", "andamento", "idcli", "idvara", "dataI", "dataF", "dia", "narrativa", "consulta", "obs"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable.setColumnSelectionAllowed(true);
+        jTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTable);
+        jTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (jTable.getColumnModel().getColumnCount() > 0) {
+            jTable.getColumnModel().getColumn(0).setMinWidth(0);
+            jTable.getColumnModel().getColumn(0).setPreferredWidth(0);
+            jTable.getColumnModel().getColumn(0).setMaxWidth(0);
+            jTable.getColumnModel().getColumn(4).setMinWidth(0);
+            jTable.getColumnModel().getColumn(4).setPreferredWidth(0);
+            jTable.getColumnModel().getColumn(4).setMaxWidth(0);
+            jTable.getColumnModel().getColumn(5).setMinWidth(0);
+            jTable.getColumnModel().getColumn(5).setPreferredWidth(0);
+            jTable.getColumnModel().getColumn(5).setMaxWidth(0);
+            jTable.getColumnModel().getColumn(6).setMinWidth(0);
+            jTable.getColumnModel().getColumn(6).setPreferredWidth(0);
+            jTable.getColumnModel().getColumn(6).setMaxWidth(0);
+            jTable.getColumnModel().getColumn(7).setMinWidth(0);
+            jTable.getColumnModel().getColumn(7).setPreferredWidth(0);
+            jTable.getColumnModel().getColumn(7).setMaxWidth(0);
+            jTable.getColumnModel().getColumn(8).setMinWidth(0);
+            jTable.getColumnModel().getColumn(8).setPreferredWidth(0);
+            jTable.getColumnModel().getColumn(8).setMaxWidth(0);
+            jTable.getColumnModel().getColumn(9).setMinWidth(0);
+            jTable.getColumnModel().getColumn(9).setPreferredWidth(0);
+            jTable.getColumnModel().getColumn(9).setMaxWidth(0);
+            jTable.getColumnModel().getColumn(10).setMinWidth(0);
+            jTable.getColumnModel().getColumn(10).setPreferredWidth(0);
+            jTable.getColumnModel().getColumn(10).setMaxWidth(0);
+            jTable.getColumnModel().getColumn(11).setMinWidth(0);
+            jTable.getColumnModel().getColumn(11).setPreferredWidth(0);
+            jTable.getColumnModel().getColumn(11).setMaxWidth(0);
+            jTable.getColumnModel().getColumn(12).setMinWidth(0);
+            jTable.getColumnModel().getColumn(12).setPreferredWidth(0);
+            jTable.getColumnModel().getColumn(12).setMaxWidth(0);
+        }
 
         javax.swing.GroupLayout ConsultaLayout = new javax.swing.GroupLayout(Consulta);
         Consulta.setLayout(ConsultaLayout);
@@ -196,7 +415,7 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
                 .addGroup(ConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ConsultaLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtfbusca4))
@@ -262,8 +481,6 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
             }
         });
 
-        jpcliente1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
-
         jLabel13.setText("Id:");
 
         jLabel14.setText("CPF:");
@@ -292,116 +509,69 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
 
         jtfnumeroCliente.setEnabled(false);
 
-        javax.swing.GroupLayout jpcliente1Layout = new javax.swing.GroupLayout(jpcliente1);
-        jpcliente1.setLayout(jpcliente1Layout);
-        jpcliente1Layout.setHorizontalGroup(
-            jpcliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpcliente1Layout.createSequentialGroup()
-                .addGroup(jpcliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addGroup(jpcliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jpcliente1Layout.createSequentialGroup()
-                            .addGap(29, 29, 29)
-                            .addComponent(jLabel13))
-                        .addGroup(jpcliente1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(jpcliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel15)
-                                .addComponent(jLabel14)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpcliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtfnomeCliente)
-                    .addGroup(jpcliente1Layout.createSequentialGroup()
-                        .addGroup(jpcliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfcpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfrgCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfnumeroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
-                        .addComponent(jbbuscaCliente)))
-                .addContainerGap())
-        );
-        jpcliente1Layout.setVerticalGroup(
-            jpcliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpcliente1Layout.createSequentialGroup()
-                .addGroup(jpcliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpcliente1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jpcliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jtfIdCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jbbuscaCliente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpcliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jtfnumeroCliente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpcliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtfnomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpcliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfcpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jpclienteLayout = new javax.swing.GroupLayout(jpcliente);
+        jpcliente.setLayout(jpclienteLayout);
+        jpclienteLayout.setHorizontalGroup(
+            jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpclienteLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel13)
                     .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpcliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jtfrgCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpclienteLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jtfIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4)
+                        .addGap(12, 12, 12)
+                        .addComponent(jtfnumeroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbbuscaCliente)
+                        .addContainerGap())
+                    .addGroup(jpclienteLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpclienteLayout.createSequentialGroup()
+                                .addComponent(jtfcpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtfrgCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(540, Short.MAX_VALUE))
+                            .addGroup(jpclienteLayout.createSequentialGroup()
+                                .addComponent(jtfnomeCliente)
+                                .addGap(94, 94, 94))))))
         );
-
-        jpvara1.setBorder(javax.swing.BorderFactory.createTitledBorder("Vara"));
-
-        jbbuscaVara.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/em/icons/busca.png"))); // NOI18N
-        jbbuscaVara.setEnabled(false);
-        jbbuscaVara.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbbuscaVaraActionPerformed(evt);
-            }
-        });
-
-        jtfidVara.setEnabled(false);
-
-        jtfnomeVara.setEnabled(false);
-
-        jLabel16.setText("Nome:");
-
-        jLabel17.setText("Id:");
-
-        javax.swing.GroupLayout jpvara1Layout = new javax.swing.GroupLayout(jpvara1);
-        jpvara1.setLayout(jpvara1Layout);
-        jpvara1Layout.setHorizontalGroup(
-            jpvara1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpvara1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jpvara1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpvara1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpvara1Layout.createSequentialGroup()
-                        .addComponent(jtfidVara, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
-                        .addComponent(jbbuscaVara))
-                    .addComponent(jtfnomeVara))
-                .addContainerGap())
-        );
-        jpvara1Layout.setVerticalGroup(
-            jpvara1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpvara1Layout.createSequentialGroup()
-                .addGroup(jpvara1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpvara1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jpvara1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(jtfidVara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jbbuscaVara))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpvara1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
-                    .addComponent(jtfnomeVara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jpclienteLayout.setVerticalGroup(
+            jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpclienteLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpclienteLayout.createSequentialGroup()
+                        .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtfnumeroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jpclienteLayout.createSequentialGroup()
+                        .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtfIdCliente)
+                            .addComponent(jLabel13))
+                        .addGap(25, 25, 25)
+                        .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtfnomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
+                        .addGap(18, 18, 18)
+                        .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jtfcpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(jtfrgCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(50, Short.MAX_VALUE))
+                    .addGroup(jpclienteLayout.createSequentialGroup()
+                        .addComponent(jbbuscaCliente)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout aba2Layout = new javax.swing.GroupLayout(aba2);
@@ -410,29 +580,22 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
             aba2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(aba2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jpcliente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jpvara1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jpcliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         aba2Layout.setVerticalGroup(
             aba2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aba2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(aba2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpvara1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jpcliente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addComponent(jpcliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Cliente e Vara", aba2);
+        jTabbedPane1.addTab("Dados do Cliente", aba2);
 
         jLabel1.setText("Id:");
 
         jtfid.setEnabled(false);
-
-        jcbinativo.setText("Inativo");
-        jcbinativo.setEnabled(false);
 
         jtfnumeroProcesso.setEnabled(false);
 
@@ -454,6 +617,7 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
 
         jpandamento.setBorder(javax.swing.BorderFactory.createTitledBorder("Andamento"));
 
+        jrbnovo.setSelected(true);
         jrbnovo.setText("Novo");
         jrbnovo.setEnabled(false);
 
@@ -532,34 +696,29 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
                             .addComponent(jtfnumeroMorto, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aba1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfid, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jcbinativo)
-                        .addGap(4, 27, Short.MAX_VALUE)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfnumeroProcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfnumeroPasta, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jpandamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aba1Layout.createSequentialGroup()
+                    .addGroup(aba1Layout.createSequentialGroup()
                         .addGroup(aba1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel18)
-                            .addComponent(jLabel10))
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel1))
+                        .addGap(4, 4, 4)
                         .addGroup(aba1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(aba1Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
+                                .addComponent(jtfid, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtfnumeroProcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtfnumeroPasta, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jpandamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(aba1Layout.createSequentialGroup()
                                 .addComponent(jtfparteNome)
                                 .addGap(199, 199, 199))
-                            .addGroup(aba1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtfacao)))))
+                            .addComponent(jtfacao))))
                 .addContainerGap())
         );
         aba1Layout.setVerticalGroup(
@@ -569,7 +728,6 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
                 .addGroup(aba1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(aba1Layout.createSequentialGroup()
                         .addGroup(aba1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jcbinativo)
                             .addComponent(jLabel1)
                             .addComponent(jtfid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
@@ -606,18 +764,20 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
                         .addContainerGap())))
         );
 
-        jTabbedPane1.addTab("Dados Iniciais", aba1);
+        jTabbedPane1.addTab("Dados do Processo", aba1);
 
         jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Narrativa"));
 
         jtanarrativa.setColumns(20);
         jtanarrativa.setRows(5);
+        jtanarrativa.setEnabled(false);
         jScrollPane3.setViewportView(jtanarrativa);
 
         jScrollPane4.setBorder(javax.swing.BorderFactory.createTitledBorder("Consulta"));
 
         jtaconsulta.setColumns(20);
         jtaconsulta.setRows(5);
+        jtaconsulta.setEnabled(false);
         jScrollPane4.setViewportView(jtaconsulta);
 
         javax.swing.GroupLayout aba3Layout = new javax.swing.GroupLayout(aba3);
@@ -637,11 +797,85 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(aba3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane4)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Narrativa e Consulta", aba3);
+
+        jbbuscaVara.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/em/icons/busca.png"))); // NOI18N
+        jbbuscaVara.setEnabled(false);
+        jbbuscaVara.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbbuscaVaraActionPerformed(evt);
+            }
+        });
+
+        jtfidVara.setEnabled(false);
+
+        jtfnomeVara.setEnabled(false);
+
+        jLabel19.setText("Nome:");
+
+        jLabel20.setText("Id:");
+
+        javax.swing.GroupLayout jpvaraLayout = new javax.swing.GroupLayout(jpvara);
+        jpvara.setLayout(jpvaraLayout);
+        jpvaraLayout.setHorizontalGroup(
+            jpvaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpvaraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpvaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jpvaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpvaraLayout.createSequentialGroup()
+                        .addComponent(jtfidVara, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 756, Short.MAX_VALUE)
+                        .addComponent(jbbuscaVara))
+                    .addComponent(jtfnomeVara))
+                .addContainerGap())
+        );
+        jpvaraLayout.setVerticalGroup(
+            jpvaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpvaraLayout.createSequentialGroup()
+                .addGroup(jpvaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpvaraLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jpvaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(jtfidVara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jbbuscaVara))
+                .addGap(18, 18, 18)
+                .addGroup(jpvaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19)
+                    .addComponent(jtfnomeVara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout aba4Layout = new javax.swing.GroupLayout(aba4);
+        aba4.setLayout(aba4Layout);
+        aba4Layout.setHorizontalGroup(
+            aba4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 990, Short.MAX_VALUE)
+            .addGroup(aba4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(aba4Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jpvara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        aba4Layout.setVerticalGroup(
+            aba4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 203, Short.MAX_VALUE)
+            .addGroup(aba4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aba4Layout.createSequentialGroup()
+                    .addContainerGap(41, Short.MAX_VALUE)
+                    .addComponent(jpvara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+        );
+
+        jTabbedPane1.addTab("Dados da Vara", aba4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -687,15 +921,15 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
     }//GEN-LAST:event_jbnovoActionPerformed
 
     private void jbinserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbinserirActionPerformed
-        // save();
+        save();
     }//GEN-LAST:event_jbinserirActionPerformed
 
     private void jbatualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbatualizarActionPerformed
-        // updateliberar();
+        updateliberar();
     }//GEN-LAST:event_jbatualizarActionPerformed
 
     private void jbsalvaratualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalvaratualizarActionPerformed
-        //   update();
+        update();
     }//GEN-LAST:event_jbsalvaratualizarActionPerformed
 
     private void jbcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcancelarActionPerformed
@@ -715,6 +949,7 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
     private javax.swing.JPanel aba1;
     private javax.swing.JPanel aba2;
     private javax.swing.JPanel aba3;
+    private javax.swing.JPanel aba4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -722,10 +957,10 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -738,7 +973,7 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable;
     private javax.swing.JButton jbatualizar;
     private javax.swing.JButton jbbuscaCliente;
     private javax.swing.JButton jbbuscaVara;
@@ -746,15 +981,15 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
     private javax.swing.JButton jbinserir;
     private javax.swing.JButton jbnovo;
     private javax.swing.JButton jbsalvaratualizar;
-    public static javax.swing.JCheckBox jcbinativo;
     private javax.swing.JPanel jpandamento;
-    private javax.swing.JPanel jpcliente1;
-    private javax.swing.JPanel jpvara1;
+    private javax.swing.JPanel jpcliente;
+    private javax.swing.JPanel jpvara;
     private javax.swing.JRadioButton jrbativo;
     private javax.swing.JRadioButton jrbmorto;
     private javax.swing.JRadioButton jrbnome;
     private javax.swing.JRadioButton jrbnovo;
     private javax.swing.JRadioButton jrbnumero;
+    private javax.swing.JRadioButton jrbsobrenome;
     private javax.swing.JTextArea jtaconsulta;
     private javax.swing.JTextArea jtanarrativa;
     private javax.swing.JTextArea jtaobs;
@@ -776,4 +1011,5 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
     private javax.swing.JTextField jtfparteNome;
     private javax.swing.JTextField jtfrgCliente;
     // End of variables declaration//GEN-END:variables
+
 }
