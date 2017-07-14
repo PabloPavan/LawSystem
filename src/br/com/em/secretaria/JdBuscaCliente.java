@@ -16,6 +16,13 @@
  */
 package br.com.em.secretaria;
 
+import br.com.em.dao.ClienteDao;
+import br.com.em.dao.InterfaceDao;
+import br.com.em.modelo.Cliente;
+import java.util.List;
+import javax.swing.ButtonGroup;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author pablo
@@ -25,9 +32,23 @@ public class JdBuscaCliente extends javax.swing.JDialog {
     /**
      * Creates new form JdBuscaCliente
      */
+    
+    public String numerocli;
+    public String nomecli;
+    public String sobrenomecli;
+    public String cpfcli;
+    public String rgcli;
+    public String idcli;
+
     public JdBuscaCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+         ButtonGroup group = new ButtonGroup();
+        group.add(jrbnome);
+        group.add(jrbsobrenome);
+        group.add(jrbnumero);
+        table.updateUI();
+        busca("");
     }
 
     /**
@@ -39,24 +60,194 @@ public class JdBuscaCliente extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jtfbusca = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jrbnome = new javax.swing.JRadioButton();
+        jrbsobrenome = new javax.swing.JRadioButton();
+        jrbnumero = new javax.swing.JRadioButton();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Busca Cliente");
         setResizable(false);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa"));
+
+        jtfbusca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtfbuscaKeyReleased(evt);
+            }
+        });
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtros"));
+
+        jrbnome.setSelected(true);
+        jrbnome.setText("Nome");
+
+        jrbsobrenome.setText("Sobrenome");
+
+        jrbnumero.setText("Número");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jrbnome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jrbsobrenome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jrbnumero))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jrbsobrenome)
+                .addComponent(jrbnome)
+                .addComponent(jrbnumero))
+        );
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/em/icons/busca.png"))); // NOI18N
+        jLabel5.setText("Buscar");
+
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Número", "Nome", "Sobrenome", "CPF", "RG", "Id_cliente"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        table.getTableHeader().setReorderingAllowed(false);
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(table);
+        if (table.getColumnModel().getColumnCount() > 0) {
+            table.getColumnModel().getColumn(5).setMinWidth(0);
+            table.getColumnModel().getColumn(5).setPreferredWidth(0);
+            table.getColumnModel().getColumn(5).setMaxWidth(0);
+        }
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtfbusca))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jtfbusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    
+    
+     private void busca(String busca) {
+        String auxBusca = null;
+       if (jrbnome.isSelected()){
+           auxBusca = "nome";
+       } else if(jrbsobrenome.isSelected())
+            auxBusca = "sobrenome";
+       else{
+           auxBusca = "numero";
+       }
+       
+        InterfaceDao di = new ClienteDao();
+
+        List<Cliente> list = di.listar(busca, auxBusca);
+
+        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+        tableModel.setNumRows(0);
+
+        list.stream().forEach((lista) -> {
+
+            tableModel.addRow(new Object[]{
+                lista.getNumero_cliente(),
+                lista.getP().getNome_pessoa(),
+                lista.getP().getSobrenome_pessoa(),
+                lista.getP().getCpf_pessoa(),
+                lista.getP().getRg_pessoa(), 
+                lista.getId_cliente(),
+                
+               });
+        });
+     }
+    private void jtfbuscaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfbuscaKeyReleased
+        busca(jtfbusca.getText());
+    }//GEN-LAST:event_jtfbuscaKeyReleased
+
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+        if (evt.getClickCount() == 2) {
+
+            numerocli = (String) ((table.getModel().getValueAt(table.getSelectedRow(), 0)));
+            nomecli = (String) ((table.getModel().getValueAt(table.getSelectedRow(), 1)));
+            sobrenomecli = (String) ((table.getModel().getValueAt(table.getSelectedRow(), 2)));
+            cpfcli = (String) ((table.getModel().getValueAt(table.getSelectedRow(), 3)));
+            rgcli = (String) ((table.getModel().getValueAt(table.getSelectedRow(), 4)));
+            idcli = (String) ((table.getModel().getValueAt(table.getSelectedRow(), 5)));
+            this.dispose();
+        }
+    }//GEN-LAST:event_tableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -64,5 +255,14 @@ public class JdBuscaCliente extends javax.swing.JDialog {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JRadioButton jrbnome;
+    private javax.swing.JRadioButton jrbnumero;
+    private javax.swing.JRadioButton jrbsobrenome;
+    private javax.swing.JTextField jtfbusca;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }
