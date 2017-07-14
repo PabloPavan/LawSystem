@@ -937,7 +937,12 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
     }//GEN-LAST:event_jbcancelarActionPerformed
 
     private void jbbuscaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbbuscaClienteActionPerformed
-        // TODO add your handling code here:
+       JdBuscaCliente tbc = new JdBuscaCliente(null, true);
+        tbc.setVisible(true);
+//        jtfcodcli.setText(tbc.idcli);
+//        jtfnomecli.setText(tbc.nomecli + " " + tbc.sobrenomecli);
+//        jtfcpfcli.setText(tbc.cpfcli);
+//        jtfrgcli.setText(tbc.rgcli);
     }//GEN-LAST:event_jbbuscaClienteActionPerformed
 
     private void jbbuscaVaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbbuscaVaraActionPerformed

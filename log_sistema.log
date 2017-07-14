@@ -330,3 +330,5 @@ java.lang.NumberFormatException: For input string: ""
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
 
+jul 14, 2017 3:58:17 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
