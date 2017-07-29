@@ -9,8 +9,10 @@ import br.com.em.conexao.ModuloConexao;
 import static br.com.em.main.JfTelaLogin.usuario;
 import br.com.em.modelo.Processo;
 import java.awt.HeadlessException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -39,7 +41,7 @@ public class ProcessoDao extends ModuloConexao implements InterfaceDao<Processo>
             pstmt.setString(4, processo.getAndamento_processo());
             pstmt.setString(5, processo.getAcao_processo());
             pstmt.setInt(6, Integer.parseInt(processo.getId_cliente()));
-            pstmt.setInt(7, Integer.parseInt(processo.getId_processo()));
+            pstmt.setInt(7, Integer.parseInt(processo.getId_vara()));
             pstmt.setString(8, processo.getDataInicio_processo());
             pstmt.setString(9, processo.getDataFim_processo());
             pstmt.setString(10, processo.getDiaSemana_processo());
@@ -59,10 +61,10 @@ public class ProcessoDao extends ModuloConexao implements InterfaceDao<Processo>
                 JOptionPane.showMessageDialog(null, "Não cadastrado");
             } catch (SQLException ex1) {
                 Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex1);
-                
+
             }
             Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
-         
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -81,15 +83,84 @@ public class ProcessoDao extends ModuloConexao implements InterfaceDao<Processo>
     }
 
     @Override
-    public void atualizar(Processo obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void atualizar(Processo processo) {
+
+        try {
+
+            java.sql.PreparedStatement pstmt = null;
+            conexao = this.conector();
+            conexao.setAutoCommit(false);
+
+            String query1 = ("UPDATE emodelo.modelo_tb_processo SET "
+                    + "nome_processo=?, "
+                    + "numero_processo=?, "
+                    + "numeroPasta_processo=?, "
+                    + "andamento_processo=?, "
+                    + "acao_processo=?,"
+                    + "id_cliente=?, "
+                    + "id_vara=?, "
+                    + "dataInicio_processo=?,"
+                    + "dataFim_processo=?, "
+                    + "diaSemana_processo=?, "
+                    + "narrativa_processo=?,"
+                    + "consulta_processo=?, "
+                    + "obs_processo=? "
+                    + "WHERE "
+                    + "id_processo= ?;");
+
+            pstmt = this.conexao.prepareStatement(query1);
+
+            pstmt.setString(1, processo.getNome_processo());
+            pstmt.setString(2, processo.getNumero_processo());
+            pstmt.setString(3, processo.getNumeroPasta_processo());
+            pstmt.setString(4, processo.getAndamento_processo());
+            pstmt.setString(5, processo.getAcao_processo());
+            pstmt.setInt(6, Integer.parseInt(processo.getId_cliente()));
+            pstmt.setInt(7, Integer.parseInt(processo.getId_vara()));
+            pstmt.setString(8, processo.getDataInicio_processo());
+            pstmt.setString(9, processo.getDataFim_processo());
+            pstmt.setString(10, processo.getDiaSemana_processo());
+            pstmt.setString(11, processo.getNarrativa_processo());
+            pstmt.setString(12, processo.getConsulta_processo());
+            pstmt.setString(13, processo.getObs_processo());
+            pstmt.setInt(14, Integer.parseInt(processo.getId_processo()));
+
+            pstmt.executeUpdate();
+
+            conexao.commit();
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso");
+            Logger.getLogger(ClienteDao.class.getName()).log(Level.INFO, "Atualizou | Processo: {0} | Usuario: {1}", new Object[]{processo.getId_processo(), usuario});
+
+        } catch (SQLException | HeadlessException | NumberFormatException ex) {
+            try {
+                conexao.rollback();
+                JOptionPane.showMessageDialog(null, "Não atualizado");
+            } catch (SQLException ex1) {
+
+                Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            conexao.setAutoCommit(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            this.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     @Override
     public ArrayList<Processo> listar(String busca, String auxBusca) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
 }
-
-

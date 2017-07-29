@@ -133,16 +133,22 @@
             <Component class="javax.swing.JTable" name="jthorarios">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="0">
-                    <Column editable="true" title="Hora" type="java.lang.Object"/>
-                    <Column editable="true" title="N&#xfa;mero do Processo" type="java.lang.Object"/>
-                    <Column editable="true" title="N&#xfa;mero do Cliente" type="java.lang.Object"/>
-                    <Column editable="true" title="A&#xe7;&#xe3;o" type="java.lang.Object"/>
+                  <Table columnCount="5" rowCount="0">
+                    <Column editable="false" title="Hora" type="java.lang.Object"/>
+                    <Column editable="false" title="atividade" type="java.lang.Object"/>
+                    <Column editable="false" title="N&#xfa;mero do Processo" type="java.lang.Object"/>
+                    <Column editable="false" title="N&#xfa;mero do Cliente" type="java.lang.Object"/>
+                    <Column editable="false" title="A&#xe7;&#xe3;o" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                       <Title/>
                       <Editor/>
                       <Renderer/>
@@ -168,6 +174,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jthorariosMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

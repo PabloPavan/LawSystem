@@ -384,3 +384,935 @@ java.lang.NumberFormatException: null
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
 
+jul 15, 2017 12:29:10 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 28, 2017 11:19:20 PM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 28, 2017 11:22:17 PM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 28, 2017 11:25:31 PM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 28, 2017 11:25:58 PM br.com.em.dao.ProcessoDao cadastrar
+GRAVE: null
+java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Integer.java:542)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at br.com.em.dao.ProcessoDao.cadastrar(ProcessoDao.java:42)
+	at br.com.em.dao.ProcessoDao.cadastrar(ProcessoDao.java:22)
+	at br.com.em.secretaria.JpCadastrarProcesso.save(JpCadastrarProcesso.java:215)
+	at br.com.em.secretaria.JpCadastrarProcesso.jbinserirActionPerformed(JpCadastrarProcesso.java:857)
+	at br.com.em.secretaria.JpCadastrarProcesso.access$100(JpCadastrarProcesso.java:20)
+	at br.com.em.secretaria.JpCadastrarProcesso$3.actionPerformed(JpCadastrarProcesso.java:450)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 28, 2017 11:39:39 PM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 28, 2017 11:41:31 PM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 28, 2017 11:45:36 PM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 28, 2017 11:48:55 PM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 28, 2017 11:58:01 PM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 28, 2017 11:58:49 PM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 12:00:27 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 12:00:37 AM br.com.em.dao.ProcessoDao cadastrar
+GRAVE: null
+java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Integer.java:542)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at br.com.em.dao.ProcessoDao.cadastrar(ProcessoDao.java:42)
+	at br.com.em.dao.ProcessoDao.cadastrar(ProcessoDao.java:22)
+	at br.com.em.secretaria.JpCadastrarProcesso.save(JpCadastrarProcesso.java:226)
+	at br.com.em.secretaria.JpCadastrarProcesso.jbinserirActionPerformed(JpCadastrarProcesso.java:866)
+	at br.com.em.secretaria.JpCadastrarProcesso.access$100(JpCadastrarProcesso.java:22)
+	at br.com.em.secretaria.JpCadastrarProcesso$3.actionPerformed(JpCadastrarProcesso.java:461)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 29, 2017 12:01:59 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 12:02:17 AM br.com.em.dao.ProcessoDao cadastrar
+GRAVE: null
+java.sql.SQLException: Incorrect integer value: '' for column 'numero_processo' at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:964)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2490)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1197)
+	at br.com.em.dao.ProcessoDao.cadastrar(ProcessoDao.java:50)
+	at br.com.em.dao.ProcessoDao.cadastrar(ProcessoDao.java:22)
+	at br.com.em.secretaria.JpCadastrarProcesso.save(JpCadastrarProcesso.java:226)
+	at br.com.em.secretaria.JpCadastrarProcesso.jbinserirActionPerformed(JpCadastrarProcesso.java:866)
+	at br.com.em.secretaria.JpCadastrarProcesso.access$100(JpCadastrarProcesso.java:22)
+	at br.com.em.secretaria.JpCadastrarProcesso$3.actionPerformed(JpCadastrarProcesso.java:461)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 29, 2017 12:03:41 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 12:03:55 AM br.com.em.dao.ProcessoDao cadastrar
+GRAVE: null
+com.mysql.jdbc.MysqlDataTruncation: Data truncation: Incorrect date value: '' for column 'dataInicio_processo' at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3971)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2490)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1197)
+	at br.com.em.dao.ProcessoDao.cadastrar(ProcessoDao.java:50)
+	at br.com.em.dao.ProcessoDao.cadastrar(ProcessoDao.java:22)
+	at br.com.em.secretaria.JpCadastrarProcesso.save(JpCadastrarProcesso.java:226)
+	at br.com.em.secretaria.JpCadastrarProcesso.jbinserirActionPerformed(JpCadastrarProcesso.java:866)
+	at br.com.em.secretaria.JpCadastrarProcesso.access$100(JpCadastrarProcesso.java:22)
+	at br.com.em.secretaria.JpCadastrarProcesso$3.actionPerformed(JpCadastrarProcesso.java:461)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 29, 2017 12:05:03 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 12:05:13 AM br.com.em.dao.ProcessoDao cadastrar
+INFORMAÇÕES: Cadastrou | Processo:  | Usuario: grupo1
+jul 29, 2017 12:32:21 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 12:33:56 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 12:35:29 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 1:20:25 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 1:30:05 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 1:32:43 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 1:33:22 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 1:34:41 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 1:37:15 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 1:37:42 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 1:38:52 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 1:40:17 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 1:42:11 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 1:43:34 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 1:47:37 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 1:58:19 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:01:48 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:03:07 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:07:24 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:10:34 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:15:33 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:16:21 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:18:23 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:19:57 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:22:15 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:29:32 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:30:26 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:31:45 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:32:17 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:33:29 AM br.com.em.dao.ProcessoDao cadastrar
+INFORMAÇÕES: Cadastrou | Processo:  | Usuario: grupo1
+jul 29, 2017 2:34:09 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:38:33 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:38:57 AM br.com.em.dao.ProcessoDao cadastrar
+GRAVE: null
+com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`emodelo`.`modelo_tb_processo`, CONSTRAINT `modelo_tb_processo_ibfk_2` FOREIGN KEY (`id_vara`) REFERENCES `modelo_tb_vara` (`id_vara`))
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:935)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2490)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1197)
+	at br.com.em.dao.ProcessoDao.cadastrar(ProcessoDao.java:52)
+	at br.com.em.dao.ProcessoDao.cadastrar(ProcessoDao.java:24)
+	at br.com.em.secretaria.JpCadastrarProcesso.save(JpCadastrarProcesso.java:208)
+	at br.com.em.secretaria.JpCadastrarProcesso.jbinserirActionPerformed(JpCadastrarProcesso.java:907)
+	at br.com.em.secretaria.JpCadastrarProcesso.access$200(JpCadastrarProcesso.java:25)
+	at br.com.em.secretaria.JpCadastrarProcesso$4.actionPerformed(JpCadastrarProcesso.java:500)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 29, 2017 2:40:14 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 2:40:59 AM br.com.em.dao.ProcessoDao cadastrar
+INFORMAÇÕES: Cadastrou | Processo:  | Usuario: grupo1
+jul 29, 2017 2:41:36 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 3:00:19 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 3:00:44 AM br.com.em.dao.ProcessoDao atualizar
+GRAVE: null
+java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Integer.java:542)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at br.com.em.dao.ProcessoDao.atualizar(ProcessoDao.java:126)
+	at br.com.em.dao.ProcessoDao.atualizar(ProcessoDao.java:24)
+	at br.com.em.secretaria.JpCadastrarProcesso.update(JpCadastrarProcesso.java:244)
+	at br.com.em.secretaria.JpCadastrarProcesso.jbsalvaratualizarActionPerformed(JpCadastrarProcesso.java:927)
+	at br.com.em.secretaria.JpCadastrarProcesso.access$400(JpCadastrarProcesso.java:25)
+	at br.com.em.secretaria.JpCadastrarProcesso$6.actionPerformed(JpCadastrarProcesso.java:529)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 29, 2017 3:02:09 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 3:02:30 AM br.com.em.dao.ProcessoDao atualizar
+GRAVE: null
+java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Integer.java:542)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at br.com.em.dao.ProcessoDao.atualizar(ProcessoDao.java:126)
+	at br.com.em.dao.ProcessoDao.atualizar(ProcessoDao.java:24)
+	at br.com.em.secretaria.JpCadastrarProcesso.update(JpCadastrarProcesso.java:244)
+	at br.com.em.secretaria.JpCadastrarProcesso.jbsalvaratualizarActionPerformed(JpCadastrarProcesso.java:927)
+	at br.com.em.secretaria.JpCadastrarProcesso.access$400(JpCadastrarProcesso.java:25)
+	at br.com.em.secretaria.JpCadastrarProcesso$6.actionPerformed(JpCadastrarProcesso.java:529)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 29, 2017 3:03:30 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 3:03:46 AM br.com.em.dao.ProcessoDao atualizar
+GRAVE: null
+java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Integer.java:542)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at br.com.em.dao.ProcessoDao.atualizar(ProcessoDao.java:126)
+	at br.com.em.dao.ProcessoDao.atualizar(ProcessoDao.java:24)
+	at br.com.em.secretaria.JpCadastrarProcesso.update(JpCadastrarProcesso.java:244)
+	at br.com.em.secretaria.JpCadastrarProcesso.jbsalvaratualizarActionPerformed(JpCadastrarProcesso.java:927)
+	at br.com.em.secretaria.JpCadastrarProcesso.access$400(JpCadastrarProcesso.java:25)
+	at br.com.em.secretaria.JpCadastrarProcesso$6.actionPerformed(JpCadastrarProcesso.java:529)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 29, 2017 4:42:18 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 4:42:24 AM br.com.em.dao.ProcessoDao atualizar
+GRAVE: null
+java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Integer.java:542)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at br.com.em.dao.ProcessoDao.atualizar(ProcessoDao.java:126)
+	at br.com.em.dao.ProcessoDao.atualizar(ProcessoDao.java:24)
+	at br.com.em.secretaria.JpCadastrarProcesso.update(JpCadastrarProcesso.java:244)
+	at br.com.em.secretaria.JpCadastrarProcesso.jbsalvaratualizarActionPerformed(JpCadastrarProcesso.java:927)
+	at br.com.em.secretaria.JpCadastrarProcesso.access$400(JpCadastrarProcesso.java:25)
+	at br.com.em.secretaria.JpCadastrarProcesso$6.actionPerformed(JpCadastrarProcesso.java:529)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 29, 2017 4:48:07 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 4:48:22 AM br.com.em.dao.ProcessoDao atualizar
+GRAVE: null
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHEREid_processo= 5' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:943)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2490)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2079)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2013)
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
+	at br.com.em.dao.ProcessoDao.atualizar(ProcessoDao.java:128)
+	at br.com.em.dao.ProcessoDao.atualizar(ProcessoDao.java:24)
+	at br.com.em.secretaria.JpCadastrarProcesso.update(JpCadastrarProcesso.java:244)
+	at br.com.em.secretaria.JpCadastrarProcesso.jbsalvaratualizarActionPerformed(JpCadastrarProcesso.java:927)
+	at br.com.em.secretaria.JpCadastrarProcesso.access$400(JpCadastrarProcesso.java:25)
+	at br.com.em.secretaria.JpCadastrarProcesso$6.actionPerformed(JpCadastrarProcesso.java:529)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 29, 2017 4:48:48 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 4:48:58 AM br.com.em.dao.ProcessoDao atualizar
+INFORMAÇÕES: Atualizou | Processo: 00001 | Usuario: grupo1
+jul 29, 2017 4:49:23 AM br.com.em.dao.ProcessoDao atualizar
+INFORMAÇÕES: Atualizou | Processo: 00001 | Usuario: grupo1
+jul 29, 2017 4:53:24 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 4:54:20 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 4:55:16 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 4:56:10 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 4:56:58 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 4:57:29 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 4:58:10 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 4:58:45 AM br.com.em.dao.ProcessoDao cadastrar
+INFORMAÇÕES: Cadastrou | Processo:  | Usuario: grupo1
+jul 29, 2017 5:00:34 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:00:37 AM br.com.em.dao.ProcessoVoDao listar
+GRAVE: null
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ordey by nome_pessoa' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:943)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2490)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1966)
+	at br.com.em.dao.ProcessoVoDao.listar(ProcessoVoDao.java:73)
+	at br.com.em.secretaria.JpCadastrarProcesso.busca(JpCadastrarProcesso.java:160)
+	at br.com.em.secretaria.JpCadastrarProcesso.jtfbuscaKeyReleased(JpCadastrarProcesso.java:988)
+	at br.com.em.secretaria.JpCadastrarProcesso.access$000(JpCadastrarProcesso.java:25)
+	at br.com.em.secretaria.JpCadastrarProcesso$1.keyReleased(JpCadastrarProcesso.java:369)
+	at java.awt.Component.processKeyEvent(Component.java:6494)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2832)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 29, 2017 5:00:37 AM br.com.em.dao.ProcessoVoDao listar
+GRAVE: null
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ordey by nome_pessoa' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:943)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2490)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1966)
+	at br.com.em.dao.ProcessoVoDao.listar(ProcessoVoDao.java:73)
+	at br.com.em.secretaria.JpCadastrarProcesso.busca(JpCadastrarProcesso.java:160)
+	at br.com.em.secretaria.JpCadastrarProcesso.jtfbuscaKeyReleased(JpCadastrarProcesso.java:988)
+	at br.com.em.secretaria.JpCadastrarProcesso.access$000(JpCadastrarProcesso.java:25)
+	at br.com.em.secretaria.JpCadastrarProcesso$1.keyReleased(JpCadastrarProcesso.java:369)
+	at java.awt.Component.processKeyEvent(Component.java:6494)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2832)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 29, 2017 5:00:38 AM br.com.em.dao.ProcessoVoDao listar
+GRAVE: null
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ordey by nome_pessoa' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:943)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2490)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1966)
+	at br.com.em.dao.ProcessoVoDao.listar(ProcessoVoDao.java:73)
+	at br.com.em.secretaria.JpCadastrarProcesso.busca(JpCadastrarProcesso.java:160)
+	at br.com.em.secretaria.JpCadastrarProcesso.jtfbuscaKeyReleased(JpCadastrarProcesso.java:988)
+	at br.com.em.secretaria.JpCadastrarProcesso.access$000(JpCadastrarProcesso.java:25)
+	at br.com.em.secretaria.JpCadastrarProcesso$1.keyReleased(JpCadastrarProcesso.java:369)
+	at java.awt.Component.processKeyEvent(Component.java:6494)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2832)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 29, 2017 5:01:18 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:01:56 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:02:38 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:07:04 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:08:49 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:09:10 AM br.com.em.dao.ProcessoVoDao listar
+GRAVE: null
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'pes.numero_processo' in 'where clause'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:943)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2490)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1966)
+	at br.com.em.dao.ProcessoVoDao.listar(ProcessoVoDao.java:185)
+	at br.com.em.secretaria.JpCadastrarProcesso.busca(JpCadastrarProcesso.java:160)
+	at br.com.em.secretaria.JpCadastrarProcesso.jtfbuscaKeyReleased(JpCadastrarProcesso.java:988)
+	at br.com.em.secretaria.JpCadastrarProcesso.access$000(JpCadastrarProcesso.java:25)
+	at br.com.em.secretaria.JpCadastrarProcesso$1.keyReleased(JpCadastrarProcesso.java:369)
+	at java.awt.Component.processKeyEvent(Component.java:6494)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2832)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 29, 2017 5:09:31 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:14:09 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:15:08 AM br.com.em.dao.ProcessoDao cadastrar
+INFORMAÇÕES: Cadastrou | Processo:  | Usuario: grupo1
+jul 29, 2017 5:17:05 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:18:25 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:19:32 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:20:11 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:21:06 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:22:47 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:47:54 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:53:13 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:54:16 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:56:14 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:56:44 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 5:58:22 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 6:01:14 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 6:04:45 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 6:22:01 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 6:24:34 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 6:24:59 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: grupo1
+jul 29, 2017 6:46:38 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria

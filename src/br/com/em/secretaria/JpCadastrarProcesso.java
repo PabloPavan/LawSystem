@@ -7,8 +7,14 @@ package br.com.em.secretaria;
 
 import br.com.em.dao.InterfaceDao;
 import br.com.em.dao.ProcessoDao;
+import br.com.em.dao.ProcessoVoDao;
+import br.com.em.dao.VaraDao;
 import br.com.em.extra.JPanelBuscaJtextFild;
+import br.com.em.extra.JtextFieldSomenteLetras;
+import br.com.em.extra.JtextFieldSomenteNumeros;
 import br.com.em.modelo.Processo;
+import br.com.em.modelo.Vara;
+import br.com.em.vo.ProcessoVo;
 import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.table.DefaultTableModel;
@@ -22,8 +28,15 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
     /**
      * Creates new form jpCadastrarCliente
      */
+    List<Vara> varalist;
+
     public JpCadastrarProcesso() {
+
         initComponents();
+
+        busca("");
+        table.updateUI();
+
         ButtonGroup group = new ButtonGroup();
         group.add(jrbnome);
         group.add(jrbsobrenome);
@@ -33,28 +46,41 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         group2.add(jrbnovo);
         group2.add(jrbativo);
         group2.add(jrbmorto);
+
+        InterfaceDao i = new VaraDao();
+        varalist = i.listar("", "");
+        varalist.forEach((vara) -> {
+            jcbvara.addItem(vara.getNome_vara());
+        });
+
     }
 
     private void novo() {
 
         JPanelBuscaJtextFild.limpaCampo(aba1);
         JPanelBuscaJtextFild.liberaCampo(aba1, true);
+        JPanelBuscaJtextFild.limpaCampo(jpcliente);
 
         JPanelBuscaJtextFild.limpaCampo(aba3);
         JPanelBuscaJtextFild.liberaCampo(aba3, true);
 
         jtaconsulta.setEnabled(true);
         jtanarrativa.setEnabled(true);
+        jtaobs.setEnabled(true);
         jtfid.setEnabled(false);
 
         //     JPanelBuscaJtextFild.limpaCampo(jpcliente);
         //     JPanelBuscaJtextFild.limpaCampo(jpvara);
         jbbuscaCliente.setEnabled(true);
-        jbbuscaVara.setEnabled(true);
 
+        jcbvara.setEnabled(true);
         jrbnovo.setEnabled(true);
+        jrbnovo.setSelected(true);
+        jScrollPanetable.setEnabled(false);
+        table.setEnabled(false);
         //  jrbativo.setEnabled(true);
         // jrbmorto.setEnabled(true);
+        jtfnumeroMorto.setEnabled(false);
 
         jbinserir.setEnabled(true);
         jbatualizar.setEnabled(false);
@@ -76,13 +102,14 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
 
         jtaconsulta.setEnabled(false);
         jtanarrativa.setEnabled(false);
-
+        jtaobs.setEnabled(false);
+        table.setEnabled(true);
         jbbuscaCliente.setEnabled(false);
-        jbbuscaVara.setEnabled(false);
+        jcbvara.setEnabled(false);
 
         jrbnovo.setEnabled(false);
         jrbativo.setEnabled(false);
-        jrbmorto.setEnabled(false);
+        jtfnumeroMorto.setEnabled(false);
 
         jbinserir.setEnabled(false);
         jbsalvaratualizar.setEnabled(false);
@@ -98,15 +125,17 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         JPanelBuscaJtextFild.liberaCampo(aba3, true);
 
         jbbuscaCliente.setEnabled(true);
-        jbbuscaVara.setEnabled(true);
+        jcbvara.setEnabled(true);
 
         jtaconsulta.setEnabled(true);
         jtanarrativa.setEnabled(true);
+        jtaobs.setEnabled(true);
         jtfid.setEnabled(false);
-
-        jrbnovo.setEnabled(true);
+        table.setEnabled(true);
+        jrbnovo.setEnabled(false);
         jrbativo.setEnabled(true);
         jrbmorto.setEnabled(true);
+        jtfnumeroMorto.setEnabled(false);
 
         jtfid.setEnabled(false);
 
@@ -116,6 +145,7 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         jbatualizar.setEnabled(false);
         jbcancelar.setEnabled(true);
         jbnovo.setEnabled(false);
+
     }
 
     private void busca(String busca) {
@@ -128,17 +158,18 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
             auxBusca = "numero";
         }
 
-        InterfaceDao di = new ProcessoDao();
+        InterfaceDao di = new ProcessoVoDao();
+        List<ProcessoVo> list = di.listar(busca, auxBusca);
 
-        List<Processo> list = di.listar(busca, auxBusca);
-
-        DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
         tableModel.setNumRows(0);
 
-        list.stream().forEach((Processo lista) -> {
+        list.stream().forEach((ProcessoVo lista) -> {
             tableModel.addRow(new Object[]{
                 lista.getId_processo(),
-                lista.getNome_processo(),
+                lista.getNome_pessoa(),
+                lista.getSobrenome_pessoa(),
+                lista.getNomeparte_processo(),
                 lista.getNumero_processo(),
                 lista.getNumeroPasta_processo(),
                 lista.getAndamento_processo(),
@@ -150,40 +181,15 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
                 lista.getDiaSemana_processo(),
                 lista.getNarrativa_processo(),
                 lista.getConsulta_processo(),
-                lista.getObs_processo()
+                lista.getObs_processo(),
+                lista.getNumero_cliente(),
+                lista.getRg_pessoa(),
+                lista.getCpf_pessoa()
             });
         });
 
-    }
+        table.updateUI();
 
-    private void dadostabela() {
-
-        if (jTable.isEnabled()) {
-            int seleciona = jTable.getSelectedRow();
-
-            jtfid.setText(jTable.getModel().getValueAt(seleciona, 0).toString());
-            jtfparteNome.setText(jTable.getModel().getValueAt(seleciona, 1).toString());
-            jtfnumeroProcesso.setText(jTable.getModel().getValueAt(seleciona, 2).toString());
-            jtfnumeroPasta.setText(jTable.getModel().getValueAt(seleciona, 3).toString());
-
-            if (jTable.getModel().getValueAt(seleciona, 3).toString().equalsIgnoreCase("n")) {
-                jrbnovo.setSelected(true);
-            } else if (jTable.getModel().getValueAt(seleciona, 3).toString().equalsIgnoreCase("a")) {
-                jrbativo.setSelected(true);
-            } else {
-                jrbmorto.setSelected(true);
-            }
-            jtfacao.setText(jTable.getModel().getValueAt(seleciona, 5).toString());
-            jtfIdCliente.setText(jTable.getModel().getValueAt(seleciona, 6).toString());
-            jtfidVara.setText(jTable.getModel().getValueAt(seleciona, 7).toString());
-            jtfdataInicio.setText(jTable.getModel().getValueAt(seleciona, 8).toString());
-            jtfdataFim.setText(jTable.getModel().getValueAt(seleciona, 9).toString());
-            jtfdiaSemana.setText(jTable.getModel().getValueAt(seleciona, 10).toString());
-            jtanarrativa.setText(jTable.getModel().getValueAt(seleciona, 11).toString());
-            jtaconsulta.setText(jTable.getModel().getValueAt(seleciona, 12).toString());
-            jtaobs.setText(jTable.getModel().getValueAt(seleciona, 13).toString());
-
-        }
     }
 
     private void save() {
@@ -203,7 +209,7 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
 
         p.setAcao_processo(jtfacao.getText());
         p.setId_cliente(jtfIdCliente.getText());
-        p.setId_vara(jtfidVara.getText());
+        p.setId_vara((varalist.get(jcbvara.getSelectedIndex()).getId_vara()));
         p.setDataInicio_processo(jtfdataInicio.getText());
         p.setDataFim_processo(jtfdataFim.getText());
         p.setDiaSemana_processo(jtfdiaSemana.getText());
@@ -213,21 +219,28 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
 
         InterfaceDao i = new ProcessoDao();
         i.cadastrar(p);
-//        busca("");
+        busca("");
         cancelar();
     }
 
     private void update() {
 
         Processo p = new Processo();
-
+        p.setId_processo(jtfid.getText());
         p.setNome_processo(jtfparteNome.getText());
         p.setNumero_processo(jtfnumeroProcesso.getText());
         p.setNumeroPasta_processo(jtfnumeroPasta.getText());
-        p.setAndamento_processo("n");
+        if (jrbnovo.isSelected()) {
+            p.setAndamento_processo("n");
+        } else if (jrbativo.isSelected()) {
+            p.setAndamento_processo("a");
+        } else {
+            p.setAndamento_processo("m");
+        }
+
         p.setAcao_processo(jtfacao.getText());
         p.setId_cliente(jtfIdCliente.getText());
-        p.setId_vara(jtfidVara.getText());
+        p.setId_vara(varalist.get(jcbvara.getSelectedIndex()).getId_vara());
         p.setDataInicio_processo(jtfdataInicio.getText());
         p.setDataFim_processo(jtfdataFim.getText());
         p.setDiaSemana_processo(jtfdiaSemana.getText());
@@ -237,9 +250,46 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
 
         InterfaceDao i = new ProcessoDao();
         i.atualizar(p);
-//        busca("");
+        busca("");
         cancelar();
 
+    }
+
+    private void dadostabela() {
+
+        if (table.isEnabled()) {
+
+            int seleciona = table.getSelectedRow();
+
+            jtfid.setText(table.getModel().getValueAt(seleciona, 0).toString());
+            jtfnomeCliente.setText(table.getModel().getValueAt(seleciona, 1).toString() + " " + table.getModel().getValueAt(seleciona, 2).toString());
+            jtfparteNome.setText(table.getModel().getValueAt(seleciona, 3).toString());
+            jtfnumeroProcesso.setText(table.getModel().getValueAt(seleciona, 4).toString());
+            jtfnumeroPasta.setText(table.getModel().getValueAt(seleciona, 5).toString());
+
+            if (table.getModel().getValueAt(seleciona, 6).toString().equalsIgnoreCase("n")) {
+                jrbnovo.setSelected(true);
+            } else if (table.getModel().getValueAt(seleciona, 6).toString().equalsIgnoreCase("a")) {
+                jrbativo.setSelected(true);
+            } else {
+                jrbmorto.setSelected(true);
+            }
+            jtfacao.setText(table.getModel().getValueAt(seleciona, 7).toString());
+            jtfIdCliente.setText(table.getModel().getValueAt(seleciona, 8).toString());
+            System.out.println(Integer.parseInt(table.getModel().getValueAt(seleciona, 9).toString()));
+            jcbvara.setSelectedIndex(Integer.parseInt(table.getModel().getValueAt(seleciona, 9).toString()) - 1);
+
+            jtfdataInicio.setText(table.getModel().getValueAt(seleciona, 10).toString());
+            jtfdataFim.setText(table.getModel().getValueAt(seleciona, 11).toString());
+            jtfdiaSemana.setText(table.getModel().getValueAt(seleciona, 12).toString());
+            jtanarrativa.setText(table.getModel().getValueAt(seleciona, 13).toString());
+            jtaconsulta.setText(table.getModel().getValueAt(seleciona, 14).toString());
+            jtaobs.setText(table.getModel().getValueAt(seleciona, 15).toString());
+            jtfnumeroCliente.setText(table.getModel().getValueAt(seleciona, 16).toString());
+            jtfrgCliente.setText(table.getModel().getValueAt(seleciona, 17).toString());
+            jtfcpfCliente.setText(table.getModel().getValueAt(seleciona, 18).toString());
+
+        }
     }
 
     /**
@@ -252,14 +302,14 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
     private void initComponents() {
 
         Consulta = new javax.swing.JPanel();
-        jtfbusca4 = new javax.swing.JTextField();
+        jtfbusca = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jrbnome = new javax.swing.JRadioButton();
         jrbnumero = new javax.swing.JRadioButton();
         jrbsobrenome = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable = new javax.swing.JTable();
+        jScrollPanetable = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
         jbnovo = new javax.swing.JButton();
         jbinserir = new javax.swing.JButton();
         jbatualizar = new javax.swing.JButton();
@@ -282,9 +332,9 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         aba1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jtfid = new javax.swing.JTextField();
-        jtfnumeroProcesso = new javax.swing.JTextField();
+        jtfnumeroProcesso = new JtextFieldSomenteNumeros(25);
         jLabel9 = new javax.swing.JLabel();
-        jtfnumeroPasta = new javax.swing.JTextField();
+        jtfnumeroPasta = new JtextFieldSomenteNumeros(25);
         jLabel10 = new javax.swing.JLabel();
         jtfacao = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -297,27 +347,28 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         jrbmorto = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jtfparteNome = new javax.swing.JTextField();
+        jtfparteNome = new JtextFieldSomenteLetras(100);
         jLabel2 = new javax.swing.JLabel();
         jtfdiaSemana = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtaobs = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
-        jtfnumeroMorto = new javax.swing.JTextField();
+        jtfnumeroMorto = new JtextFieldSomenteNumeros(25);
+        jLabel7 = new javax.swing.JLabel();
+        jcbvara = new javax.swing.JComboBox<>();
         aba3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jtanarrativa = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtaconsulta = new javax.swing.JTextArea();
-        aba4 = new javax.swing.JPanel();
-        jpvara = new javax.swing.JPanel();
-        jbbuscaVara = new javax.swing.JButton();
-        jtfidVara = new javax.swing.JTextField();
-        jtfnomeVara = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
 
         Consulta.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa"));
+
+        jtfbusca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtfbuscaKeyReleased(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtros"));
 
@@ -354,57 +405,75 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/em/icons/busca.png"))); // NOI18N
         jLabel5.setText("Buscar");
 
-        jTable.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "id", "Nome", "Número ", "Nº Pasta", "andamento", "idcli", "idvara", "dataI", "dataF", "dia", "narrativa", "consulta", "obs"
+                "id", "Nome Cliente", "Sobrenome Cliente", "Nomeparte", "Número ", "Nº Pasta", "andamento", "acao", "idcli", "idvara", "dataI", "dataF", "dia", "narrativa", "consulta", "obs", "numerocli", "rg", "cpf"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable.setColumnSelectionAllowed(true);
-        jTable.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable);
-        jTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        if (jTable.getColumnModel().getColumnCount() > 0) {
-            jTable.getColumnModel().getColumn(0).setMinWidth(0);
-            jTable.getColumnModel().getColumn(0).setPreferredWidth(0);
-            jTable.getColumnModel().getColumn(0).setMaxWidth(0);
-            jTable.getColumnModel().getColumn(4).setMinWidth(0);
-            jTable.getColumnModel().getColumn(4).setPreferredWidth(0);
-            jTable.getColumnModel().getColumn(4).setMaxWidth(0);
-            jTable.getColumnModel().getColumn(5).setMinWidth(0);
-            jTable.getColumnModel().getColumn(5).setPreferredWidth(0);
-            jTable.getColumnModel().getColumn(5).setMaxWidth(0);
-            jTable.getColumnModel().getColumn(6).setMinWidth(0);
-            jTable.getColumnModel().getColumn(6).setPreferredWidth(0);
-            jTable.getColumnModel().getColumn(6).setMaxWidth(0);
-            jTable.getColumnModel().getColumn(7).setMinWidth(0);
-            jTable.getColumnModel().getColumn(7).setPreferredWidth(0);
-            jTable.getColumnModel().getColumn(7).setMaxWidth(0);
-            jTable.getColumnModel().getColumn(8).setMinWidth(0);
-            jTable.getColumnModel().getColumn(8).setPreferredWidth(0);
-            jTable.getColumnModel().getColumn(8).setMaxWidth(0);
-            jTable.getColumnModel().getColumn(9).setMinWidth(0);
-            jTable.getColumnModel().getColumn(9).setPreferredWidth(0);
-            jTable.getColumnModel().getColumn(9).setMaxWidth(0);
-            jTable.getColumnModel().getColumn(10).setMinWidth(0);
-            jTable.getColumnModel().getColumn(10).setPreferredWidth(0);
-            jTable.getColumnModel().getColumn(10).setMaxWidth(0);
-            jTable.getColumnModel().getColumn(11).setMinWidth(0);
-            jTable.getColumnModel().getColumn(11).setPreferredWidth(0);
-            jTable.getColumnModel().getColumn(11).setMaxWidth(0);
-            jTable.getColumnModel().getColumn(12).setMinWidth(0);
-            jTable.getColumnModel().getColumn(12).setPreferredWidth(0);
-            jTable.getColumnModel().getColumn(12).setMaxWidth(0);
+        table.getTableHeader().setReorderingAllowed(false);
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
+        jScrollPanetable.setViewportView(table);
+        if (table.getColumnModel().getColumnCount() > 0) {
+            table.getColumnModel().getColumn(0).setMinWidth(0);
+            table.getColumnModel().getColumn(0).setPreferredWidth(0);
+            table.getColumnModel().getColumn(0).setMaxWidth(0);
+            table.getColumnModel().getColumn(3).setMinWidth(0);
+            table.getColumnModel().getColumn(3).setPreferredWidth(0);
+            table.getColumnModel().getColumn(3).setMaxWidth(0);
+            table.getColumnModel().getColumn(6).setMinWidth(0);
+            table.getColumnModel().getColumn(6).setPreferredWidth(0);
+            table.getColumnModel().getColumn(6).setMaxWidth(0);
+            table.getColumnModel().getColumn(7).setMinWidth(0);
+            table.getColumnModel().getColumn(7).setPreferredWidth(0);
+            table.getColumnModel().getColumn(7).setMaxWidth(0);
+            table.getColumnModel().getColumn(8).setMinWidth(0);
+            table.getColumnModel().getColumn(8).setPreferredWidth(0);
+            table.getColumnModel().getColumn(8).setMaxWidth(0);
+            table.getColumnModel().getColumn(9).setMinWidth(0);
+            table.getColumnModel().getColumn(9).setPreferredWidth(0);
+            table.getColumnModel().getColumn(9).setMaxWidth(0);
+            table.getColumnModel().getColumn(10).setMinWidth(0);
+            table.getColumnModel().getColumn(10).setPreferredWidth(0);
+            table.getColumnModel().getColumn(10).setMaxWidth(0);
+            table.getColumnModel().getColumn(11).setMinWidth(0);
+            table.getColumnModel().getColumn(11).setPreferredWidth(0);
+            table.getColumnModel().getColumn(11).setMaxWidth(0);
+            table.getColumnModel().getColumn(12).setMinWidth(0);
+            table.getColumnModel().getColumn(12).setPreferredWidth(0);
+            table.getColumnModel().getColumn(12).setMaxWidth(0);
+            table.getColumnModel().getColumn(13).setMinWidth(0);
+            table.getColumnModel().getColumn(13).setPreferredWidth(0);
+            table.getColumnModel().getColumn(13).setMaxWidth(0);
+            table.getColumnModel().getColumn(14).setMinWidth(0);
+            table.getColumnModel().getColumn(14).setPreferredWidth(0);
+            table.getColumnModel().getColumn(14).setMaxWidth(0);
+            table.getColumnModel().getColumn(15).setMinWidth(0);
+            table.getColumnModel().getColumn(15).setPreferredWidth(0);
+            table.getColumnModel().getColumn(15).setMaxWidth(0);
+            table.getColumnModel().getColumn(16).setMinWidth(0);
+            table.getColumnModel().getColumn(16).setPreferredWidth(0);
+            table.getColumnModel().getColumn(16).setMaxWidth(0);
+            table.getColumnModel().getColumn(17).setMinWidth(0);
+            table.getColumnModel().getColumn(17).setPreferredWidth(0);
+            table.getColumnModel().getColumn(17).setMaxWidth(0);
+            table.getColumnModel().getColumn(18).setMinWidth(0);
+            table.getColumnModel().getColumn(18).setPreferredWidth(0);
+            table.getColumnModel().getColumn(18).setMaxWidth(0);
         }
 
         javax.swing.GroupLayout ConsultaLayout = new javax.swing.GroupLayout(Consulta);
@@ -418,10 +487,10 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfbusca4))
+                        .addComponent(jtfbusca))
                     .addGroup(ConsultaLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1)))
+                        .addComponent(jScrollPanetable)))
                 .addContainerGap())
         );
         ConsultaLayout.setVerticalGroup(
@@ -432,10 +501,10 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
                         .addContainerGap()
                         .addGroup(ConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jtfbusca4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jtfbusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPanetable, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -611,8 +680,20 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
 
         jLabel12.setText("Data de Fim:");
 
+        try {
+            javax.swing.text.MaskFormatter nsc= new javax.swing.text.MaskFormatter("##/##/####");
+            jtfdataInicio = new javax.swing.JFormattedTextField(nsc);
+        } catch (Exception exception) {
+
+        }
         jtfdataInicio.setEnabled(false);
 
+        try {
+            javax.swing.text.MaskFormatter nsc= new javax.swing.text.MaskFormatter("##/##/####");
+            jtfdataFim = new javax.swing.JFormattedTextField(nsc);
+        } catch (Exception exception) {
+
+        }
         jtfdataFim.setEnabled(false);
 
         jpandamento.setBorder(javax.swing.BorderFactory.createTitledBorder("Andamento"));
@@ -620,12 +701,27 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         jrbnovo.setSelected(true);
         jrbnovo.setText("Novo");
         jrbnovo.setEnabled(false);
+        jrbnovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbnovoActionPerformed(evt);
+            }
+        });
 
         jrbativo.setText("Ativo");
         jrbativo.setEnabled(false);
+        jrbativo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbativoActionPerformed(evt);
+            }
+        });
 
         jrbmorto.setText("Morto");
         jrbmorto.setEnabled(false);
+        jrbmorto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbmortoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpandamentoLayout = new javax.swing.GroupLayout(jpandamento);
         jpandamento.setLayout(jpandamentoLayout);
@@ -671,6 +767,10 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
 
         jtfnumeroMorto.setEnabled(false);
 
+        jLabel7.setText("Vara:");
+
+        jcbvara.setEnabled(false);
+
         javax.swing.GroupLayout aba1Layout = new javax.swing.GroupLayout(aba1);
         aba1.setLayout(aba1Layout);
         aba1Layout.setHorizontalGroup(
@@ -681,19 +781,23 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
                     .addGroup(aba1Layout.createSequentialGroup()
                         .addGroup(aba1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel12)
-                            .addComponent(jLabel11))
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(aba1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtfdataInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(jtfdataFim))
-                        .addGap(18, 18, 18)
-                        .addGroup(aba1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(aba1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfdiaSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfnumeroMorto, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(aba1Layout.createSequentialGroup()
+                                .addGroup(aba1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jtfdataInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(jtfdataFim))
+                                .addGap(18, 18, 18)
+                                .addGroup(aba1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(aba1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jtfdiaSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtfnumeroMorto, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jcbvara, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2))
                     .addGroup(aba1Layout.createSequentialGroup()
@@ -757,9 +861,13 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
                             .addComponent(jtfdataFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
                             .addComponent(jtfnumeroMorto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(aba1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jcbvara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aba1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
@@ -802,80 +910,6 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         );
 
         jTabbedPane1.addTab("Narrativa e Consulta", aba3);
-
-        jbbuscaVara.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/em/icons/busca.png"))); // NOI18N
-        jbbuscaVara.setEnabled(false);
-        jbbuscaVara.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbbuscaVaraActionPerformed(evt);
-            }
-        });
-
-        jtfidVara.setEnabled(false);
-
-        jtfnomeVara.setEnabled(false);
-
-        jLabel19.setText("Nome:");
-
-        jLabel20.setText("Id:");
-
-        javax.swing.GroupLayout jpvaraLayout = new javax.swing.GroupLayout(jpvara);
-        jpvara.setLayout(jpvaraLayout);
-        jpvaraLayout.setHorizontalGroup(
-            jpvaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpvaraLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jpvaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpvaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpvaraLayout.createSequentialGroup()
-                        .addComponent(jtfidVara, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 756, Short.MAX_VALUE)
-                        .addComponent(jbbuscaVara))
-                    .addComponent(jtfnomeVara))
-                .addContainerGap())
-        );
-        jpvaraLayout.setVerticalGroup(
-            jpvaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpvaraLayout.createSequentialGroup()
-                .addGroup(jpvaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpvaraLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jpvaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel20)
-                            .addComponent(jtfidVara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jbbuscaVara))
-                .addGap(18, 18, 18)
-                .addGroup(jpvaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19)
-                    .addComponent(jtfnomeVara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(79, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout aba4Layout = new javax.swing.GroupLayout(aba4);
-        aba4.setLayout(aba4Layout);
-        aba4Layout.setHorizontalGroup(
-            aba4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 990, Short.MAX_VALUE)
-            .addGroup(aba4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(aba4Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jpvara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        aba4Layout.setVerticalGroup(
-            aba4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 203, Short.MAX_VALUE)
-            .addGroup(aba4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aba4Layout.createSequentialGroup()
-                    .addContainerGap(41, Short.MAX_VALUE)
-                    .addComponent(jpvara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
-        );
-
-        jTabbedPane1.addTab("Dados da Vara", aba4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -946,16 +980,31 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         jtfrgCliente.setText(tbc.rgcli);
     }//GEN-LAST:event_jbbuscaClienteActionPerformed
 
-    private void jbbuscaVaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbbuscaVaraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbbuscaVaraActionPerformed
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+        dadostabela();
+    }//GEN-LAST:event_tableMouseClicked
+
+    private void jrbmortoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbmortoActionPerformed
+        jtfnumeroMorto.setEnabled(true);
+    }//GEN-LAST:event_jrbmortoActionPerformed
+
+    private void jrbnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbnovoActionPerformed
+        jtfnumeroMorto.setEnabled(false);
+    }//GEN-LAST:event_jrbnovoActionPerformed
+
+    private void jrbativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbativoActionPerformed
+        jtfnumeroMorto.setEnabled(false);
+    }//GEN-LAST:event_jrbativoActionPerformed
+
+    private void jtfbuscaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfbuscaKeyReleased
+        busca(jtfbusca.getText());
+    }//GEN-LAST:event_jtfbuscaKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Consulta;
     private javax.swing.JPanel aba1;
     private javax.swing.JPanel aba2;
     private javax.swing.JPanel aba3;
-    private javax.swing.JPanel aba4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -964,32 +1013,29 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPanetable;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable;
     private javax.swing.JButton jbatualizar;
     private javax.swing.JButton jbbuscaCliente;
-    private javax.swing.JButton jbbuscaVara;
     private javax.swing.JButton jbcancelar;
     private javax.swing.JButton jbinserir;
     private javax.swing.JButton jbnovo;
     private javax.swing.JButton jbsalvaratualizar;
+    private javax.swing.JComboBox<String> jcbvara;
     private javax.swing.JPanel jpandamento;
     private javax.swing.JPanel jpcliente;
-    private javax.swing.JPanel jpvara;
     private javax.swing.JRadioButton jrbativo;
     private javax.swing.JRadioButton jrbmorto;
     private javax.swing.JRadioButton jrbnome;
@@ -1001,21 +1047,20 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
     private javax.swing.JTextArea jtaobs;
     private javax.swing.JTextField jtfIdCliente;
     private javax.swing.JTextField jtfacao;
-    private javax.swing.JTextField jtfbusca4;
+    private javax.swing.JTextField jtfbusca;
     private javax.swing.JTextField jtfcpfCliente;
     private javax.swing.JTextField jtfdataFim;
     private javax.swing.JTextField jtfdataInicio;
     private javax.swing.JTextField jtfdiaSemana;
     private javax.swing.JTextField jtfid;
-    private javax.swing.JTextField jtfidVara;
     private javax.swing.JTextField jtfnomeCliente;
-    private javax.swing.JTextField jtfnomeVara;
     private javax.swing.JTextField jtfnumeroCliente;
     private javax.swing.JTextField jtfnumeroMorto;
     private javax.swing.JTextField jtfnumeroPasta;
     private javax.swing.JTextField jtfnumeroProcesso;
     private javax.swing.JTextField jtfparteNome;
     private javax.swing.JTextField jtfrgCliente;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 
 }

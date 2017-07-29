@@ -72,6 +72,7 @@ public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
         jbConsultarProcesso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/em/icons/processover.png"))); // NOI18N
         jbConsultarProcesso.setText("<html><p align=\"center\" >Consultar<br>Processo");
         jbConsultarProcesso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbConsultarProcesso.setEnabled(false);
         jbConsultarProcesso.setFocusPainted(false);
         jbConsultarProcesso.setFocusable(false);
         jbConsultarProcesso.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -197,6 +198,7 @@ public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
         jbAndamentoProcesso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/em/icons/and_process.png"))); // NOI18N
         jbAndamentoProcesso.setText("<html><p align=\"center\" >Andamento<br>Processual ");
         jbAndamentoProcesso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbAndamentoProcesso.setEnabled(false);
         jbAndamentoProcesso.setFocusPainted(false);
         jbAndamentoProcesso.setFocusable(false);
         jbAndamentoProcesso.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -386,7 +388,7 @@ public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
     private void jbCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarClienteActionPerformed
 
         jpcc.setBounds(0, 0, 1030, 460);
-        jlpPrincipal.remove(jpcp);
+        jlpPrincipal.removeAll();
         jlpPrincipal.add(jpcc, new Integer(0), 0);
         jlpPrincipal.moveToFront(jpcc);
     }//GEN-LAST:event_jbCadastrarClienteActionPerformed
@@ -406,7 +408,7 @@ public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
     private void jbCadastrarProcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarProcessoActionPerformed
 
         jpcp.setBounds(0, 0, 1030, 460);
-        jlpPrincipal.remove(jpcc);
+        jlpPrincipal.removeAll();
         jlpPrincipal.add(jpcp, new Integer(0), 0);
         jlpPrincipal.moveToFront(jpcp);
     }//GEN-LAST:event_jbCadastrarProcessoActionPerformed
@@ -420,7 +422,7 @@ public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
 
     private void jbMinhaAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMinhaAgendaActionPerformed
         jpa.setBounds(0, 0, 1030, 460);
-
+        jlpPrincipal.removeAll();
         jlpPrincipal.add(jpa, new Integer(0), 0);
         jlpPrincipal.moveToFront(jpa);
     }//GEN-LAST:event_jbMinhaAgendaActionPerformed
@@ -540,7 +542,7 @@ public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
     private void jbAndamentoProcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAndamentoProcessoActionPerformed
 
     }//GEN-LAST:event_jbAndamentoProcessoActionPerformed
-   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;

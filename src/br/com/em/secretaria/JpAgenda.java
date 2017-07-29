@@ -5,6 +5,12 @@
  */
 package br.com.em.secretaria;
 
+import br.com.em.dao.AgendaVoDao;
+import br.com.em.dao.InterfaceDao;
+import br.com.em.vo.AgendaVo;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author pablo
@@ -17,6 +23,7 @@ public class JpAgenda extends javax.swing.JPanel {
     public JpAgenda() {
         initComponents();
 
+        jthorarios.updateUI();
     }
 
     /**
@@ -64,10 +71,28 @@ public class JpAgenda extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Hora", "Número do Processo", "Número do Cliente", "Ação"
+                "Hora", "atividade", "Número do Processo", "Número do Cliente", "Ação"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jthorarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jthorariosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jthorarios);
+        if (jthorarios.getColumnModel().getColumnCount() > 0) {
+            jthorarios.getColumnModel().getColumn(1).setMinWidth(0);
+            jthorarios.getColumnModel().getColumn(1).setPreferredWidth(0);
+            jthorarios.getColumnModel().getColumn(1).setMaxWidth(0);
+        }
 
         jccalendario.setBorder(javax.swing.BorderFactory.createTitledBorder("Calendário"));
         jccalendario.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -127,8 +152,35 @@ public class JpAgenda extends javax.swing.JPanel {
     }//GEN-LAST:event_jpccalendarioPropertyChange
 
     private void jccalendarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jccalendarioPropertyChange
-        System.out.println(jccalendario.getDate().toString().format("%1$td-%1$tm-%1$ty", jccalendario.getDate()));
+        InterfaceDao i = new AgendaVoDao();
+        List<AgendaVo> list = i.listar(jccalendario.getDate().toString().format("%1$td-%1$tm-%1$ty", jccalendario.getDate()), "");
+
+        DefaultTableModel tableModel = (DefaultTableModel) jthorarios.getModel();
+        tableModel.setNumRows(0);
+
+        list.stream().forEach((AgendaVo lista) -> {
+            tableModel.addRow(new Object[]{
+                lista.getHora_agenda(),
+                lista.getAtividade_agenda(),
+                lista.getNumero_processo(),
+                lista.getNumero_cliente(),
+                lista.getAcao_processo()
+            });
+        });
+
+        jthorarios.updateUI();
+
     }//GEN-LAST:event_jccalendarioPropertyChange
+
+    private void jthorariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jthorariosMouseClicked
+        if (jthorarios.isEnabled()) {
+
+            int seleciona = jthorarios.getSelectedRow();
+
+            jtaatividades.setText(jthorarios.getModel().getValueAt(seleciona, 1).toString());
+
+        }
+    }//GEN-LAST:event_jthorariosMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
