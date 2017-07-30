@@ -5,6 +5,7 @@
  */
 package br.com.em.secretaria;
 
+import static br.com.em.main.JfTelaLogin.usuario;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,15 +23,18 @@ import javax.swing.Timer;
  */
 public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
 
-    JpCadastrarCliente jpcc = new JpCadastrarCliente();
-    JpCadastrarProcesso jpcp = new JpCadastrarProcesso();
+    JpCliente jpc = new JpCliente();
+    JpProcesso jpp = new JpProcesso();
     JpAgenda jpa = new JpAgenda();
+   JpAndamentoProcessual jpap = new JpAndamentoProcessual();
 
     /**
      * Creates new form TelaPrincipalSecretaria
      */
     public JfTelaPrincipalSecretaria() {
         initComponents();
+        
+       
     }
 
     /**
@@ -198,7 +202,6 @@ public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
         jbAndamentoProcesso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/em/icons/and_process.png"))); // NOI18N
         jbAndamentoProcesso.setText("<html><p align=\"center\" >Andamento<br>Processual ");
         jbAndamentoProcesso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbAndamentoProcesso.setEnabled(false);
         jbAndamentoProcesso.setFocusPainted(false);
         jbAndamentoProcesso.setFocusable(false);
         jbAndamentoProcesso.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -387,10 +390,10 @@ public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
 
     private void jbCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarClienteActionPerformed
 
-        jpcc.setBounds(0, 0, 1030, 460);
+        jpc.setBounds(0, 0, 1030, 460);
         jlpPrincipal.removeAll();
-        jlpPrincipal.add(jpcc, new Integer(0), 0);
-        jlpPrincipal.moveToFront(jpcc);
+        jlpPrincipal.add(jpc, new Integer(0), 0);
+        jlpPrincipal.moveToFront(jpc);
     }//GEN-LAST:event_jbCadastrarClienteActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -403,14 +406,16 @@ public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
         jldata.setText(formatador.format(data));
         Timer timer = new Timer(1000, new hora());
         timer.start();
+        
+        jlusuario.setText(usuario);
     }//GEN-LAST:event_formWindowActivated
 
     private void jbCadastrarProcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarProcessoActionPerformed
 
-        jpcp.setBounds(0, 0, 1030, 460);
+        jpp.setBounds(0, 0, 1030, 460);
         jlpPrincipal.removeAll();
-        jlpPrincipal.add(jpcp, new Integer(0), 0);
-        jlpPrincipal.moveToFront(jpcp);
+        jlpPrincipal.add(jpp, new Integer(0), 0);
+        jlpPrincipal.moveToFront(jpp);
     }//GEN-LAST:event_jbCadastrarProcessoActionPerformed
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
@@ -540,7 +545,10 @@ public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_jbAndamentoProcessoMouseExited
 
     private void jbAndamentoProcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAndamentoProcessoActionPerformed
-
+        jpap.setBounds(0, 0, 1030, 460);
+        jlpPrincipal.removeAll();
+        jlpPrincipal.add(jpap, new Integer(0), 0);
+        jlpPrincipal.moveToFront(jpap);
     }//GEN-LAST:event_jbAndamentoProcessoActionPerformed
 
 

@@ -17,10 +17,8 @@
 package br.com.em.secretaria;
 
 import br.com.em.dao.AgendaDao;
-import br.com.em.dao.AgendaVoDao;
 import br.com.em.dao.InterfaceDao;
 import br.com.em.modelo.Agenda;
-import br.com.em.vo.AgendaVo;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -248,11 +246,11 @@ public class JdAgenda extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 90, Short.MAX_VALUE)
+                                .addGap(0, 77, Short.MAX_VALUE)
                                 .addComponent(jbnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(11, 11, 11)
                                 .addComponent(jbinserir, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(jbatualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jbsalvaratualizar)

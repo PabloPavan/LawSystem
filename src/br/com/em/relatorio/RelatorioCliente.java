@@ -25,7 +25,7 @@ public class RelatorioCliente extends ModuloConexao {
     public RelatorioCliente(Map parametros) {
         try {
             conexao = this.conector();
-            JasperPrint impressao = JasperFillManager.fillReport("C:\\Users\\pablo\\cliente.jasper", parametros, conexao);
+            JasperPrint impressao = JasperFillManager.fillReport(".//cliente.jasper", parametros, conexao);
             JasperViewer viewer = new JasperViewer(impressao, false);
             viewer.show();
         } catch (ClassNotFoundException ex) {

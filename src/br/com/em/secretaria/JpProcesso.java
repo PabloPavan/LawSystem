@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,23 +15,27 @@ import br.com.em.extra.JtextFieldSomenteLetras;
 import br.com.em.extra.JtextFieldSomenteNumeros;
 import br.com.em.modelo.Processo;
 import br.com.em.modelo.Vara;
+import br.com.em.relatorio.RelatorioCliente;
 import br.com.em.vo.ProcessoVo;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author pablo
  */
-public class JpCadastrarProcesso extends javax.swing.JPanel {
+public class JpProcesso extends javax.swing.JPanel {
 
     /**
      * Creates new form jpCadastrarCliente
      */
     List<Vara> varalist;
 
-    public JpCadastrarProcesso() {
+    public JpProcesso() {
 
         initComponents();
 
@@ -217,10 +222,16 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         p.setConsulta_processo(jtaconsulta.getText());
         p.setObs_processo(jtaobs.getText());
 
-        InterfaceDao i = new ProcessoDao();
-        i.cadastrar(p);
+        if (!jtfIdCliente.getText().isEmpty()) {
+            InterfaceDao i = new ProcessoDao();
+            i.cadastrar(p);
+            cancelar();
+        } else {
+            JOptionPane.showMessageDialog(null, "É Preciso Adiconar um Cliente na Aba Dados do Cliente");
+        }
+
         busca("");
-        cancelar();
+
     }
 
     private void update() {
@@ -361,6 +372,7 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         jtanarrativa = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtaconsulta = new javax.swing.JTextArea();
+        jbimprimir = new javax.swing.JButton();
 
         Consulta.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa"));
 
@@ -562,7 +574,7 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
 
         jtfcpfCliente.setEnabled(false);
 
-        jbbuscaCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/em/icons/busca.png"))); // NOI18N
+        jbbuscaCliente.setText("Buscar Cliente");
         jbbuscaCliente.setEnabled(false);
         jbbuscaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -584,63 +596,52 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
             jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpclienteLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14))
                 .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpclienteLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
+                        .addComponent(jbbuscaCliente)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtfIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)
-                        .addGap(12, 12, 12)
-                        .addComponent(jtfnumeroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbbuscaCliente)
-                        .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtfnumeroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpclienteLayout.createSequentialGroup()
+                        .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel14))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtfnomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jpclienteLayout.createSequentialGroup()
                                 .addComponent(jtfcpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtfrgCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(540, Short.MAX_VALUE))
-                            .addGroup(jpclienteLayout.createSequentialGroup()
-                                .addComponent(jtfnomeCliente)
-                                .addGap(94, 94, 94))))))
+                                .addComponent(jtfrgCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
         jpclienteLayout.setVerticalGroup(
             jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpclienteLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpclienteLayout.createSequentialGroup()
-                        .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtfnumeroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jpclienteLayout.createSequentialGroup()
-                        .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtfIdCliente)
-                            .addComponent(jLabel13))
-                        .addGap(25, 25, 25)
-                        .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtfnomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15))
-                        .addGap(18, 18, 18)
-                        .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(jtfcpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(jtfrgCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(50, Short.MAX_VALUE))
-                    .addGroup(jpclienteLayout.createSequentialGroup()
-                        .addComponent(jbbuscaCliente)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbbuscaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(jtfIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jtfnumeroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtfnomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addGap(18, 18, 18)
+                .addGroup(jpclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jtfcpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jtfrgCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout aba2Layout = new javax.swing.GroupLayout(aba2);
@@ -655,7 +656,7 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         aba2Layout.setVerticalGroup(
             aba2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aba2Layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
+                .addContainerGap(26, Short.MAX_VALUE)
                 .addComponent(jpcliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -911,6 +912,14 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Narrativa e Consulta", aba3);
 
+        jbimprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/em/icons/Print.png"))); // NOI18N
+        jbimprimir.setText("Imprimir");
+        jbimprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbimprimirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -921,10 +930,12 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
                     .addComponent(Consulta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jbimprimir)
+                        .addGap(18, 18, 18)
                         .addComponent(jbnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jbinserir, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jbatualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jbsalvaratualizar)
@@ -945,7 +956,8 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
                     .addComponent(jbatualizar)
                     .addComponent(jbsalvaratualizar)
                     .addComponent(jbcancelar)
-                    .addComponent(jbnovo))
+                    .addComponent(jbnovo)
+                    .addComponent(jbimprimir))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -1000,6 +1012,17 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
         busca(jtfbusca.getText());
     }//GEN-LAST:event_jtfbuscaKeyReleased
 
+    private void jbimprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbimprimirActionPerformed
+        if (!jtfid.getText().isEmpty()) {
+            Map parametros = new HashMap();
+            parametros.put("id_processo", Integer.parseInt(jtfid.getText()));
+            RelatorioCliente rc = new RelatorioCliente(parametros);
+        } else {
+            JOptionPane.showMessageDialog(null, "Para Imprimir é Necessário Selecionar um Processo na Tabela");
+        }
+
+    }//GEN-LAST:event_jbimprimirActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Consulta;
     private javax.swing.JPanel aba1;
@@ -1030,6 +1053,7 @@ public class JpCadastrarProcesso extends javax.swing.JPanel {
     private javax.swing.JButton jbatualizar;
     private javax.swing.JButton jbbuscaCliente;
     private javax.swing.JButton jbcancelar;
+    private javax.swing.JButton jbimprimir;
     private javax.swing.JButton jbinserir;
     private javax.swing.JButton jbnovo;
     private javax.swing.JButton jbsalvaratualizar;

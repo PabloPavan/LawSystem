@@ -23,12 +23,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author pablo
  */
-public class JpCadastrarCliente extends javax.swing.JPanel {
+public class JpCliente extends javax.swing.JPanel {
 
     /**
      * Creates new form jpCadastrarCliente
      */
-    public JpCadastrarCliente() {
+    public JpCliente() {
         initComponents();
 
         busca("");
@@ -1070,40 +1070,39 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbnovoActionPerformed
-        novo();
-    }//GEN-LAST:event_jbnovoActionPerformed
+    private void jbatualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbatualizarActionPerformed
+        updateLiberar();
+    }//GEN-LAST:event_jbatualizarActionPerformed
 
     private void jbinserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbinserirActionPerformed
         save();
     }//GEN-LAST:event_jbinserirActionPerformed
 
-    private void jbatualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbatualizarActionPerformed
-        updateLiberar();
-    }//GEN-LAST:event_jbatualizarActionPerformed
-
-    private void jbsalvaratualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalvaratualizarActionPerformed
-        update();
-    }//GEN-LAST:event_jbsalvaratualizarActionPerformed
-
-    private void jbcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcancelarActionPerformed
-        cancelar();
-    }//GEN-LAST:event_jbcancelarActionPerformed
-
-    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
-        dadostabela();
-    }//GEN-LAST:event_tableMouseClicked
-
-    private void jtfbuscaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfbuscaKeyReleased
-        busca(jtfbusca.getText());
-    }//GEN-LAST:event_jtfbuscaKeyReleased
+    private void jbnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbnovoActionPerformed
+        novo();
+    }//GEN-LAST:event_jbnovoActionPerformed
 
     private void jbimprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbimprimirActionPerformed
         Map parametros = new HashMap();
         parametros.put("id_cliente", Integer.parseInt(jtfid.getText()));
         RelatorioCliente rc = new RelatorioCliente(parametros);
-
     }//GEN-LAST:event_jbimprimirActionPerformed
+
+    private void jbcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcancelarActionPerformed
+        cancelar();
+    }//GEN-LAST:event_jbcancelarActionPerformed
+
+    private void jbsalvaratualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalvaratualizarActionPerformed
+        update();
+    }//GEN-LAST:event_jbsalvaratualizarActionPerformed
+
+    private void jtfbuscaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfbuscaKeyReleased
+        busca(jtfbusca.getText());
+    }//GEN-LAST:event_jtfbuscaKeyReleased
+
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+        dadostabela();
+    }//GEN-LAST:event_tableMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel aba1;
@@ -1138,7 +1137,7 @@ public class JpCadastrarCliente extends javax.swing.JPanel {
     private javax.swing.JButton jbnovo;
     private javax.swing.JButton jbsalvaratualizar;
     private javax.swing.JCheckBox jcbdefere;
-    public static javax.swing.JCheckBox jcbinativo;
+    private javax.swing.JCheckBox jcbinativo;
     private javax.swing.JComboBox<String> jcbsexo;
     private javax.swing.JLabel jlcpf;
     private javax.swing.JLabel jlnascimento;

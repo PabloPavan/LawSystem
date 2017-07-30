@@ -1356,3 +1356,416 @@ jul 29, 2017 8:15:38 AM br.com.em.main.JfTelaLogin logar
 INFORMAÇÕES: 
 jul 29, 2017 9:16:23 AM br.com.em.main.JfTelaLogin logar
 INFORMAÇÕES: s
+jul 30, 2017 2:06:12 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 2:19:41 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 2:20:16 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 2:22:15 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 2:23:35 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 2:24:02 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 2:24:49 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 2:25:45 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 2:29:56 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 2:31:56 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 2:33:15 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 2:35:04 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 2:36:09 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:12:24 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:14:36 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:22:50 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:28:55 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:31:17 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:31:38 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:32:13 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:32:51 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:33:20 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:33:38 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:45:56 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:46:31 AM br.com.em.dao.AgendaDao cadastrar
+GRAVE: null
+java.sql.SQLException: Parameter index out of range (1 > number of parameters, which is 0).
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:964)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:897)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:886)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:860)
+	at com.mysql.jdbc.PreparedStatement.checkBounds(PreparedStatement.java:3327)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3312)
+	at com.mysql.jdbc.PreparedStatement.setString(PreparedStatement.java:4027)
+	at br.com.em.dao.AgendaDao.cadastrar(AgendaDao.java:48)
+	at br.com.em.dao.AgendaDao.cadastrar(AgendaDao.java:35)
+	at br.com.em.secretaria.JdAgenda.save(JdAgenda.java:344)
+	at br.com.em.secretaria.JdAgenda.jbinserirActionPerformed(JdAgenda.java:378)
+	at br.com.em.secretaria.JdAgenda.access$300(JdAgenda.java:35)
+	at br.com.em.secretaria.JdAgenda$4.actionPerformed(JdAgenda.java:146)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:109)
+	at java.awt.WaitDispatchSupport$2.run(WaitDispatchSupport.java:184)
+	at java.awt.WaitDispatchSupport$4.run(WaitDispatchSupport.java:229)
+	at java.awt.WaitDispatchSupport$4.run(WaitDispatchSupport.java:227)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.awt.WaitDispatchSupport.enter(WaitDispatchSupport.java:227)
+	at java.awt.Dialog.show(Dialog.java:1084)
+	at java.awt.Component.show(Component.java:1671)
+	at java.awt.Component.setVisible(Component.java:1623)
+	at java.awt.Window.setVisible(Window.java:1014)
+	at java.awt.Dialog.setVisible(Dialog.java:1005)
+	at br.com.em.secretaria.JpAgenda.jButton2ActionPerformed(JpAgenda.java:203)
+	at br.com.em.secretaria.JpAgenda.access$200(JpAgenda.java:20)
+	at br.com.em.secretaria.JpAgenda$4.actionPerformed(JpAgenda.java:132)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 30, 2017 3:47:41 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:52:21 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:54:26 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:54:58 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:57:14 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 3:57:32 AM br.com.em.dao.AgendaDao cadastrar
+INFORMAÇÕES: Cadastrou | Agenda:  | Usuario: 
+jul 30, 2017 4:00:56 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 4:01:15 AM br.com.em.dao.AgendaDao cadastrar
+INFORMAÇÕES: Cadastrou | Agenda:  | Usuario: 
+jul 30, 2017 4:03:31 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 4:10:57 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 
+jul 30, 2017 4:22:39 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 4:24:06 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 4:29:31 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 4:36:13 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 4:36:32 AM br.com.em.dao.ClienteDao cadastrar
+INFORMAÇÕES: Cadastrou | Cliente: 12 | Usuario: secretaria
+jul 30, 2017 4:36:55 AM br.com.em.dao.ClienteDao atualizar
+INFORMAÇÕES: Atualizou | Cliente: 12 | Usuario: secretaria
+jul 30, 2017 4:41:15 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 4:49:52 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 4:50:29 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 4:56:17 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 5:08:57 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 5:11:36 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 5:12:20 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 5:13:22 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 5:14:53 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 5:15:36 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 5:22:43 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 5:26:07 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 7:09:12 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 7:09:22 AM br.com.em.relatorio.RelatorioCliente <init>
+GRAVE: null
+net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: cliente.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:114)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:103)
+	at net.sf.jasperreports.engine.JasperFillManager.fill(JasperFillManager.java:283)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:760)
+	at br.com.em.relatorio.RelatorioCliente.<init>(RelatorioCliente.java:28)
+	at br.com.em.secretaria.JpProcesso.jbimprimirActionPerformed(JpProcesso.java:1018)
+	at br.com.em.secretaria.JpProcesso.access$1100(JpProcesso.java:31)
+	at br.com.em.secretaria.JpProcesso$13.actionPerformed(JpProcesso.java:919)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.io.FileNotFoundException: cliente.jasper
+	... 44 more
+
+jul 30, 2017 7:12:06 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 7:12:21 AM br.com.em.relatorio.RelatorioCliente <init>
+GRAVE: null
+net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: cliente.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:114)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:103)
+	at net.sf.jasperreports.engine.JasperFillManager.fill(JasperFillManager.java:283)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:760)
+	at br.com.em.relatorio.RelatorioCliente.<init>(RelatorioCliente.java:28)
+	at br.com.em.secretaria.JpProcesso.jbimprimirActionPerformed(JpProcesso.java:1019)
+	at br.com.em.secretaria.JpProcesso.access$1100(JpProcesso.java:31)
+	at br.com.em.secretaria.JpProcesso$13.actionPerformed(JpProcesso.java:919)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.io.FileNotFoundException: cliente.jasper
+	... 44 more
+
+jul 30, 2017 7:12:45 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 7:12:49 AM br.com.em.relatorio.RelatorioCliente <init>
+GRAVE: null
+net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: .\cliente.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:114)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:103)
+	at net.sf.jasperreports.engine.JasperFillManager.fill(JasperFillManager.java:283)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:760)
+	at br.com.em.relatorio.RelatorioCliente.<init>(RelatorioCliente.java:28)
+	at br.com.em.secretaria.JpProcesso.jbimprimirActionPerformed(JpProcesso.java:1019)
+	at br.com.em.secretaria.JpProcesso.access$1100(JpProcesso.java:31)
+	at br.com.em.secretaria.JpProcesso$13.actionPerformed(JpProcesso.java:919)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.io.FileNotFoundException: .\cliente.jasper
+	... 44 more
+
+jul 30, 2017 7:13:13 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 7:13:17 AM br.com.em.relatorio.RelatorioCliente <init>
+GRAVE: null
+net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: .\cliente.jasper
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:114)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:103)
+	at net.sf.jasperreports.engine.JasperFillManager.fill(JasperFillManager.java:283)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:760)
+	at br.com.em.relatorio.RelatorioCliente.<init>(RelatorioCliente.java:28)
+	at br.com.em.secretaria.JpProcesso.jbimprimirActionPerformed(JpProcesso.java:1019)
+	at br.com.em.secretaria.JpProcesso.access$1100(JpProcesso.java:31)
+	at br.com.em.secretaria.JpProcesso$13.actionPerformed(JpProcesso.java:919)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.io.FileNotFoundException: .\cliente.jasper
+	... 44 more
+
+jul 30, 2017 7:14:26 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria

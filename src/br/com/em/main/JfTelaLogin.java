@@ -26,7 +26,7 @@ public class JfTelaLogin extends javax.swing.JFrame {
     ResultSet rs = null;
 
     public void logar() {
-        String sql = "select * from emodelo.modelo_tb_usuario where login_usuario=? and senha_usuario=? and  inativo_usuario ='false' or inativo_usuario IS NULL";
+        String sql = "select * from emodelo.modelo_tb_usuario where login_usuario=? and senha_usuario=? and  inativo_usuario ='false' ";
         try {
             pst = conexao.prepareStatement(sql);
             String nome = jtfusuario.getText();
