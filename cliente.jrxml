@@ -174,7 +174,7 @@
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Cadastro de Cliente / Pedido de Atendimento]]></text>
+				<text><![CDATA[Cadastro de Cliente / Pedido de Atendimento / Processo]]></text>
 			</staticText>
 			<line>
 				<reportElement x="8" y="24" width="554" height="1" uuid="a8175afa-08e8-428a-92e7-3c190004fcb5"/>
@@ -512,65 +512,45 @@
 				<textFieldExpression><![CDATA[$F{relacaoBens_cliente}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="8" y="281" width="100" height="20" uuid="7b16a649-5cbd-413a-8cbe-851c1a48743e"/>
+				<reportElement x="8" y="321" width="100" height="20" uuid="7b16a649-5cbd-413a-8cbe-851c1a48743e"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
 				<text><![CDATA[Data de Registro:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="108" y="281" width="76" height="20" uuid="e083d825-7eb2-45fb-8304-9e1f5d8672de"/>
+				<reportElement x="108" y="321" width="76" height="20" uuid="e083d825-7eb2-45fb-8304-9e1f5d8672de"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dataRegistro_cliente}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="184" y="281" width="114" height="20" uuid="abea3a25-fdf3-470b-a0ea-0b8de414ec65"/>
+				<reportElement x="304" y="241" width="114" height="20" uuid="abea3a25-fdf3-470b-a0ea-0b8de414ec65"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
 				<text><![CDATA[Dia da Semana/Turno:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="298" y="281" width="100" height="20" uuid="f84fdbb9-10c3-4be9-86f7-c64824fb9e17"/>
+				<reportElement x="417" y="241" width="100" height="20" uuid="f84fdbb9-10c3-4be9-86f7-c64824fb9e17"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{diaSemana_processo}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="8" y="312" width="27" height="20" uuid="32338ae3-5e29-4815-bf39-cdeffa83c4e0"/>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[Ass.:]]></text>
-			</staticText>
-			<line>
-				<reportElement x="35" y="329" width="226" height="1" uuid="e8257f30-87a5-4072-8d4a-6b7f7bb1d810"/>
-			</line>
-			<staticText>
-				<reportElement x="284" y="312" width="27" height="20" uuid="f9e6dedf-845e-492d-bf03-a25acc83ee38"/>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[Ass.:]]></text>
-			</staticText>
-			<line>
-				<reportElement x="315" y="328" width="226" height="1" uuid="67dd3b51-f277-47ba-b919-c14e22de6c4e"/>
-			</line>
 			<line>
 				<reportElement x="8" y="342" width="554" height="1" forecolor="#CCCCCC" uuid="471fba3f-88e6-4bb5-8a8d-0de6ee8145b7"/>
 			</line>
 			<staticText>
-				<reportElement x="432" y="281" width="45" height="20" uuid="747ba2b8-b07c-49d2-9570-1c1cceb93db5"/>
+				<reportElement x="179" y="241" width="45" height="20" uuid="747ba2b8-b07c-49d2-9570-1c1cceb93db5"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
 				<text><![CDATA[Defere:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="477" y="281" width="63" height="20" uuid="3b227072-e98c-47cc-b061-5b158a446765"/>
+				<reportElement x="224" y="241" width="63" height="20" uuid="3b227072-e98c-47cc-b061-5b158a446765"/>
 				<textElement>
 					<font size="11"/>
 				</textElement>
@@ -621,6 +601,48 @@
 			<line>
 				<reportElement x="7" y="518" width="554" height="1" forecolor="#CCCCCC" uuid="caa5a71f-03ab-4f82-951f-9fee1e5afadc"/>
 			</line>
+			<staticText>
+				<reportElement x="8" y="281" width="65" height="20" uuid="78f3bff2-644b-4445-bf57-739144bb85f1"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Nome Parte:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="281" width="484" height="20" uuid="56fdc79f-b34c-44a2-9c63-8f465ab75941"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome_processo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="301" width="37" height="20" uuid="38e77619-0931-43dd-ba52-8abfbc50d5ec"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Ação:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="45" y="301" width="283" height="20" uuid="0fce291b-8476-4976-8891-8679e9e4f464"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{acao_processo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="344" y="301" width="74" height="20" uuid="21933ca2-7167-4776-9d60-09f42c42148f"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Nº Processo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="418" y="301" width="140" height="20" uuid="afa3eab0-04cd-4f17-bc04-08aaece5a48c"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero_processo}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>
@@ -634,7 +656,7 @@
 			</staticText>
 			<staticText>
 				<reportElement x="8" y="20" width="550" height="60" uuid="c7762516-4764-42f6-9280-eb8942d999d3"/>
-				<textElement>
+				<textElement textAlignment="Justified">
 					<font size="11"/>
 				</textElement>
 				<text><![CDATA[Declaro para todos os devidos fins, que estou ciente de minha responsabilidade em manter atualizado o endereço e número de telefone para contato, sob pena de comprometer o andamento do processo judicial ajuizado.
@@ -650,6 +672,13 @@ Igualmente autorizo que o número do meu telefone de contato seja disponibilizad
 			<line>
 				<reportElement x="95" y="100" width="459" height="1" uuid="51aa26f8-3919-4735-a7a9-cd22555db990"/>
 			</line>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="369" y="0" width="185" height="20" uuid="37bc64db-c955-4034-a5b8-0581a5a3f75e"/>
+				<textElement textAlignment="Right">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageFooter>
 	<noData>

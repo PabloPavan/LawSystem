@@ -33,7 +33,13 @@ public class jdBuscaProcesso extends javax.swing.JDialog {
      * Creates new form jdBuscaProcesso
      */
     public String Id_processo;
-    
+    public String nome_pessoa;
+    public String sobrenome_pessoa;
+    public String numero_processo;
+    public String numero_pasta;
+    public String id_cliente;
+    public String numero_cliente;
+    public String acao_processo;
 
     public jdBuscaProcesso(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -112,11 +118,11 @@ public class jdBuscaProcesso extends javax.swing.JDialog {
 
             },
             new String [] {
-                "id", "Nome Cliente", "Sobrenome Cliente", "Número ", "Nº Pasta"
+                "id", "Nome Cliente", "Sobrenome Cliente", "Número ", "Nº Pasta", "id_cli", "nu_cli", "acao"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -134,6 +140,15 @@ public class jdBuscaProcesso extends javax.swing.JDialog {
             table.getColumnModel().getColumn(0).setMinWidth(0);
             table.getColumnModel().getColumn(0).setPreferredWidth(0);
             table.getColumnModel().getColumn(0).setMaxWidth(0);
+            table.getColumnModel().getColumn(5).setMinWidth(0);
+            table.getColumnModel().getColumn(5).setPreferredWidth(0);
+            table.getColumnModel().getColumn(5).setMaxWidth(0);
+            table.getColumnModel().getColumn(6).setMinWidth(0);
+            table.getColumnModel().getColumn(6).setPreferredWidth(0);
+            table.getColumnModel().getColumn(6).setMaxWidth(0);
+            table.getColumnModel().getColumn(7).setMinWidth(0);
+            table.getColumnModel().getColumn(7).setPreferredWidth(0);
+            table.getColumnModel().getColumn(7).setMaxWidth(0);
         }
 
         javax.swing.GroupLayout ConsultaLayout = new javax.swing.GroupLayout(Consulta);
@@ -215,7 +230,13 @@ public class jdBuscaProcesso extends javax.swing.JDialog {
                 lista.getNome_pessoa(),
                 lista.getSobrenome_pessoa(),
                 lista.getNumero_processo(),
-                lista.getNumeroPasta_processo(),});
+                lista.getNumeroPasta_processo(),
+                lista.getId_cliente(),
+                lista.getNumero_cliente(),
+                lista.getAcao_processo(),
+            
+            });
+            
         });
 
         table.updateUI();
@@ -229,7 +250,14 @@ public class jdBuscaProcesso extends javax.swing.JDialog {
         if (evt.getClickCount() == 2) {
 
             Id_processo = (String) ((table.getModel().getValueAt(table.getSelectedRow(), 0)));
-           
+            nome_pessoa = (String) ((table.getModel().getValueAt(table.getSelectedRow(), 1)));
+            sobrenome_pessoa = (String) ((table.getModel().getValueAt(table.getSelectedRow(), 2)));
+            numero_processo = (String) ((table.getModel().getValueAt(table.getSelectedRow(), 3)));
+            numero_pasta = (String) ((table.getModel().getValueAt(table.getSelectedRow(), 4)));
+            id_cliente = (String) ((table.getModel().getValueAt(table.getSelectedRow(), 5)));
+            numero_cliente = (String) ((table.getModel().getValueAt(table.getSelectedRow(), 6)));
+            acao_processo = (String) ((table.getModel().getValueAt(table.getSelectedRow(), 7)));
+
             this.dispose();
         }
     }//GEN-LAST:event_tableMouseClicked

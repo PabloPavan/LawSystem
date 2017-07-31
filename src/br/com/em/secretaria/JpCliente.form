@@ -23,8 +23,6 @@
                   <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jbimprimir" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jbnovo" min="-2" pref="87" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jbinserir" min="-2" pref="87" max="-2" attributes="0"/>
@@ -53,7 +51,6 @@
                   <Component id="jbsalvaratualizar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jbcancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jbnovo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jbimprimir" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -1087,17 +1084,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbcancelarActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jbimprimir">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/br/com/em/icons/Print.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Imprimir"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbimprimirActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

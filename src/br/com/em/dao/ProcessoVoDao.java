@@ -98,9 +98,7 @@ public class ProcessoVoDao extends ModuloConexao implements InterfaceDao<Process
             }
             this.close();
 
-             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ProcessoVoDao.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
+             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(ProcessoVoDao.class.getName()).log(Level.SEVERE, null, ex);
             }
             

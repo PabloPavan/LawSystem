@@ -159,7 +159,7 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="jrbnumero">
               <Properties>
-                <Property name="text" type="java.lang.String" value="N&#xfa;mero do Processo"/>
+                <Property name="text" type="java.lang.String" value="N&#xfa;mero"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jrbsobrenome">

@@ -338,16 +338,14 @@ public class JdAgenda extends javax.swing.JDialog {
         agenda.setAtividade_agenda(jtaAtividade.getText());
         agenda.setId_processo(jtfidProcesso.getText());
 
-        
-        if(!jtfidProcesso.getText().isEmpty()){
-        InterfaceDao i = new AgendaDao();
-        i.cadastrar(agenda);
-        cancelar();
-        }else{
-                JOptionPane.showMessageDialog(null, "É Preciso Adiconar um Processo");
-                }
+        if (!jtfidProcesso.getText().isEmpty()) {
+            InterfaceDao i = new AgendaDao();
+            i.cadastrar(agenda);
+            cancelar();
+        } else {
+            JOptionPane.showMessageDialog(null, "É necessário adiconar um processo");
+        }
         busca("");
-        
 
     }
 
@@ -365,14 +363,13 @@ public class JdAgenda extends javax.swing.JDialog {
                 lista.getData_agenda(),
                 lista.getHora_agenda(),
                 lista.getAtividade_agenda(),
-                lista.getId_processo(),
-            });
+                lista.getId_processo(),});
         });
 
         jthorarios.updateUI();
     }
 
-    public void cancelar(){
+    public void cancelar() {
         jbBusca.setEnabled(false);
         jccalendar.setEnabled(false);
         jspHora.setEnabled(false);
@@ -385,9 +382,9 @@ public class JdAgenda extends javax.swing.JDialog {
         jbcancelar.setEnabled(true);
         jbnovo.setEnabled(true);
     }
-    
-    public void liberaUpdate(){
-    jbBusca.setEnabled(true);
+
+    public void liberaUpdate() {
+        jbBusca.setEnabled(true);
         jccalendar.setEnabled(true);
         jspHora.setEnabled(true);
         jtaAtividade.setEnabled(true);
@@ -398,22 +395,26 @@ public class JdAgenda extends javax.swing.JDialog {
         jbsalvaratualizar.setEnabled(true);
         jbcancelar.setEnabled(true);
         jbnovo.setEnabled(false);
-}
-    
-    public void update(){
+    }
+
+    public void update() {
         Agenda agenda = new Agenda();
 
-        
         agenda.setId_agenda(jtfidagenda.getText());
         agenda.setData_agenda(jccalendar.getDate().toString().format("%1$td-%1$tm-%1$ty", jccalendar.getDate()));
         agenda.setHora_agenda(jspHora.getValue().toString().format("%1$tH:%1$tM", jspHora.getValue()));
         agenda.setAtividade_agenda(jtaAtividade.getText());
         agenda.setId_processo(jtfidProcesso.getText());
 
-        InterfaceDao i = new AgendaDao();
-        i.atualizar(agenda);
-        cancelar();  
-        busca("");
+        if (!jtfidagenda.getText().isEmpty()) {
+            InterfaceDao i = new AgendaDao();
+            i.atualizar(agenda);
+            cancelar();
+            busca("");
+        } else {
+            JOptionPane.showMessageDialog(null, "É necessário selecionar um dado na tabela");
+        }
+
     }
     private void jbnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbnovoActionPerformed
         novo();
@@ -428,7 +429,7 @@ public class JdAgenda extends javax.swing.JDialog {
     }//GEN-LAST:event_jbatualizarActionPerformed
 
     private void jbsalvaratualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalvaratualizarActionPerformed
-update();
+        update();
     }//GEN-LAST:event_jbsalvaratualizarActionPerformed
 
     private void jbcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcancelarActionPerformed
@@ -445,7 +446,7 @@ update();
             Date data = new Date();
             data.setDate(Integer.valueOf(jthorarios.getModel().getValueAt(seleciona, 1).toString().substring(0, 2)));
             data.setMonth(Integer.valueOf(jthorarios.getModel().getValueAt(seleciona, 1).toString().substring(3, 5)));
-            data.setYear(Integer.valueOf(jthorarios.getModel().getValueAt(seleciona, 1).toString().substring(6, 8) )+100);
+            data.setYear(Integer.valueOf(jthorarios.getModel().getValueAt(seleciona, 1).toString().substring(6, 8)) + 100);
             jccalendar.setDate(data);
 
             Date d = new Date();
@@ -456,7 +457,6 @@ update();
             jtaAtividade.setText(jthorarios.getModel().getValueAt(seleciona, 3).toString());
             jtfidProcesso.setText(jthorarios.getModel().getValueAt(seleciona, 4).toString());
 
-        
             //  System.out.println(jspHora.getValue().toString().format("%1$tH:%1$tM", jspHora.getValue()));
         }
     }//GEN-LAST:event_jthorariosMouseClicked

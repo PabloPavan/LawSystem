@@ -227,7 +227,7 @@ public class JpProcesso extends javax.swing.JPanel {
             i.cadastrar(p);
             cancelar();
         } else {
-            JOptionPane.showMessageDialog(null, "É Preciso Adiconar um Cliente na Aba Dados do Cliente");
+            JOptionPane.showMessageDialog(null, "É necessário adiconar um cliente na aba \"Dados do Cliente\"");
         }
 
         busca("");
@@ -259,11 +259,14 @@ public class JpProcesso extends javax.swing.JPanel {
         p.setConsulta_processo(jtaconsulta.getText());
         p.setObs_processo(jtaobs.getText());
 
-        InterfaceDao i = new ProcessoDao();
-        i.atualizar(p);
+        if (!jtfid.getText().isEmpty()) {
+            InterfaceDao i = new ProcessoDao();
+            i.atualizar(p);
+            cancelar();
+        } else {
+            JOptionPane.showMessageDialog(null, "É necessário selecionar um dado na tabela");
+        }
         busca("");
-        cancelar();
-
     }
 
     private void dadostabela() {
@@ -387,7 +390,7 @@ public class JpProcesso extends javax.swing.JPanel {
         jrbnome.setSelected(true);
         jrbnome.setText("Nome");
 
-        jrbnumero.setText("Número do Processo");
+        jrbnumero.setText("Número");
 
         jrbsobrenome.setText("Sobrenome");
 
@@ -1018,7 +1021,7 @@ public class JpProcesso extends javax.swing.JPanel {
             parametros.put("id_processo", Integer.parseInt(jtfid.getText()));
             RelatorioCliente rc = new RelatorioCliente(parametros);
         } else {
-            JOptionPane.showMessageDialog(null, "Para Imprimir é Necessário Selecionar um Processo na Tabela");
+            JOptionPane.showMessageDialog(null, "Para imprimir é necessário selecionar um dado na tabela");
         }
 
     }//GEN-LAST:event_jbimprimirActionPerformed

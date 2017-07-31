@@ -1769,3 +1769,348 @@ Caused by: java.io.FileNotFoundException: .\cliente.jasper
 
 jul 30, 2017 7:14:26 AM br.com.em.main.JfTelaLogin logar
 INFORMAÇÕES: secretaria
+jul 30, 2017 7:26:31 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 7:26:57 AM br.com.em.dao.AgendaDao cadastrar
+INFORMAÇÕES: Cadastrou | Agenda:  | Usuario: secretaria
+jul 30, 2017 7:29:19 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 30, 2017 5:51:23 PM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 12:36:20 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 12:37:18 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 12:40:15 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 12:43:37 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 12:51:19 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 12:53:06 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 12:54:10 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 12:55:37 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:01:33 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:02:00 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:02:37 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:03:26 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:04:12 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:04:38 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:04:56 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:05:29 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:05:47 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:10:01 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:15:49 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:17:01 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:17:44 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:18:09 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:21:31 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:21:47 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:22:10 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:22:49 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:28:26 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:29:22 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:30:57 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 1:32:21 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 2:08:24 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 2:10:11 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 2:27:56 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 2:28:08 AM br.com.em.dao.AgendaDao cadastrar
+INFORMAÇÕES: Cadastrou | Agenda:  | Usuario: secretaria
+jul 31, 2017 2:33:05 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 2:33:47 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 2:34:48 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 2:37:40 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 2:38:47 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 2:43:39 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 2:46:49 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 2:48:16 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 3:04:02 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 3:04:13 AM br.com.em.dao.PeticoesIniciaisDao cadastrar
+INFORMAÇÕES: Cadastrou | Petiçoes Iniciais :  | Usuario: secretaria
+jul 31, 2017 3:04:30 AM br.com.em.dao.PeticoesIniciaisDao cadastrar
+INFORMAÇÕES: Cadastrou | Petiçoes Iniciais :  | Usuario: secretaria
+jul 31, 2017 3:04:56 AM br.com.em.dao.DefesasPreviasDao cadastrar
+INFORMAÇÕES: Cadastrou | Defesas Previas :  | Usuario: secretaria
+jul 31, 2017 3:05:08 AM br.com.em.dao.PeticoesSimplesDao cadastrar
+INFORMAÇÕES: Cadastrou | Petiçoes Simples :  | Usuario: secretaria
+jul 31, 2017 3:18:25 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 3:18:57 AM br.com.em.dao.PeticoesIniciaisDao atualizar
+GRAVE: null
+java.sql.SQLException: No value specified for parameter 4
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:964)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:897)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:886)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:860)
+	at com.mysql.jdbc.PreparedStatement.checkAllParametersSet(PreparedStatement.java:2211)
+	at com.mysql.jdbc.PreparedStatement.fillSendPacket(PreparedStatement.java:2191)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2058)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2013)
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
+	at br.com.em.dao.PeticoesIniciaisDao.atualizar(PeticoesIniciaisDao.java:107)
+	at br.com.em.dao.PeticoesIniciaisDao.atualizar(PeticoesIniciaisDao.java:35)
+	at br.com.em.secretaria.JpAndamentoProcessual.update(JpAndamentoProcessual.java:240)
+	at br.com.em.secretaria.JpAndamentoProcessual.jbsalvaratualizarActionPerformed(JpAndamentoProcessual.java:637)
+	at br.com.em.secretaria.JpAndamentoProcessual.access$000(JpAndamentoProcessual.java:26)
+	at br.com.em.secretaria.JpAndamentoProcessual$1.actionPerformed(JpAndamentoProcessual.java:319)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 31, 2017 3:29:38 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 3:29:54 AM br.com.em.dao.PeticoesIniciaisDao atualizar
+INFORMAÇÕES: Atualizou | Petições Iniciais: 00002 | Usuario: secretaria
+jul 31, 2017 3:30:21 AM br.com.em.dao.DefesasPreviasDao atualizar
+INFORMAÇÕES: Atualizou | |Defesa Previa: 00002 | Usuario: secretaria
+jul 31, 2017 3:31:00 AM br.com.em.dao.DefesasPreviasDao atualizar
+INFORMAÇÕES: Atualizou | |Defesa Previa: 00002 | Usuario: secretaria
+jul 31, 2017 3:33:54 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 3:34:16 AM br.com.em.dao.PeticoesIniciaisDao cadastrar
+INFORMAÇÕES: Cadastrou | Petiçoes Iniciais :  | Usuario: secretaria
+jul 31, 2017 3:36:00 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 3:36:17 AM br.com.em.dao.PeticoesIniciaisDao cadastrar
+GRAVE: null
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.valueOf(Integer.java:766)
+	at br.com.em.dao.PeticoesIniciaisDao.cadastrar(PeticoesIniciaisDao.java:50)
+	at br.com.em.dao.PeticoesIniciaisDao.cadastrar(PeticoesIniciaisDao.java:35)
+	at br.com.em.secretaria.JpAndamentoProcessual.save(JpAndamentoProcessual.java:253)
+	at br.com.em.secretaria.JpAndamentoProcessual.jbinserirActionPerformed(JpAndamentoProcessual.java:643)
+	at br.com.em.secretaria.JpAndamentoProcessual.access$300(JpAndamentoProcessual.java:27)
+	at br.com.em.secretaria.JpAndamentoProcessual$4.actionPerformed(JpAndamentoProcessual.java:365)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 31, 2017 3:36:33 AM br.com.em.dao.PeticoesIniciaisDao cadastrar
+INFORMAÇÕES: Cadastrou | Petiçoes Iniciais :  | Usuario: secretaria
+jul 31, 2017 3:37:27 AM br.com.em.dao.ClienteDao cadastrar
+INFORMAÇÕES: Cadastrou | Cliente: 13 | Usuario: secretaria
+jul 31, 2017 3:37:48 AM br.com.em.dao.PeticoesIniciaisDao cadastrar
+GRAVE: null
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.valueOf(Integer.java:766)
+	at br.com.em.dao.PeticoesIniciaisDao.cadastrar(PeticoesIniciaisDao.java:50)
+	at br.com.em.dao.PeticoesIniciaisDao.cadastrar(PeticoesIniciaisDao.java:35)
+	at br.com.em.secretaria.JpAndamentoProcessual.save(JpAndamentoProcessual.java:253)
+	at br.com.em.secretaria.JpAndamentoProcessual.jbinserirActionPerformed(JpAndamentoProcessual.java:643)
+	at br.com.em.secretaria.JpAndamentoProcessual.access$300(JpAndamentoProcessual.java:27)
+	at br.com.em.secretaria.JpAndamentoProcessual$4.actionPerformed(JpAndamentoProcessual.java:365)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 31, 2017 3:37:53 AM br.com.em.dao.PeticoesIniciaisDao atualizar
+GRAVE: null
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.valueOf(Integer.java:766)
+	at br.com.em.dao.PeticoesIniciaisDao.atualizar(PeticoesIniciaisDao.java:103)
+	at br.com.em.dao.PeticoesIniciaisDao.atualizar(PeticoesIniciaisDao.java:35)
+	at br.com.em.secretaria.JpAndamentoProcessual.update(JpAndamentoProcessual.java:207)
+	at br.com.em.secretaria.JpAndamentoProcessual.jbsalvaratualizarActionPerformed(JpAndamentoProcessual.java:651)
+	at br.com.em.secretaria.JpAndamentoProcessual.access$000(JpAndamentoProcessual.java:27)
+	at br.com.em.secretaria.JpAndamentoProcessual$1.actionPerformed(JpAndamentoProcessual.java:333)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
+jul 31, 2017 3:41:22 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 3:41:45 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 3:42:06 AM br.com.em.dao.PeticoesIniciaisDao atualizar
+INFORMAÇÕES: Atualizou | Petições Iniciais: 00002 | Usuario: secretaria
+jul 31, 2017 3:43:18 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 3:51:49 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 3:52:05 AM br.com.em.dao.ClienteDao atualizar
+INFORMAÇÕES: Atualizou | Cliente: 8 | Usuario: secretaria
+jul 31, 2017 3:53:15 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: secretaria
+jul 31, 2017 3:53:32 AM br.com.em.dao.PeticoesIniciaisDao cadastrar
+INFORMAÇÕES: Cadastrou | Petiçoes Iniciais :  | Usuario: secretaria
+jul 31, 2017 3:53:59 AM br.com.em.dao.AgendaDao cadastrar
+INFORMAÇÕES: Cadastrou | Agenda:  | Usuario: secretaria
+jul 31, 2017 3:54:10 AM br.com.em.dao.AgendaDao atualizar
+INFORMAÇÕES: Atualizou | Agenda: 00010 | Usuario: secretaria

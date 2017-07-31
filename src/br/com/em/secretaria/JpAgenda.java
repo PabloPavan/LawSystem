@@ -24,6 +24,7 @@ public class JpAgenda extends javax.swing.JPanel {
      */
     public JpAgenda() {
         initComponents();
+        busca();
 
     }
 
@@ -162,11 +163,10 @@ public class JpAgenda extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jpccalendarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jpccalendarioPropertyChange
-
-    }//GEN-LAST:event_jpccalendarioPropertyChange
-
-    private void jccalendarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jccalendarioPropertyChange
+    
+    
+    
+    public void busca(){
         InterfaceDao i = new AgendaVoDao();
         List<AgendaVo> list = i.listar(jccalendario.getDate().toString().format("%1$td-%1$tm-%1$ty", jccalendario.getDate()), "");
  
@@ -185,6 +185,13 @@ public class JpAgenda extends javax.swing.JPanel {
 
         jthorarios.updateUI();
 
+    }
+    private void jpccalendarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jpccalendarioPropertyChange
+
+    }//GEN-LAST:event_jpccalendarioPropertyChange
+
+    private void jccalendarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jccalendarioPropertyChange
+        busca();
     }//GEN-LAST:event_jccalendarioPropertyChange
 
     private void jthorariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jthorariosMouseClicked
@@ -201,6 +208,7 @@ public class JpAgenda extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        JdAgenda dialog = new JdAgenda(new javax.swing.JFrame(), true);     
                 dialog.setVisible(true);
+                busca();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

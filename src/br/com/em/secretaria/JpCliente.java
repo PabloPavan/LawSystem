@@ -12,11 +12,9 @@ import br.com.em.dao.ClienteDao;
 import br.com.em.dao.InterfaceDao;
 import br.com.em.modelo.Cliente;
 
-import br.com.em.relatorio.RelatorioCliente;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -312,11 +310,15 @@ public class JpCliente extends javax.swing.JPanel {
         } else {
             c.setInativo_cliente(false);
         }
+       if (!jtfid.getText().isEmpty()) {
         InterfaceDao i = new ClienteDao();
-        i.atualizar(c);
-
-        busca("");
+        i.atualizar(c);   
         cancelar();
+        } else {
+            JOptionPane.showMessageDialog(null, "É necessário selecionar um dado na tabela");
+        }
+        busca("");
+        
     }
 
     /**
@@ -422,7 +424,6 @@ public class JpCliente extends javax.swing.JPanel {
         jbatualizar = new javax.swing.JButton();
         jbsalvaratualizar = new javax.swing.JButton();
         jbcancelar = new javax.swing.JButton();
-        jbimprimir = new javax.swing.JButton();
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa"));
 
@@ -1020,14 +1021,6 @@ public class JpCliente extends javax.swing.JPanel {
             }
         });
 
-        jbimprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/em/icons/Print.png"))); // NOI18N
-        jbimprimir.setText("Imprimir");
-        jbimprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbimprimirActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -1039,8 +1032,6 @@ public class JpCliente extends javax.swing.JPanel {
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jbimprimir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbinserir, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1064,8 +1055,7 @@ public class JpCliente extends javax.swing.JPanel {
                     .addComponent(jbatualizar)
                     .addComponent(jbsalvaratualizar)
                     .addComponent(jbcancelar)
-                    .addComponent(jbnovo)
-                    .addComponent(jbimprimir))
+                    .addComponent(jbnovo))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -1081,12 +1071,6 @@ public class JpCliente extends javax.swing.JPanel {
     private void jbnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbnovoActionPerformed
         novo();
     }//GEN-LAST:event_jbnovoActionPerformed
-
-    private void jbimprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbimprimirActionPerformed
-        Map parametros = new HashMap();
-        parametros.put("id_cliente", Integer.parseInt(jtfid.getText()));
-        RelatorioCliente rc = new RelatorioCliente(parametros);
-    }//GEN-LAST:event_jbimprimirActionPerformed
 
     private void jbcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcancelarActionPerformed
         cancelar();
@@ -1132,12 +1116,11 @@ public class JpCliente extends javax.swing.JPanel {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jbatualizar;
     private javax.swing.JButton jbcancelar;
-    private javax.swing.JButton jbimprimir;
     private javax.swing.JButton jbinserir;
     private javax.swing.JButton jbnovo;
     private javax.swing.JButton jbsalvaratualizar;
     private javax.swing.JCheckBox jcbdefere;
-    private javax.swing.JCheckBox jcbinativo;
+    public static javax.swing.JCheckBox jcbinativo;
     private javax.swing.JComboBox<String> jcbsexo;
     private javax.swing.JLabel jlcpf;
     private javax.swing.JLabel jlnascimento;

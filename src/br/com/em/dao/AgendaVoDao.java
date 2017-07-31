@@ -17,7 +17,6 @@
 package br.com.em.dao;
 
 import br.com.em.conexao.ModuloConexao;
-import br.com.em.modelo.Agenda;
 import br.com.em.vo.AgendaVo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
