@@ -233,10 +233,8 @@ public class jdBuscaProcesso extends javax.swing.JDialog {
                 lista.getNumeroPasta_processo(),
                 lista.getId_cliente(),
                 lista.getNumero_cliente(),
-                lista.getAcao_processo(),
-            
-            });
-            
+                lista.getAcao_processo(),});
+
         });
 
         table.updateUI();
@@ -265,7 +263,6 @@ public class jdBuscaProcesso extends javax.swing.JDialog {
     /**
      * @param args the command line arguments
      */
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Consulta;
     private javax.swing.JLabel jLabel5;

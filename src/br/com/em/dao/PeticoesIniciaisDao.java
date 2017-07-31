@@ -45,7 +45,6 @@ public class PeticoesIniciaisDao extends ModuloConexao implements InterfaceDao<P
             String query1 = "INSERT INTO modelo_tb_peticoesIniciais VALUES (default, ?, ?, ?);";
             pstmt = this.conexao.prepareStatement(query1);
 
-            
             pstmt.setString(1, pi.getData_peticoesIniciais());
             pstmt.setInt(2, Integer.valueOf(pi.getId_cliente()));
             pstmt.setInt(3, Integer.valueOf(pi.getId_processo()));
@@ -84,7 +83,7 @@ public class PeticoesIniciaisDao extends ModuloConexao implements InterfaceDao<P
 
     @Override
     public void atualizar(PeticoesIniciais pi) {
-         try {
+        try {
 
             java.sql.PreparedStatement pstmt = null;
             conexao = this.conector();
@@ -102,7 +101,7 @@ public class PeticoesIniciaisDao extends ModuloConexao implements InterfaceDao<P
             pstmt.setString(1, pi.getData_peticoesIniciais());
             pstmt.setInt(2, Integer.valueOf(pi.getId_cliente()));
             pstmt.setInt(3, Integer.valueOf(pi.getId_processo()));
-           pstmt.setInt(4, Integer.valueOf(pi.getId_peticoesIniciais()));
+            pstmt.setInt(4, Integer.valueOf(pi.getId_peticoesIniciais()));
 
             pstmt.executeUpdate();
 
@@ -164,7 +163,7 @@ public class PeticoesIniciaisDao extends ModuloConexao implements InterfaceDao<P
                         + "pt.data_peticoesIniciais like ?");
 
                 pst = this.conexao.prepareStatement(sql);
-                pst.setString(1, "%-" + busca );
+                pst.setString(1, "%-" + busca);
                 rs = pst.executeQuery();
 
                 while (rs.next()) {

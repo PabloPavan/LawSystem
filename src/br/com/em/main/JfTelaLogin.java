@@ -5,6 +5,7 @@
  */
 package br.com.em.main;
 
+import br.com.em.admin.JfPrincipalAdmin;
 import java.sql.*;
 import br.com.em.conexao.ModuloConexao;
 import br.com.em.log.Logs;
@@ -26,29 +27,42 @@ public class JfTelaLogin extends javax.swing.JFrame {
     ResultSet rs = null;
 
     public void logar() {
-        String sql = "select * from emodelo.modelo_tb_usuario where login_usuario=? and senha_usuario=? and  inativo_usuario ='false' ";
-        try {
-            pst = conexao.prepareStatement(sql);
-            String nome = jtfusuario.getText();
-            pst.setString(1, nome);
-            pst.setString(2, jpfsenha.getText());
-            rs = pst.executeQuery();
-            usuario = nome;
-            if (rs.next()) {
-               JfTelaPrincipalSecretaria tela = new JfTelaPrincipalSecretaria();
-                 tela.setSize(1060, 650);
-                 tela.setVisible(true);
-                this.setVisible(false);
-                this.dispose();
-                conexao.close();
+        if (!(jtfusuario.getText().equals("admin") && jpfsenha.getText().equals("@dM1Ns7r@d03"))) {
+            String sql = "select * from emodelo.modelo_tb_usuario where login_usuario=? and senha_usuario=? and  inativo_usuario ='false' ";
+            try {
+                pst = conexao.prepareStatement(sql);
+                String nome = jtfusuario.getText();
+                pst.setString(1, nome);
+                pst.setString(2, jpfsenha.getText());
+                rs = pst.executeQuery();
+                usuario = nome;
+                if (rs.next()) {
+                    JfTelaPrincipalSecretaria tela = new JfTelaPrincipalSecretaria();
+                    tela.setSize(1060, 650);
+                    tela.setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();
+                    conexao.close();
 
-                Logger.getLogger("login").log(Level.INFO, usuario);
-            } else {
-                JOptionPane.showMessageDialog(null, " usuario e/ou senha invalida");
+                    Logger.getLogger("login").log(Level.INFO, usuario);
+                } else {
+                    JOptionPane.showMessageDialog(null, " usuario e/ou senha invalida");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(JfTelaLogin.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        } catch (SQLException ex) {
-            Logger.getLogger(JfTelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } else {
+            JfPrincipalAdmin pa = new JfPrincipalAdmin();
+            pa.setVisible(true);
+            this.setVisible(false);
+            this.dispose();
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(JfTelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }
@@ -71,8 +85,6 @@ public class JfTelaLogin extends javax.swing.JFrame {
         } else {
             lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/em/icons/db_desconectado.png")));
         }
-
-       
 
     }
 
@@ -240,7 +252,7 @@ public class JfTelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfusuarioKeyReleased
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-     URL url = getClass().getResource("/br/com/em/icons/advogado.png");
+        URL url = getClass().getResource("/br/com/em/icons/advogado.png");
         ImageIcon imgicon = new ImageIcon(url);
         this.setIconImage(imgicon.getImage());
     }//GEN-LAST:event_formWindowActivated
@@ -249,7 +261,7 @@ public class JfTelaLogin extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-       
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
 
@@ -268,9 +280,7 @@ public class JfTelaLogin extends javax.swing.JFrame {
 
         }
 
-         Logs.log();
-         
-
+        Logs.log();
 
         //</editor-fold>
 

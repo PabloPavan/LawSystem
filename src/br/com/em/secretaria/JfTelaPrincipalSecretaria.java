@@ -5,6 +5,7 @@
  */
 package br.com.em.secretaria;
 
+import br.com.em.main.JfTelaLogin;
 import static br.com.em.main.JfTelaLogin.usuario;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -26,15 +27,14 @@ public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
     JpCliente jpc = new JpCliente();
     JpProcesso jpp = new JpProcesso();
     JpAgenda jpa = new JpAgenda();
-   JpAndamentoProcessual jpap = new JpAndamentoProcessual();
+    JpAndamentoProcessual jpap = new JpAndamentoProcessual();
 
     /**
      * Creates new form TelaPrincipalSecretaria
      */
     public JfTelaPrincipalSecretaria() {
         initComponents();
-        
-       
+
     }
 
     /**
@@ -150,6 +150,11 @@ public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jbTrocarUsuarioMouseExited(evt);
+            }
+        });
+        jbTrocarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbTrocarUsuarioActionPerformed(evt);
             }
         });
 
@@ -406,7 +411,7 @@ public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
         jldata.setText(formatador.format(data));
         Timer timer = new Timer(1000, new hora());
         timer.start();
-        
+
         jlusuario.setText(usuario);
     }//GEN-LAST:event_formWindowActivated
 
@@ -551,6 +556,11 @@ public class JfTelaPrincipalSecretaria extends javax.swing.JFrame {
         jlpPrincipal.moveToFront(jpap);
     }//GEN-LAST:event_jbAndamentoProcessoActionPerformed
 
+    private void jbTrocarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTrocarUsuarioActionPerformed
+        this.dispose();
+        JfTelaLogin tela = new JfTelaLogin();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jbTrocarUsuarioActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;

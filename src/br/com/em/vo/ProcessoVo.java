@@ -30,7 +30,7 @@ public class ProcessoVo {
 
     //dados do cliente
     private String numero_cliente;
-    
+
     //dados de pessoas
     private String nome_pessoa;
     private String sobrenome_pessoa;

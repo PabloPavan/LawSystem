@@ -21,7 +21,7 @@ package br.com.em.modelo;
  * @author pablo
  */
 public class DefesasPrevias {
-    
+
     private String id_defesaPrevia;
     private String id_processo;
     private String id_cliente;
@@ -112,10 +112,5 @@ public class DefesasPrevias {
     public void setSobrenome_pessoa(String sobrenome_pessoa) {
         this.sobrenome_pessoa = sobrenome_pessoa;
     }
-    
-    
-    
-        
-    
-    
+
 }

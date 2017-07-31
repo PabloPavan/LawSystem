@@ -5,8 +5,6 @@
  */
 package br.com.em.log;
 
-
-
 import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.FileHandler;
@@ -27,7 +25,7 @@ public class Logs {
 
         conf.setProperty("arquivo", "log_sistema.log");
         conf.setProperty("acrescentar", "true");
-      conf.setProperty("format-saida", "SIMPLE");
+        conf.setProperty("format-saida", "SIMPLE");
         // conf.setProperty("format-saida", "XML");
 
         return conf;

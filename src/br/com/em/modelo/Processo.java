@@ -34,7 +34,7 @@ public class Processo {
         this.andamento_processo = andamento_processo;
         this.acao_processo = acao_processo;
         this.id_cliente = id_cliente;
-        
+
         this.id_vara = id_vara;
         this.dataInicio_processo = dataInicio_processo;
         this.dataFim_processo = dataFim_processo;
@@ -134,8 +134,6 @@ public class Processo {
     public void setId_cliente(String id_cliente) {
         this.id_cliente = id_cliente;
     }
-
-   
 
     public String getId_vara() {
         return id_vara;

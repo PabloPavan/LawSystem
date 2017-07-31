@@ -85,7 +85,7 @@ public class AgendaDao extends ModuloConexao implements InterfaceDao<Agenda> {
     @Override
     public void atualizar(Agenda agenda) {
 
-         try {
+        try {
 
             java.sql.PreparedStatement pstmt = null;
             conexao = this.conector();
@@ -138,12 +138,11 @@ public class AgendaDao extends ModuloConexao implements InterfaceDao<Agenda> {
             Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
     }
 
     @Override
     public ArrayList<Agenda> listar(String busca, String auxBusca) {
-     List lista = new ArrayList<>();
+        List lista = new ArrayList<>();
 //
         ResultSet rs = null;
 
@@ -157,28 +156,27 @@ public class AgendaDao extends ModuloConexao implements InterfaceDao<Agenda> {
                 String sql = ("SELECT `id_agenda`, `data_agenda`, `hora_agenda`, `atividade_agenda`, `id_processo` "
                         + "FROM `emodelo`.`modelo_tb_agenda` order by data_agenda ASC; ");
                 pst = this.conexao.prepareStatement(sql);
-                
-                }else{
+
+            } else {
                 String sql = ("SELECT `id_agenda`, `data_agenda`, `hora_agenda`, `atividade_agenda`, `id_processo` "
                         + "FROM `emodelo`.`modelo_tb_agenda` where data_agenda like ? order by hora_agenda ASC; ");
                 pst = this.conexao.prepareStatement(sql);
                 pst.setString(1, "%" + busca + "%");
-                }
+            }
 
-                rs = pst.executeQuery();
+            rs = pst.executeQuery();
 
-                while (rs.next()) {
-                    Agenda agenda = new Agenda();
-                    agenda.setId_agenda(rs.getString(1));
-                    agenda.setData_agenda(rs.getString(2));
-                    agenda.setHora_agenda(rs.getString(3));                 
-                    agenda.setAtividade_agenda(rs.getString(4));
-                    agenda.setId_processo(rs.getString(5));
-                  
-                    lista.add(agenda);
+            while (rs.next()) {
+                Agenda agenda = new Agenda();
+                agenda.setId_agenda(rs.getString(1));
+                agenda.setData_agenda(rs.getString(2));
+                agenda.setHora_agenda(rs.getString(3));
+                agenda.setAtividade_agenda(rs.getString(4));
+                agenda.setId_processo(rs.getString(5));
 
-                }
-            
+                lista.add(agenda);
+
+            }
 
             this.close();
 

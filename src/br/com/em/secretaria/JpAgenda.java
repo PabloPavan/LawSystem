@@ -163,14 +163,11 @@ public class JpAgenda extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    
-    public void busca(){
+    public void busca() {
         InterfaceDao i = new AgendaVoDao();
         List<AgendaVo> list = i.listar(jccalendario.getDate().toString().format("%1$td-%1$tm-%1$ty", jccalendario.getDate()), "");
- 
-         DefaultTableModel tableModel = (DefaultTableModel) jthorarios.getModel();
+
+        DefaultTableModel tableModel = (DefaultTableModel) jthorarios.getModel();
         tableModel.setNumRows(0);
 
         list.stream().forEach((AgendaVo lista) -> {
@@ -195,20 +192,19 @@ public class JpAgenda extends javax.swing.JPanel {
     }//GEN-LAST:event_jccalendarioPropertyChange
 
     private void jthorariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jthorariosMouseClicked
-     if (jthorarios.isEnabled()) {
+        if (jthorarios.isEnabled()) {
 
             int seleciona = jthorarios.getSelectedRow();
 
             jtaatividades.setText(jthorarios.getModel().getValueAt(seleciona, 1).toString());
-          
 
         }
     }//GEN-LAST:event_jthorariosMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       JdAgenda dialog = new JdAgenda(new javax.swing.JFrame(), true);     
-                dialog.setVisible(true);
-                busca();
+        JdAgenda dialog = new JdAgenda(new javax.swing.JFrame(), true);
+        dialog.setVisible(true);
+        busca();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

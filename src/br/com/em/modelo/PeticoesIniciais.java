@@ -21,7 +21,7 @@ package br.com.em.modelo;
  * @author pablo
  */
 public class PeticoesIniciais {
-    
+
     private String id_peticoesIniciais;
     private String id_processo;
     private String id_cliente;
@@ -112,10 +112,5 @@ public class PeticoesIniciais {
     public void setSobrenome_pessoa(String sobrenome_pessoa) {
         this.sobrenome_pessoa = sobrenome_pessoa;
     }
-    
-    
-    
-        
-    
-    
+
 }

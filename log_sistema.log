@@ -2114,3 +2114,13 @@ jul 31, 2017 3:53:59 AM br.com.em.dao.AgendaDao cadastrar
 INFORMAÇÕES: Cadastrou | Agenda:  | Usuario: secretaria
 jul 31, 2017 3:54:10 AM br.com.em.dao.AgendaDao atualizar
 INFORMAÇÕES: Atualizou | Agenda: 00010 | Usuario: secretaria
+jul 31, 2017 4:52:41 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 1
+jul 31, 2017 5:03:44 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 1
+jul 31, 2017 5:03:54 AM br.com.em.dao.PeticoesIniciaisDao cadastrar
+INFORMAÇÕES: Cadastrou | Petiçoes Iniciais :  | Usuario: 1
+jul 31, 2017 5:18:28 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 1
+jul 31, 2017 5:26:02 AM br.com.em.main.JfTelaLogin logar
+INFORMAÇÕES: 1

@@ -21,9 +21,7 @@ package br.com.em.vo;
  * @author pablo
  */
 public class AgendaVo {
-    
-  
-  
+
     private String hora_agenda;
     private String atividade_agenda;
     private String numero_processo;
@@ -69,6 +67,5 @@ public class AgendaVo {
     public void setAcao_processo(String acao_processo) {
         this.acao_processo = acao_processo;
     }
-    
-    
+
 }

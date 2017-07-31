@@ -94,14 +94,14 @@ public class JpCliente extends javax.swing.JPanel {
 
     private void busca(String busca) {
         String auxBusca = null;
-       if (jrbnome.isSelected()){
-           auxBusca = "nome";
-       } else if(jrbsobrenome.isSelected())
+        if (jrbnome.isSelected()) {
+            auxBusca = "nome";
+        } else if (jrbsobrenome.isSelected()) {
             auxBusca = "sobrenome";
-       else{
-           auxBusca = "numero";
-       }
-       
+        } else {
+            auxBusca = "numero";
+        }
+
         InterfaceDao di = new ClienteDao();
 
         List<Cliente> list = di.listar(busca, auxBusca);
@@ -183,7 +183,6 @@ public class JpCliente extends javax.swing.JPanel {
             jtabens.setText(table.getModel().getValueAt(seleciona, 24).toString());
             // 25 data
 
-         
             if (table.getModel().getValueAt(seleciona, 26).toString().equals("true")) {
                 jcbdefere.setSelected(true);
             } else {
@@ -204,7 +203,7 @@ public class JpCliente extends javax.swing.JPanel {
         JPanelBuscaJtextFild.liberaCampo(aba1, true);
         JPanelBuscaJtextFild.liberaCampo(aba2, true);
         JPanelBuscaJtextFild.liberaCampo(aba3, true);
-        
+
         jtfid.setEnabled(false);
 
         jtabens.setEnabled(true);
@@ -248,14 +247,14 @@ public class JpCliente extends javax.swing.JPanel {
         c.setRequerenteSalario_cliente(jtfsalarioCliente.getText());
         c.setRelacaoBens_cliente(jtabens.getText());
         c.setDataRegistro_cliente("");
-      
+
         if (jcbdefere.isSelected()) {
-         c.setDefere_cliente(true);
+            c.setDefere_cliente(true);
         } else {
-           c.setDefere_cliente(false);
+            c.setDefere_cliente(false);
         }
         c.setInativo_cliente(false);
-        
+
         jcbinativo.setEnabled(false);
 
         InterfaceDao i = new ClienteDao();
@@ -296,29 +295,26 @@ public class JpCliente extends javax.swing.JPanel {
         c.setRelacaoBens_cliente(jtabens.getText());
         c.setDataRegistro_cliente("");
 
-       
-        
         if (jcbdefere.isSelected()) {
-         c.setDefere_cliente(true);
+            c.setDefere_cliente(true);
         } else {
-           c.setDefere_cliente(false);
+            c.setDefere_cliente(false);
         }
 
-     
         if (jcbinativo.isSelected()) {
             c.setInativo_cliente(true);
         } else {
             c.setInativo_cliente(false);
         }
-       if (!jtfid.getText().isEmpty()) {
-        InterfaceDao i = new ClienteDao();
-        i.atualizar(c);   
-        cancelar();
+        if (!jtfid.getText().isEmpty()) {
+            InterfaceDao i = new ClienteDao();
+            i.atualizar(c);
+            cancelar();
         } else {
             JOptionPane.showMessageDialog(null, "É necessário selecionar um dado na tabela");
         }
         busca("");
-        
+
     }
 
     /**

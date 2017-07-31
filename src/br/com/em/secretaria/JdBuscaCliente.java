@@ -32,7 +32,6 @@ public class JdBuscaCliente extends javax.swing.JDialog {
     /**
      * Creates new form JdBuscaCliente
      */
-    
     public String numerocli;
     public String nomecli;
     public String sobrenomecli;
@@ -43,7 +42,7 @@ public class JdBuscaCliente extends javax.swing.JDialog {
     public JdBuscaCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-         ButtonGroup group = new ButtonGroup();
+        ButtonGroup group = new ButtonGroup();
         group.add(jrbnome);
         group.add(jrbsobrenome);
         group.add(jrbnumero);
@@ -200,18 +199,16 @@ public class JdBuscaCliente extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-     private void busca(String busca) {
+    private void busca(String busca) {
         String auxBusca = null;
-       if (jrbnome.isSelected()){
-           auxBusca = "nome";
-       } else if(jrbsobrenome.isSelected())
+        if (jrbnome.isSelected()) {
+            auxBusca = "nome";
+        } else if (jrbsobrenome.isSelected()) {
             auxBusca = "sobrenome";
-       else{
-           auxBusca = "numero";
-       }
-       
+        } else {
+            auxBusca = "numero";
+        }
+
         InterfaceDao di = new ClienteDao();
 
         List<Cliente> list = di.listar(busca, auxBusca);
@@ -226,12 +223,10 @@ public class JdBuscaCliente extends javax.swing.JDialog {
                 lista.getP().getNome_pessoa(),
                 lista.getP().getSobrenome_pessoa(),
                 lista.getP().getCpf_pessoa(),
-                lista.getP().getRg_pessoa(), 
-                lista.getId_cliente(),
-                
-               });
+                lista.getP().getRg_pessoa(),
+                lista.getId_cliente(),});
         });
-     }
+    }
     private void jtfbuscaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfbuscaKeyReleased
         busca(jtfbusca.getText());
     }//GEN-LAST:event_jtfbuscaKeyReleased
@@ -252,8 +247,6 @@ public class JdBuscaCliente extends javax.swing.JDialog {
     /**
      * @param args the command line arguments
      */
-    
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
